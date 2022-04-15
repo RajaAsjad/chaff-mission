@@ -1,0 +1,1557 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'HelveticaNowText';
+}
+
+/* FONT HELVETICA */
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica-Light.woff') format('woff2'),
+        url('../fonts/Helvetica-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-Regular.woff2') format('woff2'),
+        url('../fonts/HelveticaNowText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-Bold.woff2') format('woff2'),
+        url('../fonts/HelveticaNowText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-BlackItalic.woff2') format('woff2'),
+        url('../fonts/HelveticaNowText-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HelveticaNowText';
+    src: url('../fonts/HelveticaNowText-Black.woff2') format('woff2'),
+        url('../fonts/HelveticaNowText-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeueLight.woff2') format('woff2'),
+        url('../fonts/BebasNeueLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeueBold.woff2') format('woff2'),
+        url('../fonts/BebasNeueBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeueRegular.woff2') format('woff2'),
+        url('../fonts/BebasNeueRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* FONT HELVETICA */
+
+/* CSS FOR HEADER */
+section.header-main{
+    padding: 10px 0;
+}
+.header-main .has-search .form-control {
+    padding-left: 25px;
+    background-color:#fcfcf9;
+    border-radius: 15px;
+    border: 1px solid #dfdfdf;
+    height: unset;
+}
+.header-main .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+    right: 30px;
+    font-size: 20px;
+}
+.navigation-chaf ul {
+    display: flex;
+    list-style: none;
+}
+.navigation-chaf ul li a {
+    text-decoration: none;
+    padding: 10px 25px;
+    color: #484848;
+    font-weight: 700;
+    font-family: 'Helvetica';
+}
+.row.all-right-btnz a {
+    text-decoration: none;
+    color: #a09b90;
+}
+.row.all-right-btnz .col-md-3 {
+    padding: 0;
+}
+.row.all-right-btnz .col-md-4 {
+    padding: 0;
+}
+.col-md-4.become-host a {
+    background: #fafafa;
+    border: 2px solid #ffeebc;
+    border-radius: 8px;
+    padding: 8px 15px;
+    color: #484848;
+    font-size: 14px;
+}
+.col-md-3.loggin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row.all-right-btnz {
+    padding: 15px 0;
+}
+.row.all-right-btnz .col-md-2 {
+    padding: 0;
+}
+.col-md-3.loggin:after {
+    content: "/";
+    position: absolute;
+    right: 12px;
+    color: #a09b90;
+}
+.col-md-2.user-log i {
+    font-size: 25px;
+}
+/* CSS FOR HEADER */
+/* CSS FOR BANNER SEC */
+.find-a-car{
+    background-image: url(../images/banner-img.png);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+}
+#datepicker > span:hover{cursor: pointer;}
+.row.date-pick-time {
+    justify-content: center;
+}
+div#datepicker input {
+    background: #fff;
+}
+
+#datepicker2 > span:hover{cursor: pointer;}
+div#datepicker2 input {
+    background: #fff;
+}
+.rental-car {
+    background: #00000073;
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+.col-md-5.search-now button {
+    min-width: 100%;
+}
+.col-md-2.right-now{
+    display: flex;
+}
+.col-md-2.right-now button {
+    border: none;
+    background: transparent;
+}
+.row.date-pick-time input, .row.date-pick-time select {
+    padding: 25px 10px;
+}
+.house-btn button{
+    padding: 10px;
+    border: 2px solid #979797;
+    background: #fff;
+    color: #fff;
+    border-radius: 5px;
+}
+.car-btn button{
+    padding: 10px;
+    border: 2px solid #979797;
+    background: #fff;
+    color: #fff;
+    border-radius: 5px;
+}
+.col-md-5.search-now{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+}
+.col-md-5.search-now button {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border: 2px solid #979797;
+    background: #fccc24;
+    border-radius: 5px;
+}
+.form-group.first-input input {
+    padding: 25px 10px;
+}
+.rental-car label {
+    color: #dfdfdf;
+    margin-bottom: 3px;
+}
+.row.date-pick-time .col-md-3, .row.date-pick-time .col-md-2 {
+    padding: 0 0 0 15px;
+}
+.col-md-2.right-now button img {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.last-sel select#exampleFormControlSelect1 {
+    width: 80%;
+}
+.rental-car .form-group{
+    margin-bottom: 5px;
+}
+h1.FIND {
+    color: #fccc24;
+    margin-left: -120px;
+}
+h1.NEXT {
+    color: #fff;
+}
+h1.VISIT {
+    color: #fccc24;
+}
+.col-md-6.banner-h-one h1 {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 70px;
+    font-family: 'Bebas Neue', cursive;
+}
+.col-md-6.banner-h-one {
+    padding: 60px 0;
+}
+/* CSS FOR BANNER SEC */
+/* CSS FOR CHOOSE VEHICLE */
+h1.CHOOSE-YOUR {
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    color: #fccc24;
+    margin-bottom: -10px;
+    font-size: 50px;
+}
+h2.MODIFY-YOUR {
+    text-align: center;
+    color: #555;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    font-family: 'Helvetica';
+}
+section.choose-vehicle{
+    padding: 100px 0;
+}
+.row.slider-row:before {content: "SELECT YOUR DRIVE";position: absolute;top: -100px;right: 27%;font-family: 'Bebas Neue';
+    letter-spacing: 4px;font-size: 100px;font-weight: 300;color: #f9f9f9;}
+
+.row.slider-row {position: relative;}
+.bid-box h1 {
+    text-align: center;
+    font-size: 18px;
+    background: #efefef;
+    padding: 10px 0;
+    max-width: 70%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+}
+.for-hov img {
+    width: auto !important;
+}
+.for-hov a {
+    display: flex;
+    color: #e1b149 !important;
+}
+.for-hov{
+    display: none !important;
+}
+.bid-box:hover .for-hov {
+    display: flex !important;
+    justify-content: center;
+    background: white;
+    padding: 35px 0;
+    margin-top: -40px !important;
+    margin-bottom: 10px !important;
+    max-width: 70%;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 10px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+.bid-box.slick-slide{
+    height: 330px !important;
+}
+.explore-more{
+    display: flex;
+    justify-content: center;
+}
+.universal-btn {
+    background: #fccc24;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 500;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+.universal-btn:hover {
+    text-decoration: none;
+    color: #000;
+    padding: 10px 20px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 5px 15px;
+}
+/* CSS FOR CHOOSE VEHICLE */
+/* FIND BEST DESTINATION CSS */
+.click-pin{
+    background-image: url(../images/best-destination.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1.pin-h1 {
+    font-family: 'Bebas Neue', cursive;
+    color: #fff;
+    font-size: 55px;
+    text-align: center;
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+  }
+  .my-tabz .panel-default>.panel-heading{
+    color: #333;
+    background-color: #fff;
+    border-color: transparent;
+    padding: 7px 0;
+    margin-top: -50px !important;
+    max-width: 80%;
+    display: block;
+    margin: 0 auto;
+  }
+  .my-tabz .panel{
+      border: none;
+  }
+  .my-tabz .nav-tabs{
+      border: none;
+      display: flex;
+      justify-content: center;
+  }
+  .my-tabz .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    border: none !important;    
+    color: #fdda5e !important;
+    text-decoration: none;
+  }
+  .my-tabz .nav-tabs>li>a{
+      color: #848484 !important;
+      font-size: 24px !important;
+  }
+  .my-tabz .nav-tabs>li>a:hover{
+      background-color: transparent !important;
+      border-color: transparent !important;
+      text-decoration: none;
+  }
+  .nav-tabs>li.active:before {
+    content: "\f0dd";
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: -25px;
+    z-index: 1;
+    right: 50%;
+    left: 50%;
+    color: #fdda5e;
+    font-size: 24px;
+  }
+  .my-tabz .nav-tabs>li{
+      position: relative;
+      padding: 0 30px;
+  }
+  .tab-pane iframe {
+    display: block;
+    margin: 0 auto;
+  }
+  .my-tabz .panel-body{
+      padding: 0;
+  }
+  /* FIND BEST DESTINATION CSS */
+  /* CSS FOR TESTIMONIAL  */
+.gtco-testimonials {
+    position: relative;
+    margin-top: 60px;
+}
+.gtco-testimonials h2 {
+    font-size: 30px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 50px;
+}
+.gtco-testimonials .owl-stage-outer {
+    padding: 75px 0;
+}
+.gtco-testimonials .owl-nav {
+    display: flex;
+    justify-content: space-around;
+    max-width: 40%;
+    margin: 0 auto;
+    margin-top: -90px;
+}
+.gtco-testimonials .owl-dots {
+    text-align: center;
+    margin-top: -5px;
+}
+.gtco-testimonials .owl-dots span {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: block;
+    background: #fff4d2;
+    border: 6px solid #ffeebc;
+    margin: 0 5px;
+}
+.gtco-testimonials .owl-dots .active {
+    box-shadow: none;
+}
+.gtco-testimonials .owl-dots .active span {
+    background: #ffffff;
+    box-shadow: none;
+    height: 25px;
+    width: 25px;
+    margin-bottom: -1px;
+    border: 8px solid #ffcc33;
+}
+.gtco-testimonials .card {
+    background: #fff;
+    box-shadow: 0 8px 30px -7px #d3d3d3;
+    margin: 0 20px;
+    border-radius: 20px;
+    border: 0;
+}
+.gtco-testimonials .card .card-img-top {
+    margin: 15px auto 0;
+    width: 40px;
+}
+.gtco-testimonials .card h5 {
+    color: #01b0f8;
+    font-size: 21px;
+    line-height: 1.3;
+}
+.gtco-testimonials .card h5 span {
+    font-size: 18px;
+    color: #666;
+}
+.gtco-testimonials .card p {
+    font-size: 18px;
+    color: #555;
+    padding-bottom: 15px;
+}
+.gtco-testimonials .active {
+    opacity: 1;
+    transition: all 0.3s;
+}
+.gtco-testimonials .center {
+    opacity: 1;
+    margin-top: -65px;
+}
+.gtco-testimonials .center h5 {
+    font-size: 24px;
+}
+.gtco-testimonials .center h5 span {
+    font-size: 20px;
+}
+
+@media (max-width: 767px) {
+    .gtco-testimonials {
+        margin-top: 20px;
+   }
+}
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+    outline: 0;
+}
+.owl-carousel button.owl-dot {
+    outline: 0;
+}
+.first-slide-img img {
+    width: 78px !important;
+}
+.other-cont img {
+    width: 80px !important;
+}
+.card-foot-con {
+    display: flex;
+    justify-content: center;
+    background: #f5f4f4;
+    border-radius: 0 0 20px 20px;
+}
+.other-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 23px;
+}
+.other-cont h6 {
+    text-align: left;
+    margin-bottom: 0;
+    color: #9f9f9f;
+}
+.other-cont h3 {
+    margin-bottom: 0;
+    color: #000;
+    font-size: 18px;
+}
+button.owl-prev:before {
+    content: "";
+    background: url(../images/ar-left.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+button.owl-next:before {
+    content: "";
+    background: url(../images/ar-right.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+.owl-nav button span {
+    display: none;
+}
+.row.testi-head {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.row.testi-head h1 {
+    font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 60px;
+    margin-bottom: -10px;
+}
+.row.testi-head h3 {
+    color: #646464;
+    font-size: 22px;
+    font-weight: 400;
+}
+section.testimonial-section{
+    padding: 100px 0;
+}
+.row.testi-head:after {
+    content: "TESTIMONIALS";
+    font-size: 10rem;
+    color: #f4f4f4;
+    font-weight: 100;
+    position: absolute;
+    z-index: -1;
+    top: 30px;
+    font-family: 'Bebas Neue';
+    letter-spacing: 4px;
+}
+/* CSS FOR TESTIMONIAL  */
+/* book-car css start  */
+.book-car{
+    padding: 100px 0;
+    position: relative;
+}
+.book-car .book-car-img img{
+    width: 100%;
+}
+.book-car-main:before {
+    content: "";
+    width: 80px;
+    height: 640px;
+    background: #fccc24;
+    position: absolute;
+    left: 47%;
+    right: 53%;
+    top: 140px;
+}
+.book-a-car .col-md-6{
+    padding: 0 ;
+}
+.book-car .heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.book-car .book-car-heading h1{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
+}
+.book-car .book-car-heading p{
+    color: #8f8f8f;
+    text-align: center;
+    padding: 8px 150px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 2;
+}
+.universal-btn {
+    background: #fccc24;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+.universal-btn:hover {
+    text-decoration: none;
+    color: #000;
+    padding: 10px 20px;
+}
+/* book-car css End  */
+/* about-us css start  */
+.about-us{
+    padding: 60px 0;
+    position: relative;
+}
+.about-us .about-us-img img{
+    width: 100%;
+}
+.about-us .about-us-heading h1{
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Bebas Neue', cursive;
+}
+.about-us .about-us-heading span{
+    font-size: 35px;
+    font-weight: 400;
+    font-family: system-ui;
+}
+.about-us .about-us-heading p{
+    padding-right: 65px;
+    font-weight: 500;
+    color: #8f8f8f;
+}
+.about-main::before {
+    content: "";
+    background-image: url(../images/about-after.png);
+    position: absolute;
+    width: 12%;
+    height: 131px;
+    left: 41%;
+    right: 53%;
+    top: 28px;
+}
+.about-us .book-car-button{
+    padding-top: 15px;
+}
+/* about-us css End  */
+/* rent-car css start  */
+.rent-car{
+    background-image: url(../images/rent-a-car.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.rent-car .car-rent-heading h1{
+    font-size: 50px;
+    text-align: center;
+    font-weight: 500;
+    color: #fccc24;
+    font-family: 'Bebas Neue', cursive;
+}
+.rent-car .car-rent-heading p{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 30px;
+    line-height: 2;
+}
+.rent-car .car-rent-heading {
+    padding-top: 80px;
+}
+.row.head-roww {
+    padding: 25px 0;
+}
+.rent-car .rent-card img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+.rent-card-last img {
+    margin-bottom: 15px;
+}
+.rent-car .rent-card h6{
+    text-align: center;
+    margin-bottom: 0;
+}
+.rent-car .rent-card p{
+    text-align: center;
+    font-size: 12px;
+    padding: 0 46px;
+}
+.rent-car .rent-card {
+    width: -webkit-fill-available;
+    background: #fff;
+    border-radius: 50%;
+    height: 245px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.rent-card:after {
+    content: "";
+    position: absolute;
+    right: -32%;
+    top: -30%;
+    background: url(../images/steps-arrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60%;
+    height: 100%;
+    z-index: 4;
+    background-size: contain;
+}
+.rent-card-last:after{
+    display: none;
+}
+.rent-card-last{
+width: -webkit-fill-available;
+background: #fff;
+border-radius: 50%;
+height: 245px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.rent-car .rent-card-last h6{
+    text-align: center;
+    margin-bottom: 0;
+}
+.rent-car .rent-card-last p{
+    text-align: center;
+    font-size: 12px;
+    padding: 0 46px;
+}
+.rent-car .book-car-button{
+    display: block;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+/* rent-car css End  */
+/* footer css start  */
+.footer .foot-img img{
+    display: block;
+    margin: 0 auto;
+}
+.footer{
+    background-color: #ececec;
+    padding: 50px 0;
+}
+.footer .foot-img p{
+    text-align: center;
+    padding-top: 20px;
+    line-height: 2;
+}
+.footer .icon{
+    text-align: center;
+    word-spacing: 12px;
+    font-size: 18px;
+}
+.footer .icon i{
+    background-color: #8f8f8f;
+    color: #fff;
+    background-color: #8f8f8f;
+    color: #fff;
+    border-radius: 50%;
+    width: 10%;
+    height: 26px;
+    padding-top: 4px;
+}
+.footer .footer-list {
+    padding: 44px 44px;
+}
+.footer .footer-list h3{
+    color: #484848;
+    font-size: 26px;
+    font-weight: 500;
+    font-family: 'Bebas Neue', cursive;
+}
+.footer .footer-list ul li{
+    list-style: none;
+    line-height: 1.9;
+    font-size: 15px;
+    font-weight:  500;
+    color: #535353;
+}
+.footer .footer-list ul a{
+    color: #484848;
+}
+.footer .footer-list ul a:hover{
+    color: #484848;
+    text-decoration: none;
+}
+.footer .foot-input{
+    margin-top: 50px;
+    padding: 0;
+}
+.footer .foot-input h3{
+    color: #484848;
+    font-size: 26px;
+    font-family: 'Bebas Neue', cursive;
+}
+.footer .foot-input p{
+    padding-top: 20px;
+    font-size: 13px;
+}
+.footer .foot-input form input{
+    padding: 13px 34px;
+    font-size: 12px;
+    border: none;
+}
+.icon a:hover{
+    text-decoration: none;
+}
+.footer .foot-input form input:focus{
+    outline: none;
+}
+.foot-input form a i{
+    background-color: #fccc24;
+    padding: 9px 10px;
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+}
+.footer-last {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+}
+.footer-last p{
+    font-size: 14px;
+}
+/* footer css End  */
+
+/* CSS FOR RENTALS PAGE START HERE */
+.rental-secc{
+    background-image: url(../images/banner-img.png);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding: 130px 0;
+}
+.rental-inner h1 {
+    color: #f7c42b;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 80px;
+}
+.rental-inner p {
+    color: #fff;
+    max-width: 60%;
+}
+.this-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.this-content h3 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.head-conntent img {
+    width: -webkit-fill-available;
+}
+.this--heading {
+    display: flex;
+    background: #f7f8fa;
+    width: -webkit-fill-available;
+    justify-content: space-around;
+    margin-top: -45px;
+    padding: 5px 0px;
+}
+.main-contt h3 {
+    font-size: 22px;
+}
+.main-contt p {
+    font-size: 14px;
+    font-weight: 400;
+}
+.main-contt-inner {
+    display: flex;
+    align-items: center;
+}
+.main-contt-inner img {
+    width: 100px;
+    height: fit-content;
+    margin-left: 10%;
+}
+.main-contt {
+    padding: 15px 8px;
+}
+.property-card {
+    background: #f6f6f6;
+    border-radius: 15px;
+    padding: 7px;
+    box-shadow: rgb(100 100 111 / 20%) -1px 6px 15px 0px;
+}
+.last-anchor {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -40px;
+    margin-top: 20px;
+}
+.main-contt-inner h2 {font-weight: 700;}
+.row.prop-divs {
+    padding: 50px 0;
+}
+.my--tabz {
+    display: flex;
+    justify-content: center;
+    box-shadow: rgb(50 50 93 / 25%) -2px 2px 0px -5px, rgb(0 0 0 / 30%) -1px 6px 20px -8px;
+    border: none !important;
+}
+.my--tabz button.active{
+    color: #f7c42b;
+    background: transparent !important;
+    border: none !important;
+}
+.my--tabz button:focus{
+    outline: none;
+}
+.my--tabz button{
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 25px;
+    position: relative;
+}
+section.tab-sec {
+    padding: 100px 0;
+}
+.my--tabz button.active:before {
+    content: "\f0dd";
+    font-family: 'FontAwesome';
+    top: -23px;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    font-size: 30px;
+}
+/* CSS FOR RENTALS PAGE START HERE */
+ /* GALLERY CSS   */
+ /* BANER CSS STAR   */
+.banner-imnner{
+    background-image: url(../images/banner-img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 150px 0;
+}
+.banner-imnner .iner-baner-head h1{
+    Font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 60px;
+    line-height: 1;
+}
+.banner-imnner .iner-baner-head h1 span{
+    color: #fff;
+    
+}
+.banner-imnner .iner-baner-head p{
+    color: #fff;
+    font-weight: 300;
+}
+ /* BANER CSS END   */
+ /* GALLERY CSS   */
+.gallery-main {
+     background-image: url(../images/gal-background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 270px;
+    margin-bottom: -90px;
+}
+.image-box {
+    width: -webkit-fill-available;
+}
+
+.image-box img {
+    width: -webkit-fill-available;
+    padding: 5px;
+}
+
+/* CSS FOR RESPONSIVE MENUBAR */
+.dineuron-menu{width: 100%; height: 100%; opacity: 0; visibility: hidden;}
+.nav-open .dineuron-menu {opacity: 1; visibility: visible; background: rgba(0, 0, 0, 0.92); }
+.dineuron-menu .nav li a{color:#FFF; font-size: 5vh; font-weight:600; }
+.dineuron-menu .nav li{
+    opacity: 0;
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+    -webkit-animation-timing-function: cubic-bezier(.45,.005,0,1);
+    -moz-animation-timing-function: cubic-bezier(.45,.005,0,1);
+    -o-animation-timing-function: cubic-bezier(.45,.005,0,1);
+    animation-timing-function: cubic-bezier(.45,.005,0,1);
+}
+.nav-open .dineuron-menu .nav li{
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: -webkit-transform .2s,opacity .2s;
+    transition: transform .2s,opacity .2s;
+}
+.dineuron-menu .nav li.delay-1{-webkit-transition-delay:0.1s; -moz-transition-delay:0.1s; -ms-transition-delay:0.1s; -o-transition-delay:0.1s; transition-delay:0.1s; }
+.dineuron-menu .nav li.delay-2{-webkit-transition-delay:0.2s; -moz-transition-delay:0.2s; -ms-transition-delay:0.2s; -o-transition-delay:0.2s; transition-delay:0.2s; }
+.dineuron-menu .nav li.delay-3{-webkit-transition-delay:0.3s; -moz-transition-delay:0.3s; -ms-transition-delay:0.3s; -o-transition-delay:0.3s; transition-delay:0.3s; }
+.dineuron-menu .nav li.delay-4{-webkit-transition-delay:0.4s; -moz-transition-delay:0.4s; -ms-transition-delay:0.4s; -o-transition-delay:0.4s; transition-delay:0.4s; }
+.dineuron-menu .nav li.delay-5{-webkit-transition-delay:0.5s; -moz-transition-delay:0.5s; -ms-transition-delay:0.5s; -o-transition-delay:0.5s; transition-delay:0.5s; }
+.dineuron-menu .nav li.delay-6{-webkit-transition-delay:0.6s; -moz-transition-delay:0.6s; -ms-transition-delay:0.6s; -o-transition-delay:0.6s; transition-delay:0.6s; }
+.dineuron-menu .nav li.delay-7{-webkit-transition-delay:0.7s; -moz-transition-delay:0.7s; -ms-transition-delay:0.7s; -o-transition-delay:0.7s; transition-delay:0.7s; }
+.dineuron-menu .nav li.delay-8{-webkit-transition-delay:0.8s; -moz-transition-delay:0.8s; -ms-transition-delay:0.8s; -o-transition-delay:0.8s; transition-delay:0.8s; }
+.dineuron-menu .nav li.delay-9{-webkit-transition-delay:0.9s; -moz-transition-delay:0.9s; -ms-transition-delay:0.9s; -o-transition-delay:0.9s; transition-delay:0.9s; }
+
+.nav-button{position:relative; z-index:1111; border:solid 1px #f8f8f8;  height:42px; display:block; width:50px; padding:12px; }
+.nav-button #nav-icon3{width:24px;height:22px;display:inline-block;position:relative;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg);-webkit-transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;transition:.5s ease-in-out;cursor:pointer;}
+.nav-button #nav-icon3 span{display:block;position:absolute;height:3px;width:100%;background:#FFFFFF;border-radius:9px;opacity:1;left:0;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg);-webkit-transition:.25s ease-in-out;-moz-transition:.25s ease-in-out;-o-transition:.25s ease-in-out;transition:.25s ease-in-out}
+.nav-button #nav-icon3 span:nth-child(1){top:0}
+.nav-button #nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3){top:7px}
+.nav-button #nav-icon3 span:nth-child(4){top:14px}
+.nav-open #nav-icon3 span:nth-child(1){top:9px;width:0;left:50%}
+.nav-open #nav-icon3 span:nth-child(2){-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg)}
+.nav-open #nav-icon3 span:nth-child(3){-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg)}
+.nav-open #nav-icon3 span:nth-child(4){top:9px;width:0;left:50%}
+
+.flex-center{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;height:100%}
+header.head-main {display: none;}
+
+/* CSS FOR RESPONSIVE MENUBAR */
+
+ /* GALLERY CSS END   */
+
+.victual-tour {
+        padding: 90px;
+        background: url(../images/tour-back.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 0px 220px;
+        margin-top: 50px;
+}
+.tour-heading h1 {
+    Font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 60px;
+    text-align: center;
+}
+.tour-heading p{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #6d6d6d;
+    padding: 0 30px;
+    line-height: 2;
+}
+.tour-last .tour-image img{
+    width: -webkit-fill-available;
+    box-shadow: 4px 6px 8px 2px #00000047;
+}
+.center-img img{
+    width: inherit !important;
+    position: absolute;
+    top: 34%;
+    left: 40%;
+}
+.row.tour-last {
+    position: relative;
+}
+.col-md-8.tour-heading {
+    margin-bottom: 60px;
+    margin-top: -60px;
+}
+.tour-button {
+    margin: o auto;
+    display: block;
+    margin: 0 auto;
+    padding-top: 90px;
+}
+.col-md-4.box-image-2 img {height: 344px;object-fit: cover;}
+.box---1 img {height: 675px;object-fit: cover;}
+
+.box---2 img {height: 356px;object-fit: cover;}
+
+@media screen and (max-width: 1024px){
+    .row.slider-row{
+        margin: 0;
+    }   
+    .col-md-4.become-host a{
+        font-size: 13px;
+        padding: 5px;
+    }
+    .rental-car label{
+        font-size: 14px;
+    }
+    .navigation-chaf ul li a{
+        padding: 10px 17px;
+    }
+    .car-btn button{
+        margin-left: 14px;
+    }
+    .book-car-main:before{
+        height: 517px;
+        left: 46%;
+    }
+    .book-car .book-car-heading p{
+        padding: 8px 100px;
+    }
+    .about-main::before{
+        left: 42%;
+    }
+    .rent-car .rent-card{
+        height: 218px;
+    }
+    .rent-card-last{
+        height: 218px;
+    }
+    .footer .icon i{
+        width: 27px;
+        height: 27px;
+        padding-top: 4px;
+    }
+
+    /* INNER CSS */
+    .tour-heading p{
+        padding: 0 48px
+    }
+    .victual-tour{   
+    background-position: 0px 245px;
+    }
+    .box---1 img{
+        height: 622px;
+    }
+    .box---2 img{
+        height: 245px;
+    }
+    .col-md-4.box-image-2 img{
+        height: 289px;
+    }
+    /* INNER CSS */
+}
+@media screen and (max-width: 768px){
+    .row.testi-head:after{
+        font-size:6rem;
+        top: 50px;
+    }
+    .gtco-testimonials .owl-nav{
+        max-width:60%;
+    }
+    .bid-box.slick-slide{
+        height: 373px !important;
+    }
+    .about-us .about-us-heading p{
+        padding-right: 14px;
+    }
+    .about-us .about-us-heading span{
+        font-size: 32px;
+    }
+    .book-car .book-car-heading p{
+        padding: 8px 40px;
+    }
+    .rent-car .car-rent-heading p{
+        font-size: 15px;
+        padding: 0 20px;
+    }
+    .book-car-main:before{
+        height: 370px;
+        left: 45%;
+    }
+    .about-main::before{
+        height: 103px;
+        top: 40px;
+    }
+    .rent-car .rent-card{
+        height: 165px;
+    }
+    .rent-car .rent-card p{
+        padding: 0 4px;
+    }
+    .rent-car .rent-card img{
+        width: 30%;
+    }
+    .rent-card-last img{
+        width: 30%;
+    }
+    .rent-card-last{
+        height: 165px;
+    }
+    .rent-car .rent-card-last p{
+        padding: 0 4px;       
+    }
+    .footer .foot-input form input{
+        width: 90%;
+    }
+    .navigation-chaf ul{
+        display: none;
+    }
+    .footer .icon{
+        word-spacing: 0;
+    }
+    header.head-main {display: block;}
+    .col-md-4.become-host a{
+        display: none;
+    }
+    .head-main .navbar.navbar-dark.bg-dark.box-shadow {padding: 0;background: transparent !important;}
+    .navbar.navbar-dark.bg-dark.box-shadow .container {padding: 0;}
+    .navbar-dark .navbar-brand{display: none !important;}
+    .col-md-3.loggin:after{
+        right: 5px;
+        bottom: 3px;
+    }
+    .first-row-head{
+        justify-content: center;
+        align-items: center;
+    }
+    .head-main .nav-button{
+        border: solid 1px #000 !important;
+        margin-top: -25px !important;
+        margin-bottom: 25px !important;
+        margin-left: -20px !important;
+    }
+    .nav-button #nav-icon3 span{
+        background-color: #000 !important;
+    }
+    .second-row-head{
+        margin-top: -42px !important;
+    }
+    .find-a-car .col-md-6{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .footer .footer-list{
+        padding: 60px 14px;
+    }
+    .footer .foot-input h3{
+        text-align: center;
+    }
+
+    /* INNER CSS */
+    .banner-imnner .iner-baner-head h1{
+        font-size: 55px;
+    }
+    .tour-heading h1{
+        font-size: 46px;
+    }
+    .tour-heading p{
+        font-size: 13px;
+        padding: 0;
+    }
+    .center-img img{
+        width: 25% !important;
+    }
+    .box---1 img {
+        height: 410px;
+    }
+    .box---2 img {
+        height: 239px;
+    }
+    .col-md-4.box-image-2 img {
+        height: 216px;
+    }
+    .rental-inner h1{
+        font-size: 60px;
+    }
+    .rental-inner p{
+        max-width: 70%;
+    }
+    .this-content h3{
+        font-size: 11px;
+    }
+    .this--heading{
+        margin-top: -34px;
+        padding: 7px 0px;
+    }
+    .main-contt-inner h2{
+        font-size: 21px;
+    }
+    .my--tabz button.active{
+        font-size: 21px;
+    }
+    .my--tabz button.tablinks {
+        font-size: 21px;
+    }
+    /* INNER CSS */
+}
+@media screen and (max-width: 425px){
+    .rent-card:after{
+        display: none;
+    }
+    .gtco-testimonials .card p{
+        font-size: 16px;
+    }
+    .rent-car .car-rent-heading h1{
+        font-size: 45px;
+    }
+    .row.testi-head:after{
+        font-size: 3rem;
+    }
+    .gtco-testimonials .owl-nav{
+        max-width: 100%;
+    }
+    .my-tabz .nav-tabs>li{
+        padding: 0 15px;
+    }
+    .my-tabz .nav-tabs{
+        margin-top: -57px;
+    }
+    .tab-pane iframe{
+        width: 100%;
+    }
+    .book-car-main:before{
+        display: none;
+    }
+    .book-a-car .col-md-6{
+        padding: 25px 0px;
+    }
+    .about-main::before{
+        display: none;
+    }
+    .rent-car .rent-card{
+        height: 370px;
+    }
+    .rent-car .rent-card h6{
+        font-size: 28px;
+    }
+    .rent-car .rent-card p{
+        font-size: 16px;
+    }
+    .rent-card-last{
+        height: 370px;
+    }
+    .rent-card-last h6{
+        font-size: 28px;
+    }
+    .rent-car .rent-card-last p{
+        font-size: 16px;
+    }
+    .col-md-3.rent-menu {margin-bottom: 15px;}
+    .rent-car .car-rent-heading{padding-top: 30px;}
+    section.choose-vehicle{
+        padding: 20px 0;
+    }
+    .click-pin{
+        background-size:cover;
+    }
+    .my-tabz .panel-default>.panel-heading{
+        background: transparent;
+    }
+    .footer-last{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer .foot-img p{
+        font-size: 13px;
+    }
+    .footer .footer-list{
+        padding: 0;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer .foot-input p{
+        text-align: center;
+    }
+    .chaff-logo img{
+        display: block;
+        margin: 0 auto;
+    }
+    .last-sel select#exampleFormControlSelect1{
+        width: 100%;
+    }
+    .row.all-right-btnz .col-md-4, .row.all-right-btnz .col-md-3, .row.all-right-btnz .col-md-2{
+        width: 25%;
+    }
+    .head-main .nav-button{
+        border: solid 1px #000 !important;
+        margin-top: -17px !important;
+        margin-bottom: 25px !important;
+        margin-left: 15px !important;
+    }
+    .right-now{
+        transform: rotate(90deg);
+        justify-content: center;
+    }
+    .last-row .col-md-2 {width: 30%;}
+    .car-btn button{margin-left: 0;}
+    .form-group.first-input input{
+        width: 103%;
+    }
+    h1.pin-h1{
+        font-size: 50px;
+    }
+
+    /* INNER CSS */
+    .tour-heading p{
+        font-size: 14px;
+    }
+    .victual-tour{
+        background-image: none;
+        padding: 0;
+    }
+    .tour-last .tour-image img{
+        width: 300px;
+        margin-left: 45px !important;
+        margin-bottom: 18px;
+    }
+    .center-img img {
+        top: 32%;
+        left: 31%;
+        width: 18% !important;
+    }
+    .col-md-8.tour-heading{
+        margin: 0;
+    }
+    .col-md-4.box-image-2 img {
+        height: 321px;
+        object-fit: cover;
+    }
+    .box---2 img {
+        height: 314px;
+        object-fit: cover;
+    }
+    .rental-inner h1 {
+        font-size: 48px;
+    }
+    .this-content h3 {
+        font-size: 15px;
+    }
+    .main-contt h3 {
+        font-size: 22px;
+    }
+    .main-contt-inner h2{
+        font-size: 30px;
+    }
+    .main-contt-inner img{
+        width: 120px;
+    }
+    .property-card{
+        margin-bottom: 50px;
+    }
+    .row.prop-divs{
+        padding: 0;
+    }
+    .my--tabz {
+        margin-bottom: 40px;
+
+    }
+    /* INNER CSS */
+}
+@media screen and (max-width:375px){
+    .tour-last .tour-image img{
+        margin-left: 25px !important;
+    }
+    .center-img img {
+        top: 35%;
+        left: 35%;
+        width: 20% !important;
+    }
+    .tour-heading p {
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+@media screen and (max-width:320px){
+    .tour-last .tour-image img{
+         width: 265px;
+        margin-left: 14px !important;
+    }
+    .rental-inner h1 {
+        font-size: 42px;
+    }
+    .my--tabz button.tablinks {
+        font-size: 16px;
+    }
+    .this-content h3 {
+        font-size: 14px;
+    }
+    .main-contt h3 {
+        font-size: 18px;
+    }
+}    
