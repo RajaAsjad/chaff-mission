@@ -22,8 +22,11 @@ class PermissionController extends Controller
         $this->middleware('permission:permission-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:permission-delete', ['only' => ['destroy']]);
     }
+    
     public function index(Request $request)
     {
+        // $this->authorize('permission-list', User::class);
+
         if($request->ajax()){
             $query = Permission::orderby('id', 'desc')->where('id', '>', 0);
             if($request['search'] != ""){

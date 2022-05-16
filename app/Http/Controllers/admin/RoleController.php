@@ -118,6 +118,7 @@ class RoleController extends Controller
      */
     public function update(Request $request)
     {
+        // return $request->permission;
         $this->validate($request, [
             'name' => 'required',
             'permission' => 'required',
@@ -128,7 +129,8 @@ class RoleController extends Controller
         $role->description = $request->description;
         $role->save();
 
-        $role->syncPermissions($request->input('permission'));
+        // return 'good';
+        $role->syncPermissions($request->permission);
 
         return redirect()->route('role.index')
                         ->with('message','Role updated successfully');

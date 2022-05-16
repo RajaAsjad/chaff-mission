@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
@@ -15,13 +14,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-        $this->middleware('permission:category-list|category-create|category-edit|category-delete', ['only' => ['index','store']]);
-        $this->middleware('permission:category-create', ['only' => ['create','store']]);
-        $this->middleware('permission:category-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:category-delete', ['only' => ['destroy']]);
-    }
+    // function __construct()
+    // {
+    //     $this->middleware('permission:category-list|category-create|category-edit|category-delete', ['only' => ['index','store']]);
+    //     $this->middleware('permission:category-create', ['only' => ['create','store']]);
+    //     $this->middleware('permission:category-edit', ['only' => ['edit','update']]);
+    //     $this->middleware('permission:category-delete', ['only' => ['destroy']]);
+    // }
     public function index(Request $request)
     {
         if($request->ajax()){
@@ -35,7 +34,7 @@ class CategoryController extends Controller
                 }
                 $query->where('status', $request['status']);
             }
-            $models = $query->paginate(10);
+            $models = $query->paginate(1);
             return (string) view('admin.category.search', compact('models'));
         }
         $page_title = 'All Categories';

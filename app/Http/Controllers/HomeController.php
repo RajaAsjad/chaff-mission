@@ -28,7 +28,7 @@ class HomeController extends Controller
             $page_title = 'Dashboard';
             return View('admin.dashboard.dashboard', compact('page_title'));
         }else{
-            return redirect()->route('admin.login');
+            return redirect()->route('login');
         }
     }
 }

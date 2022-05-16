@@ -18,8 +18,8 @@ use App\Http\Controllers\WebController;
     return view('welcome');
 });
  */
-Route::get('admin/login', 'WebController@login')->name('admin.login');
-Route::post('user-authenticate', 'WebController@authenticate')->name('user-authenticate');
+Route::get('admin/login', 'admin\AdminController@login')->name('admin.login');
+Route::post('admin/authenticate', 'admin\AdminController@authenticate')->name('admin.authenticate');
 Route::get('signup', 'WebController@signUp')->name('signup');
 Route::post('register/store', 'WebController@store')->name('register.store');
 Route::get('email-verification/{token}', 'WebController@verifyEmail')->name('email-verification');
@@ -49,14 +49,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth']], function() {
     //Roles
- /*    Route::resource('role', 'admin\RoleController');
-
-    //users
-    Route::resource('user', 'admin\UserController');
-
-    //permissions
-    Route::resource('permission', 'admin\PermissionController'); */
-
     Route::resource('role', 'admin\RoleController');
 
     //users
@@ -67,6 +59,18 @@ Route::group(['middleware' => ['auth']], function() {
 
     //Products
     Route::resource('product', 'admin\ProductController');
+    
+    //Vehicle
+    Route::resource('vehicle', 'admin\VehicleController');
+
+    //Property
+    Route::resource('property', 'admin\PropertyController');
+
+    //blog
+    Route::resource('blog', 'admin\BlogController');
+
+    //category
+    Route::resource('category', 'admin\CategoryController');
 
 
 

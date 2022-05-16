@@ -39,6 +39,32 @@ class AdminController extends Controller
         return redirect()->back()
         ->with('message','Profile updated successfully');
     }
+
+    public function login()
+    {
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
+        $page_title = 'Log In';
+        return view('auth.login', compact('page_title'));
+    }
+
+    public function authenticate(Request $request)
+    {
+        // return $request;
+        $user = User::where('email', $request->email)->first();
+
+        if(!empty($user) && $user->hasRole($request->user_type)){
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials)) {
+                return redirect()->route('dashboard');
+            }
+            return redirect()->back()->with('error', 'Failed to login try again.!');
+        }else{
+            return redirect()->back()->with('error', 'Something went wrong!');
+        }
+    }
     public function logOut()
     {
         Auth::logout();
