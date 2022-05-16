@@ -42,6 +42,7 @@ Route::get('getproducts', 'admin\DealsController@getproducts')->name('getproduct
 Route::get('/', [WebController::class, 'index'])->name('index');
 Route::get('gallerys', [WebController::class, 'gallery'])->name('gallerys');
 Route::get('rentals', [WebController::class, 'rental'])->name('rentals');
+Route::get('rentals/single/{slug}', [WebController::class, 'single'])->name('rentals.single');
 Route::get('virtualtour', [WebController::class, 'tour'])->name('virtualtour');
 Route::get('about_us', [WebController::class, 'about'])->name('about_us');
 Route::get('deal', [WebController::class, 'deal'])->name('deal');
@@ -104,9 +105,6 @@ Route::group(['middleware' => ['auth']], function() {
     //Categories
     Route::resource('categories', 'admin\CategoriesController');
 
-     //Deals
-     Route::resource('deals', 'admin\DealController');
-
-
-
+    //Deals
+    Route::resource('deals', 'admin\DealController');
 });

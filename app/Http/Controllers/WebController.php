@@ -181,7 +181,23 @@ class WebController extends Controller
         $models=Property::where('status' , 1)->paginate(10);
         $rentals=Rental::where('status' , 1)->paginate(10);
         $rvs=RV::where('status' , 1)->paginate(10);
-        return view('website.rental' , compact('models' , 'testimonials' , 'rentals' , 'rvs'));
+        return view('website.product.index' , compact('models' , 'testimonials' , 'rentals' , 'rvs'));
+    }
+
+    public function single($slug)
+    {
+        $product = Rental::where('slug', $slug)->first();
+        if(empty($product)){
+            $product = Property::where('slug', $slug)->first();
+        }
+
+        if(empty($product)){
+            $product = RV::where('slug', $slug)->first();
+        }
+
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        return view('website.product.single', compact('product', 'testimonials'));
+
     }
 
     public function tour()
