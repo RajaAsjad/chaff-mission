@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,12 +36,16 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/admin/profile/edit', 'admin\AdminController@editProfile')->name('admin.profile.edit');
 Route::post('/admin/profile/update', 'admin\AdminController@updateProfile')->name('admin.profile.update');
 Route::post('admin/logout', 'admin\AdminController@logOut')->name('admin.logout');
+Route::get('getproducts', 'admin\DealsController@getproducts')->name('getproducts');
 
 //Frontend
 Route::get('/', [WebController::class, 'index'])->name('index');
-Route::get('gallery', [WebController::class, 'gallery'])->name('gallery');
-Route::get('rental', [WebController::class, 'rental'])->name('rental');
-Route::get('tour', [WebController::class, 'tour'])->name('tour');
+Route::get('gallerys', [WebController::class, 'gallery'])->name('gallerys');
+Route::get('rentals', [WebController::class, 'rental'])->name('rentals');
+Route::get('virtualtour', [WebController::class, 'tour'])->name('virtualtour');
+Route::get('about_us', [WebController::class, 'about'])->name('about_us');
+Route::get('deal', [WebController::class, 'deal'])->name('deal');
+Route::get('careers', [WebController::class, 'career'])->name('careers');
 
 
 Auth::routes();
@@ -61,7 +66,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('product', 'admin\ProductController');
     
     //Vehicle
-    Route::resource('vehicle', 'admin\VehicleController');
+    Route::resource('rental', 'admin\RentalController');
 
     //Property
     Route::resource('property', 'admin\PropertyController');
@@ -70,7 +75,37 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('blog', 'admin\BlogController');
 
     //category
-    Route::resource('category', 'admin\CategoryController');
+    Route::resource('blogcategory', 'admin\BlogCategoryController');
+
+    //blog
+    Route::resource('testimonial', 'admin\TestimonialController');
+
+    //R.V
+    Route::resource('rv', 'admin\RVController');
+
+    //Virtual Tour
+    Route::resource('tour', 'admin\VirtualTourController');
+   
+    //Gallery
+    Route::resource('gallery', 'admin\GalleryController');
+
+    //About
+    Route::resource('about', 'admin\AboutUsController');
+
+    //Step Of Car Rent
+    Route::resource('car_rent', 'admin\CarRentController');
+
+    //Setting
+    Route::resource('page', 'admin\SettingController');
+
+    //NewsLetter
+    Route::resource('newsletter', 'admin\NewsLetterController');
+
+    //Categories
+    Route::resource('categories', 'admin\CategoriesController');
+
+     //Deals
+     Route::resource('deals', 'admin\DealController');
 
 
 

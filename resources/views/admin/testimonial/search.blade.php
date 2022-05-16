@@ -12,11 +12,18 @@
         <td>{!! $testimonial->designation !!}</td>
         <td>{!! \Illuminate\Support\Str::limit($testimonial->comment,60) !!}</td>
         <td>
+            @if($testimonial->status)
+            <span class="badge badge-success">Active</span>
+            @else
+            <span class="badge badge-danger">In-Active</span>
+            @endif
+        </td>
+        <td>
             @can('testimonial-edit')
                 <a href="{{route('testimonial.edit', $testimonial->slug)}}" data-toggle="tooltip" data-placement="top" title="Edit testimonial" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
             @endcan
             @can('testimonial-delete')
-                <a class="btn btn-danger btn-xs delete-btn" data-toggle="tooltip" data-placement="top" title="Delete testimonial" data-testimonial-slug="{{ $testimonial->slug }}"><i class="fa fa-trash"></i> Delete</a>
+                <button class="btn btn-danger btn-xs delete" data-slug="{{ $testimonial->slug }}" data-del-url="{{ url('testimonial', $testimonial->slug) }}"><i class="fa fa-trash"></i> Delete</button>
             @endcan
         </td>
     </tr>

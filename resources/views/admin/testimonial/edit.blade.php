@@ -30,18 +30,13 @@
 								<input type="text" autocomplete="off" class="form-control" name="designation" value="{{$testimonial->designation}}">
 							</div>
 						</div>
-						@if($testimonial->image)
-							<div class="form-group">
-								<label for="" class="col-sm-2 control-label">Exist Image </label>
-								<div class="col-sm-9" style="padding-top:5px">
-									<img src="{{ asset('public/admin/assets/images/testimonials') }}/{{ $testimonial->image }}" alt="Testimonial Image" height="100px" width="100px">
-								</div>
-							</div>
-						@endif
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Image <span style="color:red">*</span></label>
-							<div class="col-sm-9" style="padding-top:5px">
-								<input type="file" name="image" value="{{$testimonial->image}}">(Only jpg, jpeg, gif and png are allowed)
+							<div class="col-sm-6" style="padding-top:5px">
+								<input type="file" name="image" accept="image" id="image" class="form-control">
+							</div>
+							<div class="col-sm-4">
+								<img style="width: 80px" id="banner_preview" src="{{ asset('public/admin/assets/images/testimonials') }}/{{ $testimonial->image }}" alt="">
 							</div>
 						</div>
 						<div class="form-group">
@@ -97,6 +92,12 @@
 				comment: "required",
 			}
 		});
+		image.onchange = evt => {
+		const [file] = image.files
+		if (file) {
+			banner_preview.src = URL.createObjectURL(file)
+		}
+		}
 	});
 </script>
 @endpush

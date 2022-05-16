@@ -57,6 +57,7 @@ $('.delete').on('click', function(){
                 url : delete_url,
                 type : 'DELETE',
                 success : function(response){
+                    // console.log(response);
                     if(response){
                         $('#id-'+slug).hide();
                         Swal.fire(

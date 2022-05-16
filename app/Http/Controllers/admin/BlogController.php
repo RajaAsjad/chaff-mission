@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\BlogCategory;
 use Auth;
 
 class BlogController extends Controller
@@ -15,13 +15,13 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // function __construct()
-    // {
-    //     $this->middleware('permission:blog-list|blog-create|blog-edit|blog-delete', ['only' => ['index','store']]);
-    //     $this->middleware('permission:blog-create', ['only' => ['create','store']]);
-    //     $this->middleware('permission:blog-edit', ['only' => ['edit','update']]);
-    //     $this->middleware('permission:blog-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:blog-list|blog-create|blog-edit|blog-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:blog-create', ['only' => ['create','store']]);
+        $this->middleware('permission:blog-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:blog-delete', ['only' => ['destroy']]);
+    }
     public function index(Request $request)
     {
         if($request->ajax()){
@@ -52,7 +52,7 @@ class BlogController extends Controller
     public function create()
     {
         $page_title = 'Add Blog';
-        $categories = Category::where('status', 1)->get();
+        $categories = BlogCategory::where('status', 1)->get();
         return View('admin.blog.create', compact('categories', 'page_title'));
     }
 
@@ -109,7 +109,7 @@ class BlogController extends Controller
     {
         $page_title = 'Edit Blog';
         $model = Blog::where('slug', $slug)->first();
-        $categories = Category::where('status', 1)->get();
+        $categories = BlogCategory::where('status', 1)->get();
         return View('admin.blog.edit', compact("model", "categories", "page_title"));
     }
 

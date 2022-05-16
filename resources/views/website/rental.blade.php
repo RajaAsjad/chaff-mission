@@ -1,204 +1,183 @@
 @extends('layouts.website.master')
 @section('content')
-    <!-- RENTALS SECTION -->
-        <section class="rental-secc">
+    <!-- BANNER SEC -->
+        <section class="rentals-sec">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="rental-inner">
-                            <h1>PROPERTIES  / RVS
-                                Rentals </h1>
-                            <p>Lorem Ipsum is Dummy of text Set
-                                amet doloripsum is dummy of lorem ipsum</p>
+                    <div class="col-md-12">
+                        <div class="iner-baner-head">
+                            <h1>Properties / Rentals / Rvs</h1>
+                            <p class="extra-text">Home > Properties / Rentals / Rvs</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alion.</p>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- BANNER SEC -->
+    <!-- RENTAL TYPE SEC -->
+        <section class="rental-types">
+            <div class="container">
+                <div class="row gallery-expand-buttons">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-1" role="tab">PROPERTIES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-2" role="tab">RENTALS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">R.V</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row gallery-expands">
+                    <div class="col-md-12">
+                        <!-- Tab panes -->
+                        <div class="tab-content for-new-gallery">
+                            <div class="tab-pane  row" id="tabs-1" role="tabpanel">
+                                <div class="row property-deal">
+                                    @foreach($models as $model)
+                                        <div class="col-md-4">
+                                            <div class="dealz-box">
+                                                <div class="dealz-box-img">
+                                                    <img src="{{ asset('public/admin/assets/images/property') }}/{{$model->image}}" alt="">
+                                                </div>
+                                                <div class="dealz-box-content">
+                                                    <div class="dealz-box-heading">
+                                                        <h3>{{ $model->property_name }}</h3>
+                                                        <img src="{{ asset('public/assets/website/images/new-starz.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dealz-box-description">
+                                                        <p>{!! $model->short_description !!}</p>
+                                                    </div>
+                                                    <div class="dealz-box-price">
+                                                        <div class="pricess">
+                                                            <span>${{ $model->price }}</span>
+                                                        </div>
+                                                        <div class="other-info-deals">
+                                                            <div class="pro-detailz">
+                                                                <img src="{{ asset('public/assets/website/images/washrooms-img.png') }}" title="Bathroom" alt="">
+                                                                <span>{{ $model->bathroom }}</span>
+                                                            </div>
+                                                            <div class="pro-detailz">
+                                                                <img src="{{ asset('public/assets/website/images/beds.png') }}" title="Bed" alt="">
+                                                                <span>{{ $model->bed }}</span>
+                                                            </div>
+                                                            <div class="pro-detailz">
+                                                                <img src="{{ asset('public/assets/website/images/beds.png') }}" title="Room" alt="">
+                                                                <span>{{ $model->room }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dealz-box-button">
+                                                    <a href="" class="dealz-box-a">read more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="tab-pane active row" id="tabs-2" role="tabpanel">
+                                <div class="row rental-deals">
+                                    @foreach($rentals as $rental)
+                                        <div class="col-md-4">
+                                            <div class="dealz-box">
+                                                <div class="dealz-box-img">
+                                                    <img src="{{ asset('public/admin/assets/images/rental') }}/{{$rental->image}}" alt="">
+                                                </div>
+                                                <div class="dealz-box-content">
+                                                    <div class="dealz-box-heading">
+                                                        <h3>{{ $rental->name }}</h3>
+                                                        <img src="{{ asset('public/assets/website/images/new-starz.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dealz-box-description">
+                                                        <p>{!! $rental->short_description !!}</p>
+                                                    </div>
+                                                    <div class="dealz-box-price">
+                                                        <div class="pricess">
+                                                            <span>${{ $rental->rent }}</span>
+                                                        </div>
+                                                        <div class="other-info-deals">
+                                                            <div class="pro-detailz">
+                                                                <img src="{{ asset('public/assets/website/images/car-seats.png') }}" alt="">
+                                                                <span>{{ $rental->seat }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dealz-box-button">
+                                                    <a href="" class="dealz-box-a">read more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="tab-pane row" id="tabs-3" role="tabpanel">
+                                <div class="row rental-deals">
+                                    @foreach($rvs as $rv)
+                                        <div class="col-md-4">
+                                            <div class="dealz-box">
+                                                <div class="dealz-box-img">
+                                                    <img src="{{ asset('public/admin/assets/images/RV') }}/{{$rv->image}}" alt="">
+                                                </div>
+                                                <div class="dealz-box-content">
+                                                    <div class="dealz-box-heading">
+                                                        <h3>{{ $rv->name }}</h3>
+                                                        <img src="{{ asset('public/assets/website/images/new-starz.png') }}" alt="">
+                                                    </div>
+                                                    <div class="dealz-box-description">
+                                                        <p>{!! $rv->short_description !!}</p>
+                                                    </div>
+                                                    <div class="dealz-box-price">
+                                                        <div class="pricess">
+                                                            <span>${{ $rv->price }}</span>
+                                                        </div>
+                                                        <div class="other-info-deals">
+                                                            <div class="pro-detailz">
+                                                                <img src="{{ asset('public/assets/website/images/car-seats.png') }}" alt="">
+                                                                <span>{{ $rv->seat }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dealz-box-button">
+                                                    <a href="" class="dealz-box-a">read more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="row justify-content-center row-load-more for-deal-margin">
+                                <a href="" class="load-more">Load more</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-
-                    </div>
                 </div>
             </div>
         </section>
-    <!-- RENTALS SECTION -->
-    <!-- TAB SEC -->
-        <section class="tab-sec">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="tab my--tabz">
-                            <button class="tablinks active" onclick="openCity(event, 'London')">PROPERTIES / RVS</button>
-                            <button class="tablinks" onclick="openCity(event, 'Paris')">RENTALS</button>
-                          </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="London" class="tabcontent" style="display: block;">
-                            <div class="row prop-divs">
-                                <div class="col-md-4">
-                                    <div class="property-card">
-                                        <div class="head-conntent">
-                                            <img src="{{ asset('public/assets/website') }}/images/property-img.png" alt="">
-                                            <div class="this-content">
-                                                <div class="this--heading">
-                                                    <h3>ROOMS : 4</h3>
-                                                    <h3>BED : 4</h3>
-                                                    <h3>BATHROOM : 2</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="main-contt">
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing remaining essentially unchanged</p>
-                                            <div class="main-contt-inner">
-                                                <h2>$ <span>100</span> </h2>
-                                                <img src="{{ asset('public/assets/website') }}/images/testimonials-stars.png" alt="">
-                                            </div>
-                                            <div class="last-anchor">
-                                                <a href="" class="universal-btn">more info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="property-card">
-                                        <div class="head-conntent">
-                                            <img src="{{ asset('public/assets/website') }}/images/property-img.png" alt="">
-                                            <div class="this-content">
-                                                <div class="this--heading">
-                                                    <h3>ROOMS : 4</h3>
-                                                    <h3>BED : 4</h3>
-                                                    <h3>BATHROOM : 2</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="main-contt">
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing remaining essentially unchanged</p>
-                                            <div class="main-contt-inner">
-                                                <h2>$ <span>100</span> </h2>
-                                                <img src="{{ asset('public/assets/website') }}/images/testimonials-stars.png" alt="">
-                                            </div>
-                                            <div class="last-anchor">
-                                                <a href="" class="universal-btn">more info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="property-card">
-                                        <div class="head-conntent">
-                                            <img src="{{ asset('public/assets/website') }}/images/property-img.png" alt="">
-                                            <div class="this-content">
-                                                <div class="this--heading">
-                                                    <h3>ROOMS : 4</h3>
-                                                    <h3>BED : 4</h3>
-                                                    <h3>BATHROOM : 2</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="main-contt">
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing remaining essentially unchanged</p>
-                                            <div class="main-contt-inner">
-                                                <h2>$ <span>100</span> </h2>
-                                                <img src="{{ asset('public/assets/website') }}/images/testimonials-stars.png" alt="">
-                                            </div>
-                                            <div class="last-anchor">
-                                                <a href="" class="universal-btn">more info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row prop-divs">
-                                <div class="col-md-4">
-                                    <div class="property-card">
-                                        <div class="head-conntent">
-                                            <img src="{{ asset('public/assets/website') }}/images/property-img.png" alt="">
-                                            <div class="this-content">
-                                                <div class="this--heading">
-                                                    <h3>ROOMS : 4</h3>
-                                                    <h3>BED : 4</h3>
-                                                    <h3>BATHROOM : 2</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="main-contt">
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing remaining essentially unchanged</p>
-                                            <div class="main-contt-inner">
-                                                <h2>$ <span>100</span> </h2>
-                                                <img src="{{ asset('public/assets/website') }}/images/testimonials-stars.png" alt="">
-                                            </div>
-                                            <div class="last-anchor">
-                                                <a href="" class="universal-btn">more info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="property-card">
-                                        <div class="head-conntent">
-                                            <img src="{{ asset('public/assets/website') }}/images/property-img.png" alt="">
-                                            <div class="this-content">
-                                                <div class="this--heading">
-                                                    <h3>ROOMS : 4</h3>
-                                                    <h3>BED : 4</h3>
-                                                    <h3>BATHROOM : 2</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="main-contt">
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing remaining essentially unchanged</p>
-                                            <div class="main-contt-inner">
-                                                <h2>$ <span>100</span> </h2>
-                                                <img src="{{ asset('public/assets/website') }}/images/testimonials-stars.png" alt="">
-                                            </div>
-                                            <div class="last-anchor">
-                                                <a href="" class="universal-btn">more info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="property-card">
-                                        <div class="head-conntent">
-                                            <img src="{{ asset('public/assets/website') }}/images/property-img.png" alt="">
-                                            <div class="this-content">
-                                                <div class="this--heading">
-                                                    <h3>ROOMS : 4</h3>
-                                                    <h3>BED : 4</h3>
-                                                    <h3>BATHROOM : 2</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="main-contt">
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing remaining essentially unchanged</p>
-                                            <div class="main-contt-inner">
-                                                <h2>$ <span>100</span> </h2>
-                                                <img src="{{ asset('public/assets/website') }}/images/testimonials-stars.png" alt="">
-                                            </div>
-                                            <div class="last-anchor">
-                                                <a href="" class="universal-btn">more info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                          <div id="Paris" class="tabcontent">
-                            <h3>Paris</h3>
-                            <p>Paris is the capital of France.</p>
-                          </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <!-- TAB SEC -->
+    <!-- RENTAL TYPE SEC -->
     @endsection
+
+    @push('js')
+     <script>
+        $(document).on('click', '.pagination a', function(event){
+        event.preventDefault();
+        var pageurl = $('#page_url_rental').val();
+        var page = $(this).attr('href').split('page=')[1];
+        fetchAll(pageurl, page);
+    });
+    function fetchAll(pageurl, page){
+        $.ajax({
+            url:pageurl+'?page='+page,
+            type: 'get',
+            success: function(response){
+                $('#body').html(response);
+            }
+        });
+    }
+    </script>
+    @endpush

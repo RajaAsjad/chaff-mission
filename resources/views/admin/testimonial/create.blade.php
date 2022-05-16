@@ -33,9 +33,12 @@
 						</div>
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Image <span style="color: red">*</span></label>
-							<div class="col-sm-9" style="padding-top:5px">
-								<input type="file" name="image">(Only jpg, jpeg, gif and png are allowed) <br />
+							<div class="col-sm-6" style="padding-top:5px">
+								<input type="file" name="image" class="form-control" accept="image" id="image">
 								<span style="color: red">{{ $errors->first('image') }}</span>
+							</div>
+							<div class="col-sm-4">
+								<img style="width: 80px" id="banner_preview"  src="{{ asset('public/admin/assets/images/default.jpg') }}"  alt="Image Not Found ">
 							</div>
 						</div>
 						<div class="form-group">
@@ -84,6 +87,12 @@
 				comment: "required",
 			}
 		});
+		image.onchange = evt => {
+		const [file] = image.files
+		if (file) {
+			banner_preview.src = URL.createObjectURL(file)
+		}
+		}
 	});
 </script>
 @endpush

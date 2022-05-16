@@ -90,15 +90,17 @@
                 <h2 class="MODIFY-YOUR">MODIFY YOUR NEEDS</h2>
                 <div class="row slider-row">
                     <div class="col-md-12 live-slider">
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-1.png" alt=""><div class="bottom-content"><h1>TEXLA</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-2.png" alt=""><div class="bottom-content"><h1>JEEP</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-3.png" alt=""><div class="bottom-content"><h1>RANGE ROVER</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-4.png" alt=""><div class="bottom-content"><h1>BMW</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-5.png" alt=""><div class="bottom-content"><h1>SPORTS CAR</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-1.png" alt=""><div class="bottom-content"><h1>TEXLA</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-2.png" alt=""><div class="bottom-content"><h1>JEEP</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-3.png" alt=""><div class="bottom-content"><h1>RANGE ROVER</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
-                        <div class="bid-box"><img src="{{ asset('public/assets/website') }}/images/chef-slider-4.png" alt=""><div class="bottom-content"><h1>BMW</h1><div class="for-hov"><a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt=""></a></div></div></div>
+                        @foreach($rentals as $rental)
+                        <div class="bid-box">
+                            <img src="{{ asset('public/admin/assets/images/rental') }}/{{$rental->image}}" alt="">
+                            <div class="bottom-content"><h1>{{$rental->name}}</h1>
+                                <div class="for-hov">
+                                    <a href="" >VIEW DETAILS <img src="{{ asset('public/assets/website') }}/images/link-arrow.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="row">
@@ -188,13 +190,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="about-us-img">
-                            <img src="{{ asset('public/assets/website') }}/images/about-chef.png" alt="">
+                            <img src="{{ asset('public/admin/assets/images/about') }}/{{$abouts[0]['image']}}" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="about-us-heading">
-                            <h1>ABOUT<span>CHAFF MISSIONS LLC</span></h1>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                            <h1>{{$abouts[0]['heading']}}<span>{{$abouts[0]['short_description']}}</span></h1>
+                            <p>{!! $abouts[0]['description'] !!}</p>
                         </div>
                         <div class="book-car-button">
                             <a href="#" class="universal-btn">Read More</a>
@@ -218,32 +220,41 @@
                     <div class="col-md-2"></div>
                 </div>
                 <div class="row">
+                    <!-- @foreach($steprents as $steprent)
                     <div class="col-md-3 rent-menu">
                         <div class="rent-card">
-                            <img src="{{ asset('public/assets/website') }}/images/date-location.png" alt="">
-                            <h6>Date & location</h6>
-                            <p>Pick the location & the needed rent date</p>
+                            <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprent->image}}" alt="">
+                            <h6>{{$steprent->heading}}</h6>
+                            <p>{!! $steprent->description !!}</p>
+                        </div>
+                    </div>
+                    @endforeach -->
+                    <div class="col-md-3 rent-menu">
+                        <div class="rent-card">
+                            <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[0]['image']}}" alt="">
+                            <h6>{{$steprents[0]['heading']}}</h6>
+                            <p>{!! $steprents[0]['description'] !!}</p>
                         </div>
                     </div>
                     <div class="col-md-3 rent-menu">
                         <div class="rent-card">
-                            <img src="{{ asset('public/assets/website') }}/images/Chose-a-car.png" alt="">
-                            <h6>Chose a car</h6>
-                            <p>Select the vehcle using over catogeus </p>
+                            <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[1]['image']}}" alt="">
+                            <h6>{{$steprents[1]['heading']}}</h6>
+                            <p>{!! $steprents[1]['description'] !!}</p>
                         </div>
                     </div>
                     <div class="col-md-3 rent-menu">
                         <div class="rent-card">
-                            <img src="{{ asset('public/assets/website') }}/images/make-booking.png" alt="">
-                            <h6>Make a booking</h6>
-                            <p>Enter your name & booking deatial</p>
+                            <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[2]['image']}}" alt="">
+                            <h6>{{$steprents[2]['heading']}}</h6>
+                            <p>{!! $steprents[2]['description'] !!}</p>
                         </div>
                     </div>
                     <div class="col-md-3 rent-menu">
                         <div class="rent-card-last">
-                            <img src="{{ asset('public/assets/website') }}/images/enjoy-ride.png" alt="">
-                            <h6>Enjoy your rides!</h6>
-                            <p>Enter your trip and our good services</p>
+                            <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[3]['image']}}" alt="">
+                            <h6>{{$steprents[3]['heading']}}</h6>
+                            <p>{!! $steprents[3]['description'] !!}</p>
                         </div>
                     </div>
                     <div class="book-car-button">

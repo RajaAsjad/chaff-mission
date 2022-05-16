@@ -13,19 +13,19 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // function __construct()
-    // {
-    //      $this->middleware('permission:vehicle-list|vehicle-create|vehicle-edit|vehicle-delete', ['only' => ['index','store']]);
-    //      $this->middleware('permission:vehicle-create', ['only' => ['create','store']]);
-    //      $this->middleware('permission:vehicle-edit', ['only' => ['edit','update']]);
-    //      $this->middleware('permission:vehicle-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+         $this->middleware('permission:property-list|property-create|property-edit|property-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:property-create', ['only' => ['create','store']]);
+         $this->middleware('permission:property-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:property-delete', ['only' => ['destroy']]);
+    }
     public function index(Request $request)
     {
         if($request->ajax()){
             $query = Property::orderby('id' , 'desc')->where('id' , '>' , 0);
             if($request['search'] != ""){
-                $query->where('heading', 'like', '%'. $request['search'] .'%');
+                $query->where('property_name', 'like', '%'. $request['search'] .'%');
             }
             if($request['status'] != 'All'){
                 if($request['status']==2){
@@ -62,7 +62,7 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         $validator=$request->validate([
-            'heading' => 'required',
+            'property_name' => 'required',
             'description' => 'required|max:1000',
             'image' => 'required',
         ]);
@@ -70,19 +70,19 @@ class PropertyController extends Controller
         $model =  new Property();
         if(isset($request->image)){
             $photo= date('YmdHis').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/admin/assets/images/properties'), $photo);
+            $request->image->move(public_path('/admin/assets/images/property'), $photo);
             $model->image = $photo;
         }
 
         $model->created_by = Auth::user()->id;
-        $model->slug = $request->slug;
-        $model->heading = $request->heading;
+        $model->slug = \Str::slug($request->name);
+        $model->name = $request->name;
+        $model->short_description = $request->short_description;
         $model->description = $request->description;
         $model->room = $request->room;
         $model->bed = $request->bed;
         $model->bathroom = $request->bathroom;
         $model->price = $request->price;
-        $model->rating = $request->rating;
         $model->save();
 
         return redirect()->route('property.index')->with('message' , 'Property Added Successfully');
@@ -122,7 +122,7 @@ class PropertyController extends Controller
     public function update(Request $request, $slug)
     {
         $validator=$request->validate([
-            'heading' => 'required',
+            'property_name' => 'required',
             'description' => 'required|max:1000',
             'image' => 'required',
         ]);
@@ -130,18 +130,17 @@ class PropertyController extends Controller
 
         if(isset($request->image)){
             $photo= date('YmdHis').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/admin/assets/images/properties') , $photo);
+            $request->image->move(public_path('/admin/assets/images/property') , $photo);
             $update->image = $photo;
         }
 
-        $update->slug = $request->slug;
-        $update->heading = $request->heading;
+        $update->slug = \Str::slug($request->name);
+        $update->name = $request->name;
         $update->description = $request->description;
         $update->room = $request->room;
         $update->bed = $request->bed;
         $update->bathroom = $request->bathroom;
         $update->price = $request->price;
-        $update->rating = $request->rating;
         $update->status = $request->status;
         $update->update();
 
