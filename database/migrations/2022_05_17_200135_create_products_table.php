@@ -15,20 +15,15 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('created_by');
+            $table->bigInteger('created_by')->comment('e.g: admin, host -> id');
             $table->string('category_slug');
             $table->string('name');
             $table->string('slug');
-            $table->string('price')->nullable();
-            $table->date('draw_ends');
-            $table->string('min_competition')->nullable();
-            $table->string('max_competition')->nullable();
-            $table->string('number_of_winners')->nullable();
-            $table->string('short_description')->nullable();
-            $table->string('description')->nullable();
-            $table->string('image')->nullable();
-            $table->string('status')->default(1)->comment('0=inactive,1= active,2= sold out');
-            $table->string('deleted_at')->nullable();
+            $table->float('rent_per_day');
+            $table->text('description')->nullable();
+            $table->string('thumbnail');
+            $table->boolean('status');
+            $table->string('deleted_at');
             $table->timestamps();
         });
     }

@@ -107,4 +107,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     //Deals
     Route::resource('deals', 'admin\DealController');
+
+    //products
+    Route::resource('product', 'admin\ProductController');
 });

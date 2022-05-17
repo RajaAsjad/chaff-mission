@@ -31,24 +31,24 @@
                 </div>
                 <div class="col-md-5">
                     <div class="row all-right-btnz">
-                        <div class="col-md-2">
-
-                        </div>
                         <div class="col-md-4 hdr-three">
                             <div class="anchor-firstt">
                                 <a href="">BECOME A HOST</a>
                             </div>
                         </div>
                         <div class="col-md-6 hdr-right">
-                            <div class="loggin">
-                                <a href="">LOGIN</a>
-                            </div>
-                            <div class="sign_up">
-                                <a href="">SIGN UP</a>
-                            </div>
-                            <div class="user-log">
-                                <a href=""><span><i class="fa fa-user-circle" aria-hidden="true"></i></span></a>
-                            </div>
+                            <?php if(Auth::check()): ?>
+                                <div class="user-log">
+                                    <a href="<?php echo e(route('home')); ?>"><span><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo e(Auth::user()->name); ?></span></a>
+                                </div>
+                            <?php else: ?> 
+                                <div class="loggin">
+                                    <a href="<?php echo e(route('login')); ?>">LOGIN</a>
+                                </div>
+                                <div class="sign_up">
+                                    <a href="<?php echo e(route('register')); ?>">SIGN UP</a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="row">

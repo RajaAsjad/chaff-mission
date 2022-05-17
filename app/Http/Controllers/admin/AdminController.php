@@ -46,12 +46,11 @@ class AdminController extends Controller
             return redirect()->route('dashboard');
         }
         $page_title = 'Log In';
-        return view('auth.login', compact('page_title'));
+        return view('admin-auth.login', compact('page_title'));
     }
 
     public function authenticate(Request $request)
     {
-        // return $request;
         $user = User::where('email', $request->email)->first();
 
         if(!empty($user) && $user->hasRole($request->user_type)){

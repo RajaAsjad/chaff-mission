@@ -27,6 +27,9 @@ class HomeController extends Controller
         if(Auth::check() && Auth::user()->hasRole('Admin')){
             $page_title = 'Dashboard';
             return View('admin.dashboard.dashboard', compact('page_title'));
+        }elseif(Auth::check() && Auth::user()->hasRole('Customer')){
+            $page_title = 'Customer Dashboard';
+            return View('website.dashboard.dashboard', compact('page_title'));
         }else{
             return redirect()->route('login');
         }

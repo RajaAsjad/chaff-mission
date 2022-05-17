@@ -13,7 +13,6 @@
                 </div>
             </div>
         </div>
-        {{ dd($testimonials) }}
     </section>
     <!-- BANNER SEC -->
     <!-- RENTAL TYPE SEC -->

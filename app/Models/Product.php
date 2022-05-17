@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory,SoftDeletes;
-    protected $guarded = [];
+    use HasFactory, SoftDeletes;
 
-    public function hasQuestion(){
-        return $this->hasOne(Question::class, 'product_slug', 'slug');
-    }
+    protected $guarded = [];
 }

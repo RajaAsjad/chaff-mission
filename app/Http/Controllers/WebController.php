@@ -22,11 +22,10 @@ class WebController extends Controller
     public function index ()
     {
         $abouts=AboutUs::where('status' , 1)->get();
-        $testimonials=Testimonial::where('status' ,'=', 1)->get();
         $products = Product::where('status',1)->get();
         $rentals=Rental::where('status' , 1)->get();
         $steprents=steps_of_rent::where('status',1)->get();
-        return view('website.index', compact('products' , 'testimonials' , 'abouts' , 'steprents' , 'rentals'));
+        return view('website.index', compact('products' , 'abouts' , 'steprents' , 'rentals'));
     }
 
     public function login()
@@ -52,7 +51,7 @@ class WebController extends Controller
         }elseif(!empty($user) && $user->status==0){
             return redirect()->back()->with('error', 'Your account is not active verify your email we have sent you verification link.!');
         }else{
-            return redirect()->back()->with('error', 'Something went wrong!');
+            return redirect()->back()->with('error', 'This is only for user login not found your account!');
         }
     }
 
@@ -195,8 +194,7 @@ class WebController extends Controller
             $product = RV::where('slug', $slug)->first();
         }
 
-        $testimonials=Testimonial::where('status' ,'=', 1)->get();
-        return view('website.product.single', compact('product', 'testimonials'));
+        return view('website.product.single', compact('product'));
 
     }
 

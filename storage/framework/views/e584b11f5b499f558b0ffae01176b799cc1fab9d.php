@@ -1,39 +1,42 @@
    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonial-section">
-        <div class="container">
-            <div class="row testi-head">
-                <h1>OUR REVIEWS</h1>
-                <h3>WHAT CLIENTS ARE SAYING</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="gtco-testimonials">
-                        <div class="owl-carousel owl-carousel1 owl-theme">
-                            <?php $__currentLoopData = $testimonials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testimonial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div>
-                                    <div class="card text-center"><img class="card-img-top" src="<?php echo e(asset('public/assets/website')); ?>/images/testimonials-qomas.png" alt="">
-                                        <div class="card-body">
-                                            <p class="card-text"><?php echo $testimonial->comment; ?> </p>
-                                        </div>
-                                        <div class="card-foot-con">
-                                            <div class="first-slide-img">
-                                                <img src="<?php echo e(asset('public/admin/assets/images/testimonials')); ?>/<?php echo e($testimonial->image); ?>" alt="">
+    <?php if(Request::segment(1)!='login' && Request::segment(1)!='register' && Request::segment(1)!='dashboard'): ?>
+        <section class="testimonial-section">
+            <div class="container">
+                <div class="row testi-head">
+                    <h1>OUR REVIEWS</h1>
+                    <h3>WHAT CLIENTS ARE SAYING</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="gtco-testimonials">
+                            <div class="owl-carousel owl-carousel1 owl-theme">
+                                <?php $testimonials = App\Models\Testimonial::where('status', 1)->get() ?>
+                                <?php $__currentLoopData = $testimonials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testimonial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div>
+                                        <div class="card text-center"><img class="card-img-top" src="<?php echo e(asset('public/assets/website')); ?>/images/testimonials-qomas.png" alt="">
+                                            <div class="card-body">
+                                                <p class="card-text"><?php echo $testimonial->comment; ?> </p>
                                             </div>
-                                            <div class="other-cont">
-                                                <img src="<?php echo e(asset('public/assets/website')); ?>/images/testimonials-stars.png" alt="">
-                                                <h3><?php echo e($testimonial->name); ?></h3>
-                                                <h6><?php echo e($testimonial->designation); ?></h6>
+                                            <div class="card-foot-con">
+                                                <div class="first-slide-img">
+                                                    <img src="<?php echo e(asset('public/admin/assets/images/testimonials')); ?>/<?php echo e($testimonial->image); ?>" alt="">
+                                                </div>
+                                                <div class="other-cont">
+                                                    <img src="<?php echo e(asset('public/assets/website')); ?>/images/testimonials-stars.png" alt="">
+                                                    <h3><?php echo e($testimonial->name); ?></h3>
+                                                    <h6><?php echo e($testimonial->designation); ?></h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
     <!-- TESTIMONIALS SECTION -->
     <!-- footer html start -->
     <footer class="footer">
