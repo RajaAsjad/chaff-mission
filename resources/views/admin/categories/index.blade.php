@@ -1,14 +1,14 @@
 @extends('layouts.admin.app')
 @section('title', $page_title)
 @section('content')
-<input type="hidden" id="page_url" value="{{ route('categories.index') }}">
+<input type="hidden" id="page_url" value="{{ route('category.index') }}">
 <section class="content-header">
 	<div class="content-header-left">
 		<h1>All Categories</h1>
 	</div>
 
 	<div class="content-header-right">
-		<a href="{{ route('categories.create') }}" class="btn btn-primary btn-sm">Add category</a>
+		<a href="{{ route('category.create') }}" class="btn btn-primary btn-sm">Add New Category</a>
 	</div>
 
 </section>
@@ -63,10 +63,8 @@
 									</td>
 									<td>{{isset($model->hasCreatedBy)?$model->hasCreatedBy->name:'N/A'}}</td>
 									<td width="250px">
-											<a href="{{route('categories.edit', $model->id)}}" data-toggle="tooltip" data-placement="top" title="Edit category" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-										
-                                            <button class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ url('categories', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
-										
+										<a href="{{route('category.edit', $model->id)}}" data-toggle="tooltip" data-placement="top" title="Edit category" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+										<button class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ route('category.destroy', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
 									</td>
 								</tr>
 							@endforeach

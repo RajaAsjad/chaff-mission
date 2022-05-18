@@ -16,10 +16,12 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('customer_id');
-            $table->bigInteger('category_id');
-            $table->bigInteger('product_id');
-            $table->string('trip_start')->nullable();
-            $table->string('trip_end')->nullable();
+            $table->bigInteger('booking_number');
+            $table->string('product_slug');
+            $table->date('trip_start_date')->nullable();
+            $table->string('trip_start_time')->nullable();
+            $table->date('trip_end_date')->nullable();
+            $table->string('trip_end_time')->nullable();
             $table->float('per_day_price');
             $table->float('total_days');
             $table->float('total_payment');

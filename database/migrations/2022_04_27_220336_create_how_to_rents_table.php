@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStepsOfRentTable extends Migration
+class CreateHowToRentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateStepsOfRentTable extends Migration
      */
     public function up()
     {
-        Schema::create('car_rents', function (Blueprint $table) {
+        Schema::create('how_to_rents', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('created_by');
             $table->string('slug')->nullable();
@@ -33,6 +33,6 @@ class CreateStepsOfRentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_rents');
+        Schema::dropIfExists('how_to_rents');
     }
 }

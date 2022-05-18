@@ -47,7 +47,7 @@ Route::get('virtualtour', [WebController::class, 'tour'])->name('virtualtour');
 Route::get('about_us', [WebController::class, 'about'])->name('about_us');
 Route::get('deal', [WebController::class, 'deal'])->name('deal');
 Route::get('careers', [WebController::class, 'career'])->name('careers');
-
+Route::get('city', [WebController::class, 'city']);
 
 Auth::routes();
 
@@ -75,9 +75,6 @@ Route::group(['middleware' => ['auth']], function() {
     //blog
     Route::resource('blog', 'admin\BlogController');
 
-    //category
-    Route::resource('blogcategory', 'admin\BlogCategoryController');
-
     //blog
     Route::resource('testimonial', 'admin\TestimonialController');
 
@@ -94,7 +91,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('about', 'admin\AboutUsController');
 
     //Step Of Car Rent
-    Route::resource('car_rent', 'admin\CarRentController');
+    Route::resource('how_to_rent', 'admin\HowToRentController');
 
     //Setting
     Route::resource('page', 'admin\SettingController');
@@ -103,11 +100,19 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('newsletter', 'admin\NewsLetterController');
 
     //Categories
-    Route::resource('categories', 'admin\CategoriesController');
+    Route::resource('category', 'admin\CategoryController');
 
     //Deals
     Route::resource('deals', 'admin\DealController');
 
     //products
     Route::resource('product', 'admin\ProductController');
+
+    //Car_Type
+    Route::resource('car_type', 'admin\CarTypeController');
+
+    //Booking
+    Route::resource('booking', 'BookingController');
+
+    Route::resource('payment', 'PaymentController');
 });

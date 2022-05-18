@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="iner-baner-head">
-                        <h1>Properties / Rentals / Rvs</h1>
-                        <p class="extra-text">Home > Properties / Rentals / Rvs</p>
+                        <h1>Rentals / Recreational vehicle (RV)</h1>
+                        <p class="extra-text">Home > Rentals / Recreational vehicle(RV)</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alion.</p>
                     </div>    
                 </div>
@@ -23,11 +23,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#rental" role="tab">RENTALS</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#property" role="tab">PROPERTIES</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#r-v" role="tab">R.V</a>
+                        <a class="nav-link" data-toggle="tab" href="#r-v" role="tab">Recreational vehicle (RV)</a>
                     </li>
                 </ul>
             </div>

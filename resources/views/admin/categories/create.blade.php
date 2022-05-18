@@ -6,14 +6,14 @@
 		<h1>Add Category</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">View All</a>
+		<a href="{{ route('category.index') }}" class="btn btn-primary btn-sm">View All</a>
 	</div>
 </section>
 
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			<form action="{{ route('categories.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+			<form action="{{ route('category.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 				@csrf
 				<div class="box box-info">
 					<div class="box-body">

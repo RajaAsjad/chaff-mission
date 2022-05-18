@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class steps_of_rent extends Model
+class CarType extends Model
 {
     use HasFactory,SoftDeletes;
+
+    protected $guarded = [];
 
     public function hasCreatedBy()
     {

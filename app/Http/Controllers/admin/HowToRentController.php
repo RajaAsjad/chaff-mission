@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\steps_of_rent;
+use App\Models\HowToRent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use File;
 
-class StepsOfRentController extends Controller
+class HowToRentController extends Controller
 {
     function _construct()
     {
-    $this->middleware('permission:car_rent-list|car_rent-create|car_rent-edit|car_rent-delete' , ['only' => ['index' , 'store']]);
-    $this->middleware('permission:car_rent-create' , ['only' => ['create' , 'store']]);
-    $this->middleware('permission:car_rent-edit' , ['only' => ['edit' , 'update']]);
-    $this->middleware('permission:car_rent-delete' , ['only' => ['destroy']]);
+    $this->middleware('permission:how_to_rent-list|how_to_rent-create|how_to_rent-edit|how_to_rent-delete' , ['only' => ['index' , 'store']]);
+    $this->middleware('permission:how_to_rent-create' , ['only' => ['create' , 'store']]);
+    $this->middleware('permission:how_to_rent-edit' , ['only' => ['edit' , 'update']]);
+    $this->middleware('permission:how_to_rent-delete' , ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class StepsOfRentController extends Controller
     public function index(Request $request)
     {
         if($request->ajax()){
-            $query=steps_of_rent::orderby('id' , 'desc')->where('status' , '>' , 0);
+            $query=HowToRent::orderby('id' , 'desc')->where('status' , '>' , 0);
             if($request['search'] != ""){
                 $query->where('heading' , 'like' , '%' .$request['search']. '%');
             }
@@ -35,13 +35,13 @@ class StepsOfRentController extends Controller
                 }
             $query->where('status' , $request['status']);
             }
-        $car_rents=$query->paginate(10);
-        return (string) view('admin.car_rent.search' , compact('car_rents'));
+            $how_to_rents=$query->paginate(10);
+            return (string) view('admin.how_to_rent.search' , compact('how_to_rents'));
         }
         
-        $page_title="All Car Rent";
-        $car_rents=steps_of_rent::orderby('id' , 'desc')->paginate(10);
-        return view('admin.car_rent.index' , compact('car_rents' , 'page_title'));
+        $page_title="All How To Rents";
+        $how_to_rents = HowToRent::orderby('id' , 'desc')->paginate(10);
+        return view('admin.how_to_rent.index' , compact('how_to_rents' , 'page_title'));
     }
 
     /**
@@ -51,8 +51,8 @@ class StepsOfRentController extends Controller
      */
     public function create()
     {
-        $page_title="Add Car Rent";
-        return view('admin.car_rent.create' , compact('page_title'));
+        $page_title="Add New How to Rent";
+        return view('admin.how_to_rent.create' , compact('page_title'));
     }
 
     /**
@@ -67,21 +67,21 @@ class StepsOfRentController extends Controller
             'heading' => 'required',
         ]);
 
-        $car_rents = new steps_of_rent;
+        $how_to_rents = new HowToRent;
 
         if(isset($request->image)){
             $photo=date('y-m-d-His').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/admin/assets/images/car_rent'), $photo);
-            $car_rents->image=$photo;
+            $request->image->move(public_path('/admin/assets/images/how_to_rents'), $photo);
+            $how_to_rents->image=$photo;
         }
         
-        $car_rents->created_by = Auth::user()->id;
-        $car_rents->slug = \Str::slug($request->heading);
-        $car_rents->heading = $request->heading;
-        $car_rents->description = $request->description;
-        $car_rents->save();
+        $how_to_rents->created_by = Auth::user()->id;
+        $how_to_rents->slug = \Str::slug($request->heading);
+        $how_to_rents->heading = $request->heading;
+        $how_to_rents->description = $request->description;
+        $how_to_rents->save();
 
-        return redirect()->route('car_rent.index')->with('message' , 'Car Rent Added Successfully');
+        return redirect()->route('how_to_rent.index')->with('message' , 'Car Rent Added Successfully');
 
     }
 
@@ -104,9 +104,9 @@ class StepsOfRentController extends Controller
      */
     public function edit($slug)
     {
-        $page_title="Add Car Rent";
-        $car_rents=steps_of_rent::where('slug' , $slug)->first();
-        return view('admin.car_rent.edit' , compact('car_rents' , 'page_title'));
+        $page_title="Edit How to Rent";
+        $how_to_rents=HowToRent::where('slug' , $slug)->first();
+        return view('admin.how_to_rent.edit' , compact('how_to_rents' , 'page_title'));
     }
 
     /**
@@ -122,11 +122,11 @@ class StepsOfRentController extends Controller
             'heading' => 'required',
         ]);
 
-        $updates = steps_of_rent::where('slug', $slug)->first();
+        $updates = HowToRent::where('slug', $slug)->first();
 
         if(isset($request->image)){
             $photo=date('YmdHis').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/admin/assets/images/car_rent'), $photo);
+            $request->image->move(public_path('/admin/assets/images/how_to_rents'), $photo);
             $updates->image=$photo;
         }
 
@@ -137,7 +137,7 @@ class StepsOfRentController extends Controller
         $updates->status = $request->status;
         $updates->update();
 
-        return redirect()->route('car_rent.index')->with('message' , 'Car Rent Updated Successfully');
+        return redirect()->route('how_to_rent.index')->with('message' , 'Car Rent Updated Successfully');
     }
 
     /**
@@ -148,9 +148,9 @@ class StepsOfRentController extends Controller
      */
     public function destroy($slug)
     {
-        $car_rents=steps_of_rent::where('slug' , $slug)->first();
-        if($car_rents){
-            $car_rents->delete();
+        $how_to_rents=HowToRent::where('slug' , $slug)->first();
+        if($how_to_rents){
+            $how_to_rents->delete();
             return true;
         }
         else{

@@ -106,7 +106,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="explore-more">
-                        <a href="" class="universal-btn">EXPLORE MORE</a>
+                        <a href="{{ route('rentals') }}" class="universal-btn">EXPLORE MORE</a>
                     </div>
                 </div>
             </div>
@@ -222,37 +222,36 @@
             <div class="row">
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card">
-                        <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[0]['image']}}" alt="">
+                        <img src="{{ asset('public/admin/assets/images/how_to_rents/') }}/{{$steprents[0]['image']}}" alt="">
                         <h6>{{$steprents[0]['heading']}}</h6>
                         <p>{!! $steprents[0]['description'] !!}</p>
                     </div>
                 </div>
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card">
-                        <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[1]['image']}}" alt="">
+                        <img src="{{ asset('public/admin/assets/images/how_to_rents/') }}/{{$steprents[1]['image']}}" alt="">
                         <h6>{{$steprents[1]['heading']}}</h6>
                         <p>{!! $steprents[1]['description'] !!}</p>
                     </div>
                 </div>
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card">
-                        <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[2]['image']}}" alt="">
+                        <img src="{{ asset('public/admin/assets/images/how_to_rents/') }}/{{$steprents[2]['image']}}" alt="">
                         <h6>{{$steprents[2]['heading']}}</h6>
                         <p>{!! $steprents[2]['description'] !!}</p>
                     </div>
                 </div>
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card-last">
-                        <img src="{{ asset('public/admin/assets/images/car_rent/') }}/{{$steprents[3]['image']}}" alt="">
+                        <img src="{{ asset('public/admin/assets/images/how_to_rents/') }}/{{$steprents[3]['image']}}" alt="">
                         <h6>{{$steprents[3]['heading']}}</h6>
                         <p>{!! $steprents[3]['description'] !!}</p>
                     </div>
                 </div>
                 <div class="book-car-button">
-                    <a href="#" class="universal-btn">Get started</a>
+                    <a href="{{ route('login') }}" class="universal-btn">Get started</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- car rent html start -->
 @endSection

@@ -1,5 +1,5 @@
 @foreach($models as $key=>$model)
-    <tr id="id-{{ $model->slug }}">
+    <tr id="id-{{ $model->id }}">
         <td>{{ $models->firstItem()+$key }}.</td>
         <td>{{\Illuminate\Support\Str::limit($model->name,40)}}</td>
         <td>{{\Illuminate\Support\Str::limit($model->description,60)}}</td>
@@ -12,9 +12,9 @@
         </td>
         <td>{{isset($model->hasCreatedBy)?$model->hasCreatedBy->name:'N/A'}}</td>
         <td width="250px">
-                <a href="{{route('category.edit', $model->slug)}}" data-toggle="tooltip" data-placement="top" title="Edit category" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                <a href="{{route('car_type.edit', $model->id)}}" data-toggle="tooltip" data-placement="top" title="Edit category" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
             
-                <button class="btn btn-danger btn-xs delete" data-slug="{{ $model->slug }}" data-del-url="{{ url('category', $model->slug) }}"><i class="fa fa-trash"></i> Delete</button>
+                <button class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ url('car_type', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
             
         </td>
     </tr>

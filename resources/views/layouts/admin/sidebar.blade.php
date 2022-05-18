@@ -21,34 +21,43 @@
                 </a>
             </li>
             @endcan
-            @can('car-list')
+            @can('user-list')
             <li class="treeview">
-                <a href="{{ route('rental.index') }}" class="{{ request()->is('rental') || request()->is('rental/create') || request()->is('rental/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>Rentals</span>
+                <a href="{{ route('user.index') }}" class="{{ request()->is('user') || request()->is('user/create') || request()->is('user/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-users"></i> <span>Users</span>
                 </a>
             </li>
             @endcan
-            @can('property-list')
+            @can('categories-list')
             <li class="treeview">
-                <a href="{{ route('property.index') }}" class="{{ request()->is('property') || request()->is('property/create') || request()->is('property/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>Properties</span>
+                <a href="{{ route('category.index') }}" class="{{ request()->is('category') || request()->is('category/create') || request()->is('category/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Categories</span>
                 </a>
             </li>
             @endcan
-            @can('rv-list')
+            @can('car_type-list')
             <li class="treeview">
-                <a href="{{ route('rv.index') }}" class="{{ request()->is('rv') || request()->is('rv/create') || request()->is('rv/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>R.Vs</span>
+                <a href="{{ route('car_type.index') }}" class="{{ request()->is('car_type') || request()->is('car_type/create') || request()->is('car_type/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Car Types</span>
                 </a>
             </li>
             @endcan
-            @can('blog category-list')
+            @can('product-list')
             <li class="treeview">
-                <a href="{{ route('blogcategory.index') }}" class="{{ request()->is('blogcategory') || request()->is('blogcategory/create') || request()->is('blogcategory/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>Blog Categories</span>
+                <a href="{{ route('product.index') }}" class="{{ request()->is('product') || request()->is('product/create') || request()->is('product/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Products</span>
                 </a>
             </li>
             @endcan
+            @can('deals-list')
+            <li class="treeview">
+                <a href="{{ route('deals.index') }}" class="{{ request()->is('deals') || request()->is('deals/create') || request()->is('deals/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Deals</span>
+                </a>
+            </li>
+            @endcan
+            
+            
             @can('blog-list')
             <li class="treeview">
                 <a href="{{ route('blog.index') }}" class="{{ request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : '' }}">
@@ -63,20 +72,7 @@
                 </a>
             </li>
             @endcan
-            @can('virtualtour-list')
-            <li class="treeview">
-                <a href="{{ route('tour.index') }}" class="{{ request()->is('tour') || request()->is('tour/create') || request()->is('tour/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>Virtual Tour</span>
-                </a>
-            </li>
-            @endcan
-            @can('deals-list')
-            <li class="treeview">
-                <a href="{{ route('deals.index') }}" class="{{ request()->is('deals') || request()->is('deals/create') || request()->is('deals/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>Deals</span>
-                </a>
-            </li>
-            @endcan
+            
             @can('gallery-list')
             <li class="treeview">
                 <a href="{{ route('gallery.index') }}" class="{{ request()->is('gallery') || request()->is('gallery/create') || request()->is('gallery/*/edit') ? 'active' : '' }}">
@@ -84,20 +80,7 @@
                 </a>
             </li>
             @endcan
-            @can('categories-list')
-            <li class="treeview">
-                <a href="{{ route('categories.index') }}" class="{{ request()->is('categories') || request()->is('categories/create') || request()->is('categories/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>Categories</span>
-                </a>
-            </li>
-            @endcan
-            @can('user-list')
-            <li class="treeview">
-                <a href="{{ route('user.index') }}" class="{{ request()->is('user') || request()->is('user/create') || request()->is('user/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-users"></i> <span>Users</span>
-                </a>
-            </li>
-            @endcan
+           
             @can('about-list')
             <li class="treeview">
                 <a href="{{ route('about.index') }}" class="{{ request()->is('about') || request()->is('about/create') || request()->is('about/*/edit') ? 'active' : '' }}">
@@ -107,18 +90,18 @@
             @endcan
             @can('car_rent-list')
             <li class="treeview">
-                <a href="{{ route('car_rent.index') }}" class="{{ request()->is('car_rent') || request()->is('car_rent/create') || request()->is('car_rent/*/edit') ? 'active' : '' }}">
-                    <i class="fa fa-tasks"></i> <span>Step Of Car Rent</span>
+                <a href="{{ route('how_to_rent.index') }}" class="{{ request()->is('how_to_rent') || request()->is('how_to_rent/create') || request()->is('how_to_rent/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>How to rents</span>
                 </a>
             </li>
             @endcan
-            @can('page-list')
+            {{-- @can('page-list')
             <li class="treeview">
                 <a href="{{ route('page.index') }}" class="{{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') ? 'active' : '' }}">
                     <i class="fa fa-tasks"></i> <span>Settings</span>
                 </a>
             </li>
-            @endcan
+            @endcan --}}
             @can('faq-list')
                 <li class="treeview">
                     <a href="{{ route('faq.index') }}" class="{{ request()->is('faq') || request()->is('faq/create') || request()->is('faq/*/edit') ? 'active' : '' }}">
@@ -133,21 +116,14 @@
                     </a>
                 </li>
             @endcan
-            @can('coupon-list')
-                <li class="treeview">
-                    <a href="{{ route('coupon.index') }}" class="{{ request()->is('coupon') || request()->is('coupon/create') || request()->is('coupon/*/edit') ? 'active' : '' }}">
-                        <i class="fa fa-graduation-cap"></i> <span>Coupons</span>
-                    </a>
-                </li>
-            @endcan
-            
-            @can('team-list')
-                <li class="treeview">
-                    <a href="{{ route('team.index') }}" class="{{ request()->is('team') || request()->is('team/create') || request()->is('team/*/edit') ? 'active' : '' }}">
-                        <i class="fa fa-user-plus"></i> <span>Team</span>
-                    </a>
-                </li>
-            @endcan
+
+            {{-- @can('virtualtour-list')
+            <li class="treeview">
+                <a href="{{ route('tour.index') }}" class="{{ request()->is('tour') || request()->is('tour/create') || request()->is('tour/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Virtual Tour</span>
+                </a>
+            </li>
+            @endcan --}}
         </ul>
     </section>
 </aside>

@@ -20,14 +20,14 @@
         <div class="container">
             <div class="row gallery-expand-buttons">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#tabs-1" role="tab">PROPERTIES</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#tabs-2" role="tab">RENTALS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">R.V</a>
+                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Recreational vehicle (RV)</a>
                     </li>
                 </ul>
             </div>

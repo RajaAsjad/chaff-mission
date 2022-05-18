@@ -3,7 +3,7 @@
 @section('content')
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Products</h1>
+		<h1>{{ $page_title }}</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="{{ route('product.index') }}" class="btn btn-primary btn-sm">View All</a>
@@ -24,10 +24,22 @@
                                 <select name="category_slug" id="category_slug" class="form-control">
                                     <option value="" selected>Select category</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->slug }}" {{ $details->category_slug == $category->slug ? 'selected':'' }}>{{ $category->name }}</option>
+                                        <option value="{{ $category->slug }}" {{ $details->category_slug == $category->id ? 'selected':'' }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <span style="color: red">{{ $errors->first('category_slug') }}</span>
+                            </div>
+						</div>
+						<div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Car Type<span style="color: red">*</span></label>
+                            <div class="col-md-9">
+                                <select name="car_type" id="car_type" class="form-control">
+                                    <option value="" selected>Select Car Type</option>
+                                    @foreach ($car_types as $car_type)
+                                        <option value="{{ $car_type->id }}" {{ $details->type == $car_type->id ? 'selected':'' }}>{{ $car_type->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span style="color: red">{{ $errors->first('car_type') }}</span>
                             </div>
 						</div>
 						<div class="form-group">
@@ -36,104 +48,96 @@
 								<input type="text" autocomplete="off" class="form-control" name="name" value="{{$details->name}}">
 							</div>
 						</div>
+                        
                         <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Product Price <span style="color: red">*</span></label>
+							<label for="" class="col-sm-2 control-label">Seat<span style="color: red">*</span></label>
 							<div class="col-sm-9">
-                                <input type="number" name="price" id="" value="{{$details->price}}" min="1" class="form-control placeholder="Enter price">
-								<span style="color: red">{{ $errors->first('price') }}</span>
+                                <input type="number" name="seats" id="" value="{{$details->seats}}"  class="form-control" placeholder="Enter Seat">
+								<span style="color: red">{{ $errors->first('seats') }}</span>
 							</div>
                         </div>
                         <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Min Competition<span style="color: red">*</span></label>
+							<label for="" class="col-sm-2 control-label">Doors<span style="color: red">*</span></label>
 							<div class="col-sm-9">
-                                <input type="number" name="min_competition" id="" value="{{$details->min_competition}}" min="1" class="form-control placeholder="Enter min competition">
-								<span style="color: red">{{ $errors->first('min_competition') }}</span>
+                                <input type="number" name="doors" id="" value="{{$details->doors}}" class="form-control" placeholder="Enter Doors">
+								<span style="color: red">{{ $errors->first('doors') }}</span>
 							</div>
                         </div>
                         <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Max Competition<span style="color: red">*</span></label>
+							<label for="" class="col-sm-2 control-label">MPG<span style="color: red">*</span></label>
 							<div class="col-sm-9">
-                                <input type="number" name="max_competition" id="" value="{{$details->max_competition}}" min="1" max="190" class="form-control placeholder="Enter max competition">
-								<span style="color: red">{{ $errors->first('max_competition') }}</span>
+                                <input type="number" name="mpg" id="" value="{{$details->mpg}}" min="1" max="40" class="form-control" placeholder="Enter MPG">
+								<span style="color: red">{{ $errors->first('mpg') }}</span>
 							</div>
                         </div>
                         <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Number Of Winners<span style="color: red">*</span></label>
+							<label for="" class="col-sm-2 control-label">Fuel<span style="color: red">*</span></label>
 							<div class="col-sm-9">
-                                <input type="number" name="number_of_winners" id="" value="{{$details->number_of_winners}}" min="1" max="190" class="form-control placeholder="Enter number of winners">
-								<span style="color: red">{{ $errors->first('number_of_winners') }}</span>
-							</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Expiry Date <span style="color: red">*</span></label>
-                            <div class="col-sm-9">
-                                <input type="date" name="draw_ends" value="{{ $details->draw_ends }}" id="end-date"  class="form-control">
-                                <span id="error-end-date" style="color:red"></span>
-                                <span style="color: red">{{ $errors->first('draw_ends') }}</span>
-                            </div>
-                         </div>
-
-                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Image </label>
-                            <div class="col-sm-6" style="padding-top:5px">
-                                <input type="file" class="form-control" accept="image*" name="image">
-                            </div>
-                            <div class="col-sm-4" >
-                                <img style="width: 80px " src="{{ asset('public/admin/assets/images/product') }}/{{ $details->image }}" alt="">
-                            </div>
-                         </div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Short Description <span style="color: red">*</span></label>
-							<div class="col-sm-9">
-								<textarea class="form-control texteditor" name="short_description" style="height:200px;" placeholder="Enter short_description">{!! $details->short_description !!}</textarea>
-								<span style="color: red">{{ $errors->first('short_description') }}</span>
+								<input type="text" name="fuel" value="{{$details->fuel}}" id="fuel" class="form-control" placeholder="Enter Fuel">
+								<span style="color: red">{{ $errors->first('fuel') }}</span>
 							</div>
 						</div>
+						{{-- <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Rooms<span style="color: red">*</span></label>
+							<div class="col-sm-9">
+								<input type="number" name="rooms" value="{{$details->rooms}}" id="rooms" class="form-control" placeholder="Enter Rooms">
+								<span style="color: red">{{ $errors->first('rooms') }}</span>
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Beds<span style="color: red">*</span></label>
+							<div class="col-sm-9">
+								<input type="number" name="beds" id="" value="{{$details->beds}}" class="form-control" placeholder="Enter Beds">
+								<span style="color: red">{{ $errors->first('beds') }}</span>
+							</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Bathrooms<span style="color: red">*</span></label>
+                            <div class="col-sm-9">
+								<input type="number" name="bathrooms" id="" value="{{$details->bathrooms}}" class="form-control" placeholder="Enter Bathrooms">
+								<span style="color: red">{{ $errors->first('bathrooms') }}</span>
+                            </div>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Color <span style="color: red">*</span></label>
+                            <div class="col-sm-1">
+                                <input type="color" name="color" value="{{$details->color}}" id="color" class="form-control">
+                                <span style="color: red">{{ $errors->first('color') }}</span>
+                            </div>
+                        </div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">Rent Per Day<span style="color: red">*</span></label>
+							<div class="col-sm-9">
+                                <input type="number" name="rent_per_day" id="" value="{{$details->rent_per_day}}" class="form-control" placeholder="Enter Rent Per Day">
+								<span style="color: red">{{ $errors->first('rent_per_day') }}</span>
+							</div>
+                        </div>
                         <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Description <span style="color: red">*</span></label>
 							<div class="col-sm-9">
-								<textarea class="form-control texteditor" name="description" style="height:200px;" placeholder="Enter description">{!! $details->description !!}</textarea>
+								<textarea class="form-control texteditor" name="description" style="height:200px;" placeholder="Enter Description">{!! $details->description !!}</textarea>
 								<span style="color: red">{{ $errors->first('description') }}</span>
 							</div>
 						</div>
-                        <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Question <span style="color: red">*</span></label>
-							<div class="col-sm-9">
-								<textarea class="form-control" name="question" style="height:100px;" placeholder="Enter question">{!! isset($details->hasQuestion)?$details->hasQuestion->question:'' !!}</textarea>
-								<span style="color: red">{{ $errors->first('question') }}</span>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">Thumbnail </label>
+							<div class="col-sm-6" style="padding-top:5px">
+								<input type="file" class="form-control" accept="image*" name="thumbnail">
+							</div>
+							<div class="col-sm-4" >
+								<img style="width: 80px " src="{{ asset('public/admin/assets/products/thumbnails') }}/{{ $details->thumbnail }}" alt="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">Image </label>
+							<div class="col-sm-6" style="padding-top:5px">
+								<input type="file" class="form-control" accept="image*" name="image[]">
+							</div>
+							<div class="col-sm-4" >
+								<img style="width: 80px " src="{{ asset('public/admin/assets/products/images') }}/{{ $details->image }}" alt="">
 							</div>
 						</div>
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Answer<span style="color: red">*</span></label>
-                            <div class="col-sm-9">
-                            <input type="text" name="answer" id="" value="{!! isset($details->hasQuestion)?$details->hasQuestion->answer:'' !!}" class="form-control" placeholder="Enter answer">
-                            <span style="color: red">{{ $errors->first('answer') }}</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Option#1<span style="color: red">*</span></label>
-                            <div class="col-sm-9">
-                            <input type="text" name="choices[]" id="" value="{{ isset($details->hasQuestion->hasOptions[0])?$details->hasQuestion->hasOptions[0]->choices:'' }}" class="form-control" placeholder="Enter choices">
-                            <span style="color: red">{{ $errors->first('choices') }}</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Option#2<span style="color: red">*</span></label>
-                            <div class="col-sm-9">
-                            <input type="text" name="choices[]" id="" value="{{ isset($details->hasQuestion->hasOptions[1])?$details->hasQuestion->hasOptions[1]->choices:'' }}" class="form-control" placeholder="Enter choices">
-                            <span style="color: red">{{ $errors->first('choices') }}</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Option#3<span style="color: red">*</span></label>
-                            <div class="col-sm-9">
-                            <input type="text" name="choices[]" id="" value="{{ isset($details->hasQuestion->hasOptions[2])?$details->hasQuestion->hasOptions[2]->choices:'' }}" class="form-control" placeholder="Enter choices">
-                            <span style="color: red">{{ $errors->first('choices') }}</span>
-                            </div>
-                        </div>
-
-						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Status</label>
 							<div class="col-sm-9">
 								<select name="status" class="form-control" id="">

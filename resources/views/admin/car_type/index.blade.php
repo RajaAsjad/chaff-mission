@@ -1,16 +1,16 @@
 @extends('layouts.admin.app')
 @section('title', $page_title)
 @section('content')
-<input type="hidden" id="page_url" value="{{ route('car_rent.index') }}">
+<input type="hidden" id="page_url" value="{{ route('car_type.index') }}">
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>All Car Rent</h1>
+		<h1>{{ $page_title }}</h1>
 	</div>
-	@can('about-create')
+
 	<div class="content-header-right">
-		<a href="{{ route('car_rent.create') }}" class="btn btn-primary btn-sm">Add Car Rent</a>
+		<a href="{{ route('car_type.create') }}" class="btn btn-primary btn-sm">Add Car Type</a>
 	</div>
-	@endcan
+
 </section>
 
 <section class="content">
@@ -41,8 +41,7 @@
 						<thead>
 							<tr>
 								<th>SL</th>
-								<th>Image</th>
-								<th>Heading</th>
+								<th>Name</th>
 								<th>Description</th>
 								<th>Status</th>
 								<th>Created by</th>
@@ -50,40 +49,32 @@
 							</tr>
 						</thead>
 						<tbody id="body">
-							@foreach($car_rents as $key=>$car_rent)
-								<tr id="id-{{ $car_rent->slug }}">
-									<td>{{ $car_rents->firstItem()+$key }}.</td>
-                                    <td>
-										@if($car_rent->image)
-											<img src="{{ asset('public/admin/assets/images/car_rent/'.$car_rent->image) }}" alt="" style="width:60px;">
-										@else
-											<img src="{{ asset('public/admin/assets/images/default.jpg') }}" style="width:60px;">
-										@endif
-									</td>
-									<td>{{($car_rent->heading)}}</td>
-									<td>{!! \Illuminate\Support\Str::limit($car_rent->description , 60) !!}</td>
+							@foreach($models as $key=>$model)
+								<tr id="id-{{ $model->id }}">
+									<td>{{ $models->firstItem()+$key }}.</td>
+									<td>{{\Illuminate\Support\Str::limit($model->name,40)}}</td>
+									<td>{{\Illuminate\Support\Str::limit($model->description,60)}}</td>
 									<td>
-										@if($car_rent->status)
+										@if($model->status)
 											<span class="badge badge-success">Active</span>
 										@else
 											<span class="badge badge-danger">In-Active</span>
 										@endif
 									</td>
-                                    <td>{{isset($car_rent->hasCreatedBy)?$car_rent->hasCreatedBy->name:'N/A'}}</td>
+									<td>{{isset($model->hasCreatedBy)?$model->hasCreatedBy->name:'N/A'}}</td>
 									<td width="250px">
-									@can('car_rent-edit')
-										<a href="{{route('car_rent.edit', $car_rent->slug)}}" data-toggle="tooltip" data-placement="top" title="Edit Car Rent" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-									@endcan
-									@can('car_rent-delete')
-										<button class="btn btn-danger btn-xs delete" data-slug="{{ $car_rent->slug }}" data-del-url="{{ url('car_rent', $car_rent->slug) }}"><i class="fa fa-trash"></i> Delete</button>
-									@endcan
+											<a href="{{route('car_type.edit', $model->id)}}" data-toggle="tooltip" data-placement="top" title="Edit category" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+										
+                                            <button class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ url('car_type', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
+										
 									</td>
 								</tr>
 							@endforeach
                             <tr>
                                 <td colspan="6">
+									Displying {{$models->firstItem()}} to {{$models->lastItem()}} of {{$models->total()}} records
                                     <div class="d-flex justify-content-center">
-                                        {!! $car_rents->links('pagination::bootstrap-4') !!}
+                                        {!! $models->links('pagination::bootstrap-4') !!}
                                     </div>
                                 </td>
                             </tr>

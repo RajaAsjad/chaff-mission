@@ -4,17 +4,17 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Category</h1>
+		<h1>Edit Car Type</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="{{ route('blogcategory.index') }}" class="btn btn-primary btn-sm">View All</a>
+		<a href="{{ route('car_type.index') }}" class="btn btn-primary btn-sm">View All</a>
 	</div>
 </section>
 
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			<form action="{{ route('blogcategory.update', $model->slug) }}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+			<form action="{{ route('car_type.update', $model->id) }}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 				@csrf
 				{{ method_field('PATCH') }}
 				<div class="box box-info">

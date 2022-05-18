@@ -116,149 +116,170 @@
                     <div class="data-time">
                         <h1>$<?php echo e(number_format($product->rent, 2)); ?><span>/day</span></h1>
                     </div>
-                    <!-- Scrollable modal -->
-
                     <hr>
-                    <h3>Trip start</h3>
-                    <div class="date-picker">
-                        <div class="ui calendar" id="example2">
-                            <div class="ui input left icon">
-                            <i class="calendar icon"></i>
-                            <input type="text" placeholder="Date">
+                    <form action="<?php echo e(route('booking.store')); ?>" method="post">
+                        <?php echo csrf_field(); ?>
+
+                        <input type="hidden" name="product_slug" value="<?php echo e($product->slug); ?>">
+                        <h3>Trip start</h3>
+                        <div class="date-picker">
+                            <div class="ui calendar" id="example2">
+                                <div class="ui input left icon">
+                                    <i class="calendar icon"></i>
+                                    <input type="text" name="trip_start_date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="select-dropdown">
+                                <select id="timer-er" name="trip_start_time">
+                                    <option value="">10:00 PM</option>
+                                    <option value="0">Midnight</option>
+                                    <option value="30">12:30 AM</option>
+                                    <option value="60">1:00 AM</option>
+                                    <option value="90">1:30 AM</option>
+                                    <option value="120">2:00 AM</option>
+                                    <option value="150">2:30 AM</option>
+                                    <option value="180">3:00 AM</option>
+                                    <option value="210">3:30 AM</option>
+                                    <option value="240">4:00 AM</option>
+                                    <option value="270">4:30 AM</option>
+                                    <option value="300">5:00 AM</option>
+                                    <option value="330">5:30 AM</option>
+                                    <option value="360">6:00 AM</option>
+                                    <option value="390">6:30 AM</option>
+                                    <option value="420">7:00 AM</option>
+                                    <option value="450">7:30 AM</option>
+                                    <option value="480">8:00 AM</option>
+                                    <option value="510">8:30 AM</option>
+                                    <option value="540">9:00 AM</option>
+                                    <option value="570">9:30 AM</option>
+                                    <option value="600">10:00 AM</option>
+                                    <option value="630">10:30 AM</option>
+                                    <option value="660">11:00 AM</option>
+                                    <option value="690">11:30 AM</option>
+                                    <option value="720">Noon</option>
+                                    <option value="750">12:30 PM</option>
+                                    <option value="780">1:00 PM</option>
+                                    <option value="810">1:30 PM</option>
+                                    <option value="840">2:00 PM</option>
+                                    <option value="870">2:30 PM</option>
+                                    <option value="900">3:00 PM</option>
+                                    <option value="930">3:30 PM</option>
+                                    <option value="960">4:00 PM</option>
+                                    <option value="990">4:30 PM</option>
+                                    <option value="1020">5:00 PM</option>
+                                    <option value="1050">5:30 PM</option>
+                                    <option value="1080">6:00 PM</option>
+                                    <option value="1110">6:30 PM</option>
+                                    <option value="1140">7:00 PM</option>
+                                    <option value="1170">7:30 PM</option>
+                                    <option value="1200">8:00 PM</option>
+                                    <option value="1230">8:30 PM</option>
+                                    <option value="1260">9:00 PM</option>
+                                    <option value="1290">9:30 PM</option>
+                                    <option value="1320">10:00 PM</option>
+                                    <option value="1350">10:30 PM</option>
+                                    <option value="1380">11:00 PM</option>
+                                    <option value="1410">11:30 PM</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="select-dropdown">
-                            <select id="timer-er">
-                                <option value="">10:00 PM</option>
-                                <option value="0">Midnight</option>
-                                <option value="30">12:30 AM</option>
-                                <option value="60">1:00 AM</option>
-                                <option value="90">1:30 AM</option>
-                                <option value="120">2:00 AM</option>
-                                <option value="150">2:30 AM</option>
-                                <option value="180">3:00 AM</option>
-                                <option value="210">3:30 AM</option>
-                                <option value="240">4:00 AM</option>
-                                <option value="270">4:30 AM</option>
-                                <option value="300">5:00 AM</option>
-                                <option value="330">5:30 AM</option>
-                                <option value="360">6:00 AM</option>
-                                <option value="390">6:30 AM</option>
-                                <option value="420">7:00 AM</option>
-                                <option value="450">7:30 AM</option>
-                                <option value="480">8:00 AM</option>
-                                <option value="510">8:30 AM</option>
-                                <option value="540">9:00 AM</option>
-                                <option value="570">9:30 AM</option>
-                                <option value="600">10:00 AM</option>
-                                <option value="630">10:30 AM</option>
-                                <option value="660">11:00 AM</option>
-                                <option value="690">11:30 AM</option>
-                                <option value="720">Noon</option>
-                                <option value="750">12:30 PM</option>
-                                <option value="780">1:00 PM</option>
-                                <option value="810">1:30 PM</option>
-                                <option value="840">2:00 PM</option>
-                                <option value="870">2:30 PM</option>
-                                <option value="900">3:00 PM</option>
-                                <option value="930">3:30 PM</option>
-                                <option value="960">4:00 PM</option>
-                                <option value="990">4:30 PM</option>
-                                <option value="1020">5:00 PM</option>
-                                <option value="1050">5:30 PM</option>
-                                <option value="1080">6:00 PM</option>
-                                <option value="1110">6:30 PM</option>
-                                <option value="1140">7:00 PM</option>
-                                <option value="1170">7:30 PM</option>
-                                <option value="1200">8:00 PM</option>
-                                <option value="1230">8:30 PM</option>
-                                <option value="1260">9:00 PM</option>
-                                <option value="1290">9:30 PM</option>
-                                <option value="1320">10:00 PM</option>
-                                <option value="1350">10:30 PM</option>
-                                <option value="1380">11:00 PM</option>
-                                <option value="1410">11:30 PM</option>
-                            </select>
-                        </div>
-                    </div>
-                    <h3>Trip start</h3>
-                    <div class="date-picker">
-                        <div class="ui calendar" id="example33">
-                            <div class="ui input left icon">
-                            <i class="calendar icon"></i>
-                            <input type="text" placeholder="Date">
+                        <h3>Trip End</h3>
+                        <div class="date-picker">
+                            <div class="ui calendar" id="example33">
+                                <div class="ui input left icon">
+                                    <i class="calendar icon"></i>
+                                    <input type="text" name="trip_end_date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="select-dropdown">
+                                <select id="timer-er" name="trip_end_time">
+                                    <option value="">10:00 PM</option>
+                                    <option value="0">Midnight</option>
+                                    <option value="30">12:30 AM</option>
+                                    <option value="60">1:00 AM</option>
+                                    <option value="90">1:30 AM</option>
+                                    <option value="120">2:00 AM</option>
+                                    <option value="150">2:30 AM</option>
+                                    <option value="180">3:00 AM</option>
+                                    <option value="210">3:30 AM</option>
+                                    <option value="240">4:00 AM</option>
+                                    <option value="270">4:30 AM</option>
+                                    <option value="300">5:00 AM</option>
+                                    <option value="330">5:30 AM</option>
+                                    <option value="360">6:00 AM</option>
+                                    <option value="390">6:30 AM</option>
+                                    <option value="420">7:00 AM</option>
+                                    <option value="450">7:30 AM</option>
+                                    <option value="480">8:00 AM</option>
+                                    <option value="510">8:30 AM</option>
+                                    <option value="540">9:00 AM</option>
+                                    <option value="570">9:30 AM</option>
+                                    <option value="600">10:00 AM</option>
+                                    <option value="630">10:30 AM</option>
+                                    <option value="660">11:00 AM</option>
+                                    <option value="690">11:30 AM</option>
+                                    <option value="720">Noon</option>
+                                    <option value="750">12:30 PM</option>
+                                    <option value="780">1:00 PM</option>
+                                    <option value="810">1:30 PM</option>
+                                    <option value="840">2:00 PM</option>
+                                    <option value="870">2:30 PM</option>
+                                    <option value="900">3:00 PM</option>
+                                    <option value="930">3:30 PM</option>
+                                    <option value="960">4:00 PM</option>
+                                    <option value="990">4:30 PM</option>
+                                    <option value="1020">5:00 PM</option>
+                                    <option value="1050">5:30 PM</option>
+                                    <option value="1080">6:00 PM</option>
+                                    <option value="1110">6:30 PM</option>
+                                    <option value="1140">7:00 PM</option>
+                                    <option value="1170">7:30 PM</option>
+                                    <option value="1200">8:00 PM</option>
+                                    <option value="1230">8:30 PM</option>
+                                    <option value="1260">9:00 PM</option>
+                                    <option value="1290">9:30 PM</option>
+                                    <option value="1320">10:00 PM</option>
+                                    <option value="1350">10:30 PM</option>
+                                    <option value="1380">11:00 PM</option>
+                                    <option value="1410">11:30 PM</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="select-dropdown">
-                            <select id="timer-er">
-                                <option value="">10:00 PM</option>
-                                <option value="0">Midnight</option>
-                                <option value="30">12:30 AM</option>
-                                <option value="60">1:00 AM</option>
-                                <option value="90">1:30 AM</option>
-                                <option value="120">2:00 AM</option>
-                                <option value="150">2:30 AM</option>
-                                <option value="180">3:00 AM</option>
-                                <option value="210">3:30 AM</option>
-                                <option value="240">4:00 AM</option>
-                                <option value="270">4:30 AM</option>
-                                <option value="300">5:00 AM</option>
-                                <option value="330">5:30 AM</option>
-                                <option value="360">6:00 AM</option>
-                                <option value="390">6:30 AM</option>
-                                <option value="420">7:00 AM</option>
-                                <option value="450">7:30 AM</option>
-                                <option value="480">8:00 AM</option>
-                                <option value="510">8:30 AM</option>
-                                <option value="540">9:00 AM</option>
-                                <option value="570">9:30 AM</option>
-                                <option value="600">10:00 AM</option>
-                                <option value="630">10:30 AM</option>
-                                <option value="660">11:00 AM</option>
-                                <option value="690">11:30 AM</option>
-                                <option value="720">Noon</option>
-                                <option value="750">12:30 PM</option>
-                                <option value="780">1:00 PM</option>
-                                <option value="810">1:30 PM</option>
-                                <option value="840">2:00 PM</option>
-                                <option value="870">2:30 PM</option>
-                                <option value="900">3:00 PM</option>
-                                <option value="930">3:30 PM</option>
-                                <option value="960">4:00 PM</option>
-                                <option value="990">4:30 PM</option>
-                                <option value="1020">5:00 PM</option>
-                                <option value="1050">5:30 PM</option>
-                                <option value="1080">6:00 PM</option>
-                                <option value="1110">6:30 PM</option>
-                                <option value="1140">7:00 PM</option>
-                                <option value="1170">7:30 PM</option>
-                                <option value="1200">8:00 PM</option>
-                                <option value="1230">8:30 PM</option>
-                                <option value="1260">9:00 PM</option>
-                                <option value="1290">9:30 PM</option>
-                                <option value="1320">10:00 PM</option>
-                                <option value="1350">10:30 PM</option>
-                                <option value="1380">11:00 PM</option>
-                                <option value="1410">11:30 PM</option>
-                            </select>
+
+                        <h3>Pickup Location</h3>
+                        <div class="pick-location">
+                            <label for="">Address</label>
+                            <div class="form-group">
+                                <textarea name="pickup_address" id="" class="form-control" cols="30" rows="3" placeholder="Enter pickup address"></textarea>
+                            </div>
+                            <label for="state">State</label>
+                            <div class="form-group">
+                                <input type="text" name="pickup_state" id="state" class="form-control" placeholder="Enter pickup state">
+                            </div>
+                            <label for="country">Country</label>
+                            <div class="form-group">
+                                <input type="text" name="pickup_country_name" id="country" class="form-control" placeholder="Enter pickup country name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pick-location">
-                        <h4>Pickup & return location</h4>
-                        <select id="timer-er">
-                            <option value="">location</option>
-                            <option value="0">location</option>
-                            <option value="30">location</option>
-                            <option value="60">location</option>
-                            <option value="90">location</option>
-                            <option value="120">location</option>
-                            <option value="150">location</option>
-                            <option value="180">location</option>
-                        </select>
-                    </div>
-                    <div class="continue-btn">
-                        <a href="#" class="universal-btn">Continue</a>
-                    </div>
+                        <h3>Drop Location</h3>
+                        <div class="pick-location">
+                            <label for="">Address</label>
+                            <div class="form-group">
+                                <textarea name="drop_address" id="" class="form-control" cols="30" rows="3" placeholder="Enter pickup drop address"></textarea>
+                            </div>
+                            <label for="state">State</label>
+                            <div class="form-group">
+                                <input type="text" name="drop_state" id="state" class="form-control" placeholder="Enter drop state">
+                            </div>
+                            <label for="country">Country</label>
+                            <div class="form-group">
+                                <input type="text" name="drop_country_name" id="country" class="form-control" placeholder="Enter drop country name">
+                            </div>
+                        </div>
+                        <div class="continue-btn">
+                            <button type="submit" class="universal-btn">Continue</button>
+                        </div>
+                    </form>
                     <div class="cancellation">
                         <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
                         <div class="cancellation-para">

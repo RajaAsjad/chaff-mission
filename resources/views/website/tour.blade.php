@@ -1,5 +1,6 @@
 @extends('layouts.website.master')
 @section('content')
+{{-- 
     <!-- BANNER SEC -->
         <section class="banner-imnner">
             <div class="container">
@@ -48,5 +49,11 @@
                 </div>
             </div>
         </section>
-    <!-- VICTUAL TOUR  -->
+    <!-- VICTUAL TOUR  --> --}}
+    <div class="coming" style=" margin:100px auto; padding:100px; width: 50%; box-shadow: 0 0 28px #d3d3d3;">
+        <h1 Style="text-align:center;">Coming Soon</h1>
+    </div>
+    
     @endsection
+
+    

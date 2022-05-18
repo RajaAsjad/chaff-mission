@@ -11,4 +11,9 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+    
+    public function hasCreatedBy()
+    {
+        return $this->hasOne(User::class, 'id', 'created_by');
+    }
 }

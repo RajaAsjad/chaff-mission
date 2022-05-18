@@ -12,9 +12,9 @@
         </td>
         <td>{{isset($model->hasCreatedBy)?$model->hasCreatedBy->name:'N/A'}}</td>
         <td width="250px">
-                <a href="{{route('categories.edit', $model->id)}}" data-toggle="tooltip" data-placement="top" title="Edit category" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                <a href="{{route('category.edit', $model->id)}}" data-toggle="tooltip" data-placement="top" title="Edit category" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
             
-                <button class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ url('categories', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
+                <button class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ route('category.destroy', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
             
         </td>
     </tr>

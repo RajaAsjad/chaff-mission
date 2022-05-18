@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Property;
-use App\Models\steps_of_rent;
+use App\Models\HowToRent;
 use App\Models\Virtual_tour;
 use App\Models\Testimonial;
 use App\Models\Gallery;
@@ -13,7 +13,7 @@ use App\Models\RV;
 use App\Models\Deal;
 use App\Models\Product;
 use App\Models\AboutUs;
-use App\Models\categories;
+use App\Models\Category;
 use Auth;
 use Hash;
 
@@ -23,8 +23,8 @@ class WebController extends Controller
     {
         $abouts=AboutUs::where('status' , 1)->get();
         $products = Product::where('status',1)->get();
-        $rentals=Rental::where('status' , 1)->get();
-        $steprents=steps_of_rent::where('status',1)->get();
+        $rentals = Rental::where('status' , 1)->get();
+        $steprents = HowToRent::where('status',1)->get();
         return view('website.index', compact('products' , 'abouts' , 'steprents' , 'rentals'));
     }
 
@@ -200,8 +200,7 @@ class WebController extends Controller
 
     public function tour()
     {
-        $testimonials=Testimonial::where('status' ,'=', 1)->get();
-        return view('website.tour' , compact('testimonials'));
+        return view('website.tour');
     }
 
     public function about()
@@ -213,21 +212,19 @@ class WebController extends Controller
 
     public function deal()
     {
-        $categories = categories::where('status', 1)->get();
+        $categories = Category::where('status', 1)->get();
         $property_best_deals = []; 
         $rental_best_deals = []; 
         $rv_best_deals = []; 
         foreach($categories as $category){
-            if($category->name=="Property"){
-                $property_best_deals = Deal::where('category', $category->id)->where('end_date', '>=', date('Y-m-d'))->take(3)->get();
-            }else if($category->name=="Rental"){
+            if($category->name=="Car"){
                 $rental_best_deals = Deal::where('category', $category->id)->where('end_date', '>=', date('Y-m-d'))->take(3)->get();
-            }else if($category->name=="R.V"){
+            }else if($category->name=="recreational-vehicle"){
                 $rv_best_deals = Deal::where('category', $category->id)->where('end_date', '>=', date('Y-m-d'))->take(3)->get();
             }
         }
-        $testimonials=Testimonial::where('status' ,'=', 1)->get();
-        return view('website.deals' , compact('testimonials' , 'property_best_deals' , 'rental_best_deals' , 'rv_best_deals'));
+
+        return view('website.deals' , compact('rental_best_deals' , 'rv_best_deals'));
     }
 
     public function career()
@@ -235,5 +232,8 @@ class WebController extends Controller
         $testimonials=Testimonial::where('status' ,'=', 1)->get();
         return view('website.career'  , compact('testimonials'));
     }
-  
+    public function city()
+    {
+        
+    }
 }

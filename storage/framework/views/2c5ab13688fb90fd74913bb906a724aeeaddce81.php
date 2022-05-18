@@ -106,7 +106,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="explore-more">
-                        <a href="" class="universal-btn">EXPLORE MORE</a>
+                        <a href="<?php echo e(route('rentals')); ?>" class="universal-btn">EXPLORE MORE</a>
                     </div>
                 </div>
             </div>
@@ -222,39 +222,38 @@
             <div class="row">
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card">
-                        <img src="<?php echo e(asset('public/admin/assets/images/car_rent/')); ?>/<?php echo e($steprents[0]['image']); ?>" alt="">
+                        <img src="<?php echo e(asset('public/admin/assets/images/how_to_rents/')); ?>/<?php echo e($steprents[0]['image']); ?>" alt="">
                         <h6><?php echo e($steprents[0]['heading']); ?></h6>
                         <p><?php echo $steprents[0]['description']; ?></p>
                     </div>
                 </div>
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card">
-                        <img src="<?php echo e(asset('public/admin/assets/images/car_rent/')); ?>/<?php echo e($steprents[1]['image']); ?>" alt="">
+                        <img src="<?php echo e(asset('public/admin/assets/images/how_to_rents/')); ?>/<?php echo e($steprents[1]['image']); ?>" alt="">
                         <h6><?php echo e($steprents[1]['heading']); ?></h6>
                         <p><?php echo $steprents[1]['description']; ?></p>
                     </div>
                 </div>
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card">
-                        <img src="<?php echo e(asset('public/admin/assets/images/car_rent/')); ?>/<?php echo e($steprents[2]['image']); ?>" alt="">
+                        <img src="<?php echo e(asset('public/admin/assets/images/how_to_rents/')); ?>/<?php echo e($steprents[2]['image']); ?>" alt="">
                         <h6><?php echo e($steprents[2]['heading']); ?></h6>
                         <p><?php echo $steprents[2]['description']; ?></p>
                     </div>
                 </div>
                 <div class="col-md-3 rent-menu">
                     <div class="rent-card-last">
-                        <img src="<?php echo e(asset('public/admin/assets/images/car_rent/')); ?>/<?php echo e($steprents[3]['image']); ?>" alt="">
+                        <img src="<?php echo e(asset('public/admin/assets/images/how_to_rents/')); ?>/<?php echo e($steprents[3]['image']); ?>" alt="">
                         <h6><?php echo e($steprents[3]['heading']); ?></h6>
                         <p><?php echo $steprents[3]['description']; ?></p>
                     </div>
                 </div>
                 <div class="book-car-button">
-                    <a href="#" class="universal-btn">Get started</a>
+                    <a href="<?php echo e(route('login')); ?>" class="universal-btn">Get started</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- car rent html start -->
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.website.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\chaff_mission\resources\views/website/index.blade.php ENDPATH**/ ?>

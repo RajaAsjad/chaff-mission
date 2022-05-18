@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\categories;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Auth;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class CategoriesController extends Controller
     public function index(Request $request)
     {
         if($request->ajax()){
-            $query = categories::orderby('id', 'desc')->where('id', '>', 0);
+            $query = Category::orderby('id', 'desc')->where('id', '>', 0);
             if($request['search'] != ""){
                 $query->where('name', 'like', '%'. $request['search'] .'%');
             }
@@ -38,7 +38,7 @@ class CategoriesController extends Controller
             return (string) view('admin.categories.search', compact('models'));
         }
         $page_title = 'All Categories';
-        $models = categories::orderby('id', 'desc')->paginate(10);
+        $models = Category::orderby('id', 'desc')->paginate(10);
         return View('admin.categories.index', compact("models","page_title"));
     }
 
@@ -49,7 +49,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        $page_title = 'Add Categories';
+        $page_title = 'Add New Category';
         return View('admin.categories.create', compact('page_title'));
     }
 
@@ -62,17 +62,18 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $validator = $request->validate([
-            'name' => 'required|max:100',
+            'name' => 'required|unique:categories,name|max:255',
             'description' => 'max:250',
         ]);
 
-        $model = new categories();
+        $model = new Category();
         $model->created_by = Auth::user()->id;
         $model->name = $request->name;
+        $model->slug = \Str::slug($request->name);
         $model->description = $request->description;
         $model->save();
 
-        return redirect()->route('categories.index')->with('message', 'Categories Added Successfully !');
+        return redirect()->route('category.index')->with('message', 'Category Added Successfully !');
     }
 
     /**
@@ -94,8 +95,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $page_title = 'Edit Categories';
-        $model = categories::where('id', $id)->first();
+        $page_title = 'Edit Category';
+        $model = Category::where('id', $id)->first();
         return View('admin.categories.edit', compact("model", "page_title"));
     }
 
@@ -113,13 +114,13 @@ class CategoriesController extends Controller
             'description' => 'max:250',
         ]);
 
-        $update = categories::where('id', $id)->first();
+        $update = Category::where('id', $id)->first();
         $update->name = $request->name;
         $update->description = $request->description;
         $update->status = $request->status;
         $update->update();
 
-        return redirect()->route('categories.index')->with('message', 'Categories Updated Successfully !');
+        return redirect()->route('category.index')->with('message', 'Category Updated Successfully !');
     }
 
     /**
@@ -130,9 +131,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $model = categories::where('id', $id)->first();
+        $model = Category::where('id', $id)->delete();
         if ($model) {
-            $model->delete();
             return true;
         } else {
             return response()->json(['message' => 'Failed '], 404);
