@@ -105,9 +105,9 @@ class ProductController extends Controller
             $product_details->doors = $request->doors;
             $product_details->mpg = $request->mpg;
             $product_details->fuel = $request->fuel;
-            /* $product_details->rooms = $request->rooms;
+            $product_details->rooms = $request->rooms;
             $product_details->beds = $request->beds;
-            $product_details->bathrooms = $request->bathrooms; */
+            $product_details->bathrooms = $request->bathrooms;
             $product_details->save();
         }
         if($product_details && isset($request->images))
@@ -149,7 +149,7 @@ class ProductController extends Controller
         $page_title = 'Edit Product';
         $categories=Category::where('status' , 1)->get();
         $car_types=CarType::where('status' , 1)->get();
-        $details=Product::where('slug' , $slug)->first();
+        $details = Product::where('slug' , $slug)->first();
         return view('admin.product.edit' , compact('page_title' , 'categories' , 'car_types' ,'details'));
     }
 
@@ -160,9 +160,65 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $slug)
     {
-        //
+        $validator=$request->validate([
+            'description' => 'required|max:1000',
+            'rent_per_day' => 'required|max:255',
+            'category_slug' => 'required|max:255',
+            'car_type_slug' => 'required|max:255',
+            'seats' => 'required|max:100',
+            'doors' => 'required|max:10',
+            'mpg' => 'required|max:255',
+            'fuel' => 'required|max:255',
+        ]);
+
+        $model =  Product::where('slug', $slug)->first();
+        if(isset($request->thumbnail)){
+            $photo= date('YmdHis').'.'.$request->file('thumbnail')->getClientOriginalExtension();
+            $request->thumbnail->move(public_path('/admin/assets/products/thumbnails'), $photo);
+            $model->thumbnail = $photo;
+        }
+
+        $model->created_by = Auth::user()->id;
+        $model->category_slug = $request->category_slug;
+        $model->name = $request->name;
+        $model->slug = \Str::slug($request->name);
+        $model->description = $request->description;
+        $model->rent_per_day = $request->rent_per_day;
+        $model->save();
+
+        if($model)
+        {
+            $product_details = ProductDetail::where('product_slug', $slug)->first();
+            $product_details->product_slug = $model->slug;
+            $product_details->car_type_slug = $request->car_type_slug;
+            $product_details->color = $request->color;
+            $product_details->seats = $request->seats;
+            $product_details->doors = $request->doors;
+            $product_details->mpg = $request->mpg;
+            $product_details->fuel = $request->fuel;
+            $product_details->rooms = $request->rooms;
+            $product_details->beds = $request->beds;
+            $product_details->bathrooms = $request->bathrooms;
+            $product_details->save();
+        }
+        if($product_details && isset($request->images))
+        {
+            $product_image = ProductImage::where('product_slug', $slug)->first();
+            if ($files=$request->file('images')) {
+                foreach($files as $file){
+                    $photo = uniqid().$file->getClientOriginalName();
+                    $file->move(public_path('/admin/assets/products/images'), $photo);
+                    $product_image->image = $photo;
+                    $product_image->product_slug = $model->slug;
+                    $product_image->save();    
+                }
+            }
+        }
+
+        return redirect()->route('product.index')->with('message' , 'Product Updated Successfully');
+        
     }
 
     /**

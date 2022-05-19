@@ -63,21 +63,21 @@
                         <div class="labeledBadge">
                             <div class="value-icon">
                                 <span class="icon--economy"></span>
-                                <span>18 MPG</span>
+                                <span><?php echo e($product->hasProductDetails->mpg); ?> MPG</span>
                             </div>  
                             <div class="value-icon">
                                 <span class="icon--gas"></span>
-                                <span>Gas</span>
+                                <span><?php echo e($product->hasProductDetails->fuel); ?></span>
                             </div>  
                         </div>
                         <div class="labeledBadge">
                             <div class="value-icon">
                                 <span class="icon--door"></span>
-                                <span>4 doors</span>
+                                <span><?php echo e($product->hasProductDetails->doors); ?> doors</span>
                             </div>  
                             <div class="value-icon">
                                 <span class="icon--seat"></span>
-                                <span><?php echo e($product->seat); ?> seat</span>
+                                <span><?php echo e($product->hasProductDetails->seats); ?> seats</span>
                             </div>  
                         </div>
                     </div>
@@ -248,6 +248,15 @@
 
                         <h3>Pickup Location</h3>
                         <div class="pick-location">
+                            <label for="city">City</label>
+                            <div class="form-group">
+                                <select name="city_id" id="" class="form-control">
+                                    <option value="" selected>Select City</option>
+                                    <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($city->id); ?>"><?php echo e($city->city); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
                             <label for="">Address</label>
                             <div class="form-group">
                                 <textarea name="pickup_address" id="" class="form-control" cols="30" rows="3" placeholder="Enter pickup address"></textarea>
@@ -256,10 +265,7 @@
                             <div class="form-group">
                                 <input type="text" name="pickup_state" id="state" class="form-control" placeholder="Enter pickup state">
                             </div>
-                            <label for="country">Country</label>
-                            <div class="form-group">
-                                <input type="text" name="pickup_country_name" id="country" class="form-control" placeholder="Enter pickup country name">
-                            </div>
+                            
                         </div>
                         <h3>Drop Location</h3>
                         <div class="pick-location">

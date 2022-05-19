@@ -941,6 +941,39 @@ section.testimonial-section{
     top: 30px;
 }
 /* CSS FOR TESTIMONIAL  */
+/* Book Appointment */
+.book-appointment-form {
+    max-width: 75%;
+    display: block;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    border: 1px solid #dfdfdf;
+}
+
+input.book-appointment-btn {
+    background: #ffcc33 !important;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    display: block;
+    margin: 0 auto;
+    color: #000 !important;
+}
+
+.book-appointment-form.mt-5 input:focus-visible,.book-appointment-form.mt-5 input:focus-within{
+    filter: drop-shadow(2px 4px 6px rgb(175, 148, 148));
+}
+.book-appointment-form.mt-5 textarea:focus-visible,.book-appointment-form.mt-5 textarea:focus-within{
+    filter: drop-shadow(2px 4px 6px rgb(175, 148, 148));
+}
+.book-appointment-form.mt-5 input,.book-appointment-form.mt-5 textarea{
+    text-transform: capitalize;
+}
+
+/* Book Appointment */
+
 /* book-car css start  */
 .book-car{
     padding: 100px 0;

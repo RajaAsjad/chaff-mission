@@ -16,4 +16,9 @@ class Product extends Model
     {
         return $this->hasOne(User::class, 'id', 'created_by');
     }
+
+    public function hasProductDetails()
+    {
+        return $this->hasOne(ProductDetail::class, 'product_slug' , 'slug');
+    }
 }

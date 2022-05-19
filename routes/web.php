@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\AppointmentController;
 
 
 /*
@@ -48,6 +50,11 @@ Route::get('about_us', [WebController::class, 'about'])->name('about_us');
 Route::get('deal', [WebController::class, 'deal'])->name('deal');
 Route::get('careers', [WebController::class, 'career'])->name('careers');
 Route::get('city', [WebController::class, 'city']);
+Route::get('book-appointment', [AppointmentController::class, 'create'])->name('book-appointment');
+Route::post('save-appointment', [AppointmentController::class, 'store'])->name('save-appointment');
+
+//stripe payment
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
 
 Auth::routes();
 
@@ -62,9 +69,6 @@ Route::group(['middleware' => ['auth']], function() {
 
     //permissions
     Route::resource('permission', 'admin\PermissionController');
-
-    //Products
-    Route::resource('product', 'admin\ProductController');
     
     //Vehicle
     Route::resource('rental', 'admin\RentalController');
@@ -114,5 +118,9 @@ Route::group(['middleware' => ['auth']], function() {
     //Booking
     Route::resource('booking', 'BookingController');
 
+    //payment
     Route::resource('payment', 'PaymentController');
+
+    //appointment
+    Route::resource('appointment', 'AppointmentController');
 });

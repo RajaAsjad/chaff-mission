@@ -109,6 +109,24 @@
             })(jQuery);
         })();
     </script>
+    <script>
+        // INCLUDE JQUERY & JQUERY UI 1.12.1
+        $( function() {
+            $( "#datepicker20" ).datepicker({
+                dateFormat: "dd-mm-yy"
+                ,	duration: "fast"
+            });
+        } );
+    </script>
+    <script>
+        // INCLUDE JQUERY & JQUERY UI 1.12.1
+        $( function() {
+            $( "#datepicker11" ).datepicker({
+                dateFormat: "dd-mm-yy"
+                ,	duration: "fast"
+            });
+        } );
+    </script>
 </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\chaff_mission\resources\views/layouts/website/master.blade.php ENDPATH**/ ?>

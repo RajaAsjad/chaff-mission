@@ -9,6 +9,10 @@ use Auth;
 
 class BookingController extends Controller
 {
+    public function create()
+    {
+        return view('website.payment.stripe');
+    }
     public function store(Request $request)
     {
         // return $request;
@@ -43,7 +47,7 @@ class BookingController extends Controller
             ]);
         }
 
-        return 'success';
-        // return redirect()->route();
+        // return 'success';
+        return redirect()->route('booking.create');
     }
 }

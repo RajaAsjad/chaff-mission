@@ -63,21 +63,21 @@
                         <div class="labeledBadge">
                             <div class="value-icon">
                                 <span class="icon--economy"></span>
-                                <span>18 MPG</span>
+                                <span>{{ $product->hasProductDetails->mpg }} MPG</span>
                             </div>  
                             <div class="value-icon">
                                 <span class="icon--gas"></span>
-                                <span>Gas</span>
+                                <span>{{ $product->hasProductDetails->fuel }}</span>
                             </div>  
                         </div>
                         <div class="labeledBadge">
                             <div class="value-icon">
                                 <span class="icon--door"></span>
-                                <span>4 doors</span>
+                                <span>{{ $product->hasProductDetails->doors }} doors</span>
                             </div>  
                             <div class="value-icon">
                                 <span class="icon--seat"></span>
-                                <span>{{ $product->seat }} seat</span>
+                                <span>{{ $product->hasProductDetails->seats }} seats</span>
                             </div>  
                         </div>
                     </div>
@@ -248,18 +248,20 @@
 
                         <h3>Pickup Location</h3>
                         <div class="pick-location">
-                            <label for="">Address</label>
+                            <label for="city">City</label>
                             <div class="form-group">
-                                <textarea name="pickup_address" id="" class="form-control" cols="30" rows="3" placeholder="Enter pickup address"></textarea>
+                                <select name="city_id" id="" class="form-control">
+                                    <option value="" selected>Select City</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city->id }}">{{ $city->city }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <label for="state">State</label>
                             <div class="form-group">
                                 <input type="text" name="pickup_state" id="state" class="form-control" placeholder="Enter pickup state">
                             </div>
-                            <label for="country">Country</label>
-                            <div class="form-group">
-                                <input type="text" name="pickup_country_name" id="country" class="form-control" placeholder="Enter pickup country name">
-                            </div>
+                            
                         </div>
                         <h3>Drop Location</h3>
                         <div class="pick-location">

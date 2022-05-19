@@ -33,7 +33,7 @@
                     <div class="row all-right-btnz">
                         <div class="col-md-4 hdr-three">
                             <div class="anchor-firstt">
-                                <a href="">BECOME A HOST</a>
+                                <a href="{{ route('book-appointment')}}"> Book Appintment</a>
                             </div>
                         </div>
                         <div class="col-md-6 hdr-right">

@@ -23,7 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#rental" role="tab">RENTALS</a>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#property" role="tab">PROPERTIES</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#r-v" role="tab">Recreational vehicle (RV)</a>
                     </li>
@@ -38,7 +40,7 @@
                                     <div class="col-md-4">
                                         <div class="dealz-box">
                                             <div class="dealz-box-img">
-                                                <img src="<?php echo e(asset('public/admin/assets/images/rental')); ?>/<?php echo e($rental->image); ?>" alt="">
+                                                <img src="<?php echo e(asset('public/admin/assets/products/thumbnails')); ?>/<?php echo e($rental->thumbnail); ?>" alt="">
                                             </div>
                                             <div class="dealz-box-content">
                                                 <div class="dealz-box-heading">
@@ -46,16 +48,16 @@
                                                     <img src="<?php echo e(asset('public/assets/website/images/new-starz.png')); ?>" alt="">
                                                 </div>
                                                 <div class="dealz-box-description">
-                                                    <p><?php echo $rental->short_description; ?></p>
+                                                    <p><?php echo $rental->description; ?></p>
                                                 </div>
                                                 <div class="dealz-box-price">
                                                     <div class="pricess">
-                                                        <span>$<?php echo e($rental->rent); ?></span>
+                                                        <span>$<?php echo e(number_format($rental->rent_per_day, 1)); ?></span>
                                                     </div>
                                                     <div class="other-info-deals">
                                                         <div class="pro-detailz">
                                                             <img src="<?php echo e(asset('public/assets/website/images/car-seats.png')); ?>" alt="">
-                                                            <span><?php echo e($rental->seat); ?></span>
+                                                            <span><?php echo e($rental->hasProductDetails->seats); ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -74,32 +76,32 @@
                                     <div class="col-md-4">
                                         <div class="dealz-box">
                                             <div class="dealz-box-img">
-                                                <img src="<?php echo e(asset('public/admin/assets/images/property')); ?>/<?php echo e($model->image); ?>" alt="">
+                                                <img src="<?php echo e(asset('public/admin/assets/products/thumbnails')); ?>/<?php echo e($model->thumbnail); ?>" alt="">
                                             </div>
                                             <div class="dealz-box-content">
                                                 <div class="dealz-box-heading">
-                                                    <h3><?php echo e($model->property_name); ?></h3>
+                                                    <h3><?php echo e($model->name); ?></h3>
                                                     <img src="<?php echo e(asset('public/assets/website/images/new-starz.png')); ?>" alt="">
                                                 </div>
                                                 <div class="dealz-box-description">
-                                                    <p><?php echo $model->short_description; ?></p>
+                                                    <p><?php echo $model->description; ?></p>
                                                 </div>
                                                 <div class="dealz-box-price">
                                                     <div class="pricess">
-                                                        <span>$<?php echo e($model->price); ?></span>
+                                                        <span>$<?php echo e(number_format($model->rent_per_day, 1)); ?></span>
                                                     </div>
                                                     <div class="other-info-deals">
                                                         <div class="pro-detailz">
                                                             <img src="<?php echo e(asset('public/assets/website/images/washrooms-img.png')); ?>" title="Bathroom" alt="">
-                                                            <span><?php echo e($model->bathroom); ?></span>
+                                                            <span><?php echo e($model->hasProductDetails->bathrooms); ?></span>
                                                         </div>
                                                         <div class="pro-detailz">
                                                             <img src="<?php echo e(asset('public/assets/website/images/beds.png')); ?>" title="Bed" alt="">
-                                                            <span><?php echo e($model->bed); ?></span>
+                                                            <span><?php echo e($model->hasProductDetails->beds); ?></span>
                                                         </div>
                                                         <div class="pro-detailz">
                                                             <img src="<?php echo e(asset('public/assets/website/images/beds.png')); ?>" title="Room" alt="">
-                                                            <span><?php echo e($model->room); ?></span>
+                                                            <span><?php echo e($model->hasProductDetails->rooms); ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -118,7 +120,7 @@
                                     <div class="col-md-4">
                                         <div class="dealz-box">
                                             <div class="dealz-box-img">
-                                                <img src="<?php echo e(asset('public/admin/assets/images/RV')); ?>/<?php echo e($rv->image); ?>" alt="">
+                                                <img src="<?php echo e(asset('public/admin/assets/products/thumbnails')); ?>/<?php echo e($rv->thumbnail); ?>" alt="">
                                             </div>
                                             <div class="dealz-box-content">
                                                 <div class="dealz-box-heading">
@@ -126,16 +128,16 @@
                                                     <img src="<?php echo e(asset('public/assets/website/images/new-starz.png')); ?>" alt="">
                                                 </div>
                                                 <div class="dealz-box-description">
-                                                    <p><?php echo $rv->short_description; ?></p>
+                                                    <p><?php echo $rv->description; ?></p>
                                                 </div>
                                                 <div class="dealz-box-price">
                                                     <div class="pricess">
-                                                        <span>$<?php echo e($rv->price); ?></span>
+                                                        <span>$<?php echo e(number_format($rv->rent_per_day)); ?></span>
                                                     </div>
                                                     <div class="other-info-deals">
                                                         <div class="pro-detailz">
                                                             <img src="<?php echo e(asset('public/assets/website/images/car-seats.png')); ?>" alt="">
-                                                            <span><?php echo e($rv->seat); ?></span>
+                                                            <span><?php echo e($rv->hasProductDetails->seats); ?></span>
                                                         </div>
                                                     </div>
                                                 </div>

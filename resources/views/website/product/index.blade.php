@@ -23,9 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#rental" role="tab">RENTALS</a>
                     </li>
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#property" role="tab">PROPERTIES</a>
-                    </li> --}}
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#r-v" role="tab">Recreational vehicle (RV)</a>
                     </li>
@@ -40,7 +40,7 @@
                                     <div class="col-md-4">
                                         <div class="dealz-box">
                                             <div class="dealz-box-img">
-                                                <img src="{{ asset('public/admin/assets/images/rental') }}/{{$rental->image}}" alt="">
+                                                <img src="{{ asset('public/admin/assets/products/thumbnails') }}/{{$rental->thumbnail}}" alt="">
                                             </div>
                                             <div class="dealz-box-content">
                                                 <div class="dealz-box-heading">
@@ -48,16 +48,16 @@
                                                     <img src="{{ asset('public/assets/website/images/new-starz.png') }}" alt="">
                                                 </div>
                                                 <div class="dealz-box-description">
-                                                    <p>{!! $rental->short_description !!}</p>
+                                                    <p>{!! $rental->description !!}</p>
                                                 </div>
                                                 <div class="dealz-box-price">
                                                     <div class="pricess">
-                                                        <span>${{ $rental->rent }}</span>
+                                                        <span>${{ number_format($rental->rent_per_day, 1) }}</span>
                                                     </div>
                                                     <div class="other-info-deals">
                                                         <div class="pro-detailz">
                                                             <img src="{{ asset('public/assets/website/images/car-seats.png') }}" alt="">
-                                                            <span>{{ $rental->seat }}</span>
+                                                            <span>{{ $rental->hasProductDetails->seats }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -76,32 +76,32 @@
                                     <div class="col-md-4">
                                         <div class="dealz-box">
                                             <div class="dealz-box-img">
-                                                <img src="{{ asset('public/admin/assets/images/property') }}/{{$model->image}}" alt="">
+                                                <img src="{{ asset('public/admin/assets/products/thumbnails') }}/{{$model->thumbnail}}" alt="">
                                             </div>
                                             <div class="dealz-box-content">
                                                 <div class="dealz-box-heading">
-                                                    <h3>{{ $model->property_name }}</h3>
+                                                    <h3>{{ $model->name }}</h3>
                                                     <img src="{{ asset('public/assets/website/images/new-starz.png') }}" alt="">
                                                 </div>
                                                 <div class="dealz-box-description">
-                                                    <p>{!! $model->short_description !!}</p>
+                                                    <p>{!! $model->description !!}</p>
                                                 </div>
                                                 <div class="dealz-box-price">
                                                     <div class="pricess">
-                                                        <span>${{ $model->price }}</span>
+                                                        <span>${{ number_format($model->rent_per_day, 1) }}</span>
                                                     </div>
                                                     <div class="other-info-deals">
                                                         <div class="pro-detailz">
                                                             <img src="{{ asset('public/assets/website/images/washrooms-img.png') }}" title="Bathroom" alt="">
-                                                            <span>{{ $model->bathroom }}</span>
+                                                            <span>{{ $model->hasProductDetails->bathrooms }}</span>
                                                         </div>
                                                         <div class="pro-detailz">
                                                             <img src="{{ asset('public/assets/website/images/beds.png') }}" title="Bed" alt="">
-                                                            <span>{{ $model->bed }}</span>
+                                                            <span>{{ $model->hasProductDetails->beds }}</span>
                                                         </div>
                                                         <div class="pro-detailz">
                                                             <img src="{{ asset('public/assets/website/images/beds.png') }}" title="Room" alt="">
-                                                            <span>{{ $model->room }}</span>
+                                                            <span>{{ $model->hasProductDetails->rooms }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -120,7 +120,7 @@
                                     <div class="col-md-4">
                                         <div class="dealz-box">
                                             <div class="dealz-box-img">
-                                                <img src="{{ asset('public/admin/assets/images/RV') }}/{{$rv->image}}" alt="">
+                                                <img src="{{ asset('public/admin/assets/products/thumbnails') }}/{{$rv->thumbnail}}" alt="">
                                             </div>
                                             <div class="dealz-box-content">
                                                 <div class="dealz-box-heading">
@@ -128,16 +128,16 @@
                                                     <img src="{{ asset('public/assets/website/images/new-starz.png') }}" alt="">
                                                 </div>
                                                 <div class="dealz-box-description">
-                                                    <p>{!! $rv->short_description !!}</p>
+                                                    <p>{!! $rv->description !!}</p>
                                                 </div>
                                                 <div class="dealz-box-price">
                                                     <div class="pricess">
-                                                        <span>${{ $rv->price }}</span>
+                                                        <span>${{ number_format($rv->rent_per_day) }}</span>
                                                     </div>
                                                     <div class="other-info-deals">
                                                         <div class="pro-detailz">
                                                             <img src="{{ asset('public/assets/website/images/car-seats.png') }}" alt="">
-                                                            <span>{{ $rv->seat }}</span>
+                                                            <span>{{ $rv->hasProductDetails->seats }}</span>
                                                         </div>
                                                     </div>
                                                 </div>

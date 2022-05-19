@@ -109,5 +109,23 @@
             })(jQuery);
         })();
     </script>
+    <script>
+        // INCLUDE JQUERY & JQUERY UI 1.12.1
+        $( function() {
+            $( "#datepicker20" ).datepicker({
+                dateFormat: "dd-mm-yy"
+                ,	duration: "fast"
+            });
+        } );
+    </script>
+    <script>
+        // INCLUDE JQUERY & JQUERY UI 1.12.1
+        $( function() {
+            $( "#datepicker11" ).datepicker({
+                dateFormat: "dd-mm-yy"
+                ,	duration: "fast"
+            });
+        } );
+    </script>
 </body>
 </html>
