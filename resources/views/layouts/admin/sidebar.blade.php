@@ -28,6 +28,13 @@
                 </a>
             </li>
             @endcan
+            @can('booking-list')
+            <li class="treeview">
+                <a href="{{ route('booking.index') }}" class="{{ request()->is('booking') || request()->is('booking/create') || request()->is('booking/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-calendar"></i> <span>Bookings</span>
+                </a>
+            </li>
+            @endcan
             @can('categories-list')
             <li class="treeview">
                 <a href="{{ route('category.index') }}" class="{{ request()->is('category') || request()->is('category/create') || request()->is('category/*/edit') ? 'active' : '' }}">
@@ -56,8 +63,41 @@
                 </a>
             </li>
             @endcan
-            
-            
+            @can('career-list')
+            <li class="treeview">
+                <a href="{{ route('career.index') }}" class="{{ request()->is('career') || request()->is('career/show') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Career</span>
+                </a>
+            </li>
+            @endcan
+            @can('faq-list')
+            <li class="treeview">
+                <a href="{{ route('faq.index') }}" class="{{ request()->is('faq') || request()->is('faq/create') || request()->is('faq/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>FAQ</span>
+                </a>
+            </li>
+            @endcan
+            @can('banner-list')
+            <li class="treeview">
+                <a href="{{ route('banner.index') }}" class="{{ request()->is('banner') || request()->is('banner/create') || request()->is('banner/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Banner</span>
+                </a>
+            </li>
+            @endcan
+            @can('contact-list')
+            <li class="treeview">
+                <a href="{{ route('contact.index') }}" class="{{ request()->is('contact') || request()->is('contact/create') || request()->is('contact/*/edit') ? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>Contact</span>
+                </a>
+            </li>
+            @endcan
+            @can('contactus-list')
+            <li class="treeview">
+                <a href="{{ route('contactus.index') }}" class="{{ request()->is('contactus')? 'active' : '' }}">
+                    <i class="fa fa-tasks"></i> <span>ContactUs</span>
+                </a>
+            </li>
+            @endcan
             @can('blog-list')
             <li class="treeview">
                 <a href="{{ route('blog.index') }}" class="{{ request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : '' }}">

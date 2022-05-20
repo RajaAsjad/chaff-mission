@@ -2771,6 +2771,543 @@ button.form-control.btn-sub {width: 30%;background: #ffcc33;border: none;font-we
 .box---1 img {height: 675px;object-fit: cover;}
 
 .box---2 img {height: 356px;object-fit: cover;}
+
+ /* CSS FOR DETAIL SECTION  */
+.detail-inner{
+    padding: 70px 0;
+}
+
+.main-imag-detail img {width: -webkit-fill-available;}
+
+.detail-span {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e1e1e1;
+    padding: 5px 10px;
+    margin: 5px 0;
+    background: #fbfbfb;
+}
+
+.detail-span label {
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #ffcc33;
+}
+span.span-inner-box {
+    font-size: 14px;
+}
+
+.form-stripe-box .form-group input[type=submit] {
+        background: #ffcc33;
+        border: none;
+        font-weight: 600;
+}
+.form-stripe-box .form-group .btn-cancel {
+    min-width: 100%;
+    display: block;
+    background: #555555;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.form-stripe-box {
+    background: #f2f2f2;
+    padding: 60px 40px;
+}
+
+.form-stripe-box input {
+    border: none;
+}
+.form-stripe-box h1 {
+    Font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.form-stripe-box label {
+    color: #999792;
+}
+.form-stripe-box .col-md-6, .form-stripe-box .col-md-4, .form-stripe-box .col-md-12 {
+    padding: 0 5px;
+}
+ /* CSS FOR DETAIL SECTION  */
+  /* OUR LOCATION CSS START HERE   */
+.Our-location-headings {padding-top: 70px;}
+
+.Our-location-headings h3 {color: #646464;
+    font-size: 23px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0;
+    text-transform: uppercase;}
+
+.Our-location-headings h1 {Font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 0;
+    text-align: center;}
+
+.Our-location-headings p {text-align: center;
+    padding: 0px 75px;
+    color: #646464;
+    font-size: 15px;
+    margin-bottom: 40px;}
+
+.main-address-box .col-md-10 {display: flex;flex-direction: column;padding: 0;}
+
+.main-address-box .col-md-2 a {display: block;margin: 0 auto;}
+
+.main-address-box .col-md-2 {display: flex;justify-content: center;align-items: center;padding: 0;}
+
+.main-address-box .col-md-2 a span i {
+    font-size: 28px;
+    background: #ffcc33;
+    border-radius: 50%;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-address-box .col-md-10 .add-details {
+    color: #5c5c5c;
+    font-weight: 600;
+    font-family: 'Helvetica';
+}
+
+.main-address-box {
+    padding: 10px 0;
+}
+
+.row.mt-5.Address-mapss .col-md-6 iframe {
+    border-radius: 5px;
+}
+  /* OUR LOCATION CSS START HERE   */
+  /* FAQ CSS    */
+ section.FQAs {
+     padding: 80px 0;
+ }
+ .accordion .card-header:after {
+     font-family: 'FontAwesome';
+     content: "\f104" !important;
+     float: right
+ }
+ .accordion .card-header.collapsed:after {
+     content: "\f104" !important; 
+ }
+ .fqa-inner h3 {color: #4c4c4c;font-size: 25px;margin: 0;}
+ 
+ .fqa-inner h1 {color: #f4cc30;font-weight: 600;Font-family: 'Bebas Neue', cursive;font-size: 53px; margin: 0;}
+ 
+ .accordion p {color: #4c4c4c;font-size: 15px;padding: 20px 20px 0 20px;} 
+ .card-body{
+     color: #4c4c4c;
+     font-size: 15px;
+ }
+ .fqa-inner .accordion .card{
+     border: none;
+ }
+ .fqa-inner .accordion .card .card-header{
+     background-color: #ffff !important;
+     border: 1px solid #d5d5d5;
+     border-bottom: none !important;	
+ }
+ .fqa-inner .accordion .card-header.collapsed{
+     border-bottom:1px solid #d5d5d5 !important;
+ }
+ .fqa-inner .accordion .card-header.collapsed:after{
+     transform: rotate(270deg);
+ }
+ .fqa-inner .accordion .card-body {
+     color: #4c4c4c;
+     font-size: 15px;
+     border: 1px solid #d5d5d5;
+     border-top: none;
+     padding: 0;
+ }
+ .fqa-inner {
+     max-width: 80%;
+     display: block;
+     margin: 0 auto;
+ }
+   /* FAQ CSS    */
+  /* BLOGS & ARTICLES PAGE CSS   */
+.blogs-article-first-row {padding-top: 70px;}
+
+.blogs-article-first-row h3 {color: #646464;
+    font-size: 23px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0;text-transform: uppercase;}
+
+.blogs-article-first-row h1 {Font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 0;
+    text-align: center;}
+
+.blogs-article-first-row p {text-align: center;
+    padding: 0px 75px;
+    color: #646464;
+    font-size: 15px;
+    margin-bottom: 40px;}
+    
+.blog-img-box img {width: -webkit-fill-available;}
+
+.blog-content-box h3 {font-size: 18px;font-weight: 600;color: #4c4c4c;}
+
+.blog-content-box p {font-size: 13px;color: #646464;padding-right: 10px;}
+
+.blog-content-box {padding: 25px 20px;}
+  /* BLOGS & ARTICLES PAGE CSS   */
+  /* CONTACT CSS    */
+.contact-us {
+    padding: 80px 0;
+}
+button.send-msg {
+    border: none;
+    color: #000;
+}
+.contact-info h3 {
+    color: #4c4c4c;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 0;
+	padding-left: 3px;
+}.contact-info h1 {
+    Font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 58px;
+    line-height: 1;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+.contact-info p {
+	color: #535353;
+    font-size: 13px;
+    font-weight: 300;
+    max-width: 85%;
+}
+.contact-deatails{
+	display: flex;
+    padding: 10px 0;
+	align-items: center;
+}
+.icon-deatial {
+    display: flex;
+    flex-direction: column;
+	padding-left: 12px;
+}
+.icon span {
+    background-color: #ffcc33;
+	padding: 9px 11px;
+    border-radius: 30px;
+    color: #fff;
+}
+.icon-deatial span {
+	line-height: 1.2;
+	font-size: 13px;
+	color: #4c4c4c;
+}
+.contact-map {
+    padding-top: 40px;
+}
+.contact-form form input#input1 {
+    padding: 20px 15px;
+	margin: 0 !important;
+	border: 1px solid #cfcfcf;
+	color: #6c757d !important;
+    font-size: 13px;
+}
+.contact-form form textarea#textarea1 {
+    height: 200px;
+}
+.contact-form h3{
+	color: #4c4c4c;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.contact-frm-btn {
+	padding-left: 22px;
+	display: flex;
+    justify-content: flex-start;
+}
+.contact-form h1{
+	Font-family: 'Bebas Neue', cursive;
+    color: #ffcc33;
+    font-size: 58px;
+    line-height: 1;
+    margin-bottom: 0;
+}
+.send-msg{
+	background: #ffcc33;
+    text-decoration: none;
+    padding: 15px 42px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: #4c4c4c;
+    font-weight: 600;
+    margin-top: 32px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+.send-msg:hover {
+    text-decoration: none ;
+    color: #4c4c4c;
+	transform: scale(1.1);
+}
+.contact-form {padding-left: 25px;}
+  /* CONTACT CSS    */
+  /* CAREER CSS START   */
+
+ .banner {
+     background-image: url(../images/banner.png);
+     background-repeat: no-repeat;
+     background-position: inherit;
+     background-size: cover;
+     padding: 165px 0;
+ }
+ button.application-a {
+    border: none;
+    color: #000;
+}
+ .banner-heading h1 {
+     color: #ffcc33;
+     text-align: center;
+     font-size: 60px;
+     font-weight: 700;
+     font-family: 'Bebas Neue', cursive;
+ }
+ 
+ .banner-heading span {
+     display: flex;
+     justify-content: center;
+     font-weight: 300;
+     color: #ffff;
+     font-size: 13px;
+     padding-bottom: 16px;
+ }
+ 
+ .banner-heading p {
+     color: #ffff;
+     text-align: center;
+     line-height: 2;
+     font-weight: 300;
+ }
+ 
+ .chaff-team-head span {
+     font-size: 18px;
+     color: #4c4c4c;
+     text-transform: uppercase;
+     font-weight: 500;
+ }
+ 
+ .chaff-team-head h1 {
+     color: #ffcc33;
+     font-weight: 600;
+     display: flex;
+     flex-direction: column;
+     font-size: 45px;
+     font-family: 'Bebas Neue', cursive;
+     line-height: 1;
+     margin-bottom: 15px;
+ }
+ 
+ .application-a {
+     padding: 15px 30px;
+     border-radius: 5px;
+     font-weight: 600;
+     font-size: 13px;
+     color: #58554a;
+     background: #fccc24;
+     text-transform: uppercase;
+     text-decoration: none;
+     transition: all 0.3s ease-in;
+ }
+ 
+ .application-a:hover {
+     text-decoration: none;
+     margin-left: 10px;
+     color: #000;
+ }
+ 
+ .chaff-team-head P {
+     color: #535353;
+     font-size: 13px;
+     font-family: Helvetica, sans-serif;
+     font-weight: 600;
+ }
+ 
+ .select-wrapper select {
+     appearance: none;
+ }
+ 
+ .select-wrapper {
+     position: relative;
+ }
+ 
+ .select-wrapper:after {
+     content: "\f078";
+     font-family: 'FontAwesome';
+     position: absolute;
+     right: 20px;
+     top: 20px;
+     font-size: 10px;
+     color: #4c4c4c;
+ }
+ 
+ .chaff-team {
+     padding: 80px 0;
+ }
+ 
+ .chaff-team-image img {
+     width: -webkit-fill-available;
+ }
+ 
+ .chaff-team-head form label {
+     display: flex;
+     color: #585858;
+     margin-bottom: 0;
+     font-weight: 500;
+ }
+ 
+ input[type="file"] {
+     width: 0.1px;
+     height: 0.1px;
+     opacity: 0;
+     overflow: hidden;
+     position: absolute;
+     z-index: -1;
+ }
+ 
+ #customFile {
+     display: none;
+ }
+ 
+ .chaff-team-image {
+     padding-left: 40px;
+ }
+
+ .chaff-team-head form input {
+     width: 100%;
+     padding: 14px 0;
+     background-color: #efefef;
+     border: none;
+     border-radius: 5px;
+ }
+ .chaff-team-head form input[type=submit]{
+     width: auto;
+     padding: 15px;
+     background: #f4cc30;
+ }
+ .row.my-career-form .form-group {margin-bottom: 8px;}
+ 
+ 
+ 
+ .row.my-career-form label {
+     padding: 0;margin: 0;
+ }
+ 
+ .row.my-career-form input {
+     padding: 25px 10px;
+ }
+ 
+ .file-input-group input.form-control {
+     background-color: #efefef !important;
+     padding: 26px 20px !important;
+     color: #4c4c4c !important;
+     width: 65%;
+     border-radius: 5px 0px 0px 5px !important;
+ }
+ 
+ .chaff-team-head form input:focus {
+     outline: none;
+ }
+ 
+ label.btn.btn-secondary.mb-0 {
+     display: flex;
+     align-items: center;
+     padding: 0px 28px;
+     border-radius: 5px;
+ }
+ 
+ label.btn.btn-secondary.mb-0 {
+     background-color: #ffcc33;
+     color: #000;
+     font-weight: 600;
+     border: none;
+ }
+ 
+ .chaff-team-head form select.basic {
+     width: 100%;
+     padding: 14px 11px;
+     background-color: #efefef;
+     border: none;
+     border-radius: 5px;
+     color: #4c4c4c;
+ }
+ 
+ .chaff-team-head form select:focus {
+     outline: none;
+ }
+ 
+ .application {
+     padding-top: 40px;
+ }
+ 
+ .input-group-append label {
+     color: #4c4c4c;
+ }
+ 
+ .perspiciaties-para  h1 {
+     color: #ffcc33;
+     font-weight: 600;
+     display: flex;
+     flex-direction: column;
+     font-size: 45px;
+     font-family: 'Bebas Neue', cursive;
+     line-height: 1;
+     margin-bottom: 15px;
+ }
+ 
+ .perspiciaties-para span {
+     font-size: 18px;
+     color: #4c4c4c;
+     font-weight: 500;
+     text-transform: uppercase;
+ }
+ 
+ .perspiciaties-para p {
+     color: #535353;
+     font-weight: 700;
+     font-family: Helvetica, sans-serif;
+     font-size: 13px;
+     line-height: 1.65;
+ }
+ 
+ .perspiciaties-image img {
+     width: -webkit-fill-available;
+ }
+ 
+ .perspiciaties-para {
+     padding: 0 0 0 45px;
+ }
+ .name-write {
+     display: flex;
+ }
+ 
+
+/*  CAREER CSS END   */
+
 /*  RESPONSIVE CSS START FROM HERE  */
 
 @media screen and (max-width: 1024px){

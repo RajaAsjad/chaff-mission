@@ -21,4 +21,9 @@ class Product extends Model
     {
         return $this->hasOne(ProductDetail::class, 'product_slug' , 'slug');
     }
+
+    public function hasCategory()
+    {
+        return $this->hasOne(Category::class, 'slug', 'category_slug');
+    }
 }

@@ -31,16 +31,19 @@
                 </div>
                 <div class="col-md-5">
                     <div class="row all-right-btnz">
+                        <div class="col-md-2">
+
+                        </div>
                         <div class="col-md-4 hdr-three">
                             <div class="anchor-firstt">
-                                <a href="<?php echo e(route('book-appointment')); ?>"> Book Appintment</a>
+                                <a href="">BECOME A HOST</a>
                             </div>
                         </div>
                         <div class="col-md-6 hdr-right">
-                            <?php if(Auth::check()): ?>
-                                <div class="user-log">
-                                    <a href="<?php echo e(route('home')); ?>"><span><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo e(Auth::user()->name); ?></span></a>
-                                </div>
+                           <?php if(Auth::check()): ?>
+                            <div class="user-log">
+                                <a href="<?php echo e(route('home')); ?>"><span><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo e(Auth::user()->name); ?></span></a>
+                            </div>
                             <?php else: ?> 
                                 <div class="loggin">
                                     <a href="<?php echo e(route('login')); ?>">LOGIN</a>
@@ -58,7 +61,7 @@
                                     <li><a href="<?php echo e(route('careers')); ?>">Careers</a></li>
                                     <li><a href="<?php echo e(route('gallerys')); ?>">Gallery</a></li>
                                     <li><a href="<?php echo e(route('deal')); ?>">Deals</a></li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><a href="<?php echo e(route('contact_us')); ?>">Contact</a></li>
                                 </ul>
                             </div>
                         </div>

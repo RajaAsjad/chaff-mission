@@ -5,6 +5,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Property;
 use App\Models\HowToRent;
+use App\Models\Contact;
+use App\Models\Blog;
+use App\Models\Banner;
+use App\Models\FAQ;
 use App\Models\Virtual_tour;
 use App\Models\Testimonial;
 use App\Models\Gallery;
@@ -238,8 +242,71 @@ class WebController extends Controller
     public function career()
     {
         $testimonials=Testimonial::where('status' ,'=', 1)->get();
-        return view('website.career'  , compact('testimonials'));
+        $banner=Banner::where('status',1)->get();
+        return view('website.career'  , compact('testimonials' , 'banner'));
     }
+    public function getCity(Request $request)
+    {
+      return State::where('city_id', $request->city_id)->get();
+    }
+    
+    public function blog_article()
+    {
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $blogs=Blog::where('status' , 1)->get();
+        $banner=Banner::where('status',1)->get();
+        return view('website.blogs-&-articles'  , compact('testimonials' , 'blogs' , 'banner'));
+    }
+
+    public function contactus()
+    {
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $banner=Banner::where('status',1)->get();
+        $contacts=Contact::where('status',1)->get();
+        return view('website.contact_us'  , compact('testimonials' , 'banner' , 'contacts'));
+    }
+
+    public function location()
+    {
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $banner=Banner::where('status',1)->get();
+        return view('website.our-location'  , compact('testimonials' , 'banner'));
+    }
+
+    public function termAndConditions()
+    {
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $banner=Banner::where('status',1)->get();
+        return view('website.terms-and-condition'  , compact('testimonials' , 'banner'));
+    }
+    public function subscriptions()
+    {
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $banner=Banner::where('status',1)->get();
+        return view('website.subscriptions'  , compact('testimonials' , 'banner'));
+    }
+    public function manageCookies()
+    {
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $banner=Banner::where('status',1)->get();
+        return view('website.manage-cookies'  , compact('testimonials' , 'banner'));
+    }
+
+    public function privacyPolicy()
+    {
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $banner=Banner::where('status',1)->get();
+        return view('website.privacy-policy'  , compact('testimonials' , 'banner'));
+    }
+
+    public function faq()
+    {
+        $faqs=FAQ::where('status' , 1)->get();
+        $testimonials=Testimonial::where('status' ,'=', 1)->get();
+        $banner=Banner::where('status',1)->get();
+        return view('website.faqs'  , compact('testimonials' , 'faqs' , 'banner'));
+    }
+
     /* public function city()
     {
       $cities = array (
@@ -1415,5 +1482,6 @@ class WebController extends Controller
 
       return 'success';
     } */
+    
 }
 

@@ -16,12 +16,12 @@ class CreatePickDropLocationsTable extends Migration
         Schema::create('pick_drop_locations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('booking_id');
+            $table->bigInteger('pickup_city_id');
+            $table->bigInteger('pickup_state');
             $table->string('pickup_address');
-            $table->string('pickup_state');
-            $table->string('pickup_country_name');
+            $table->bigInteger('drop_city_id');
+            $table->bigInteger('drop_state_id');
             $table->string('drop_address');
-            $table->string('drop_state');
-            $table->string('drop_country_name');
             $table->timestamps();
         });
     }

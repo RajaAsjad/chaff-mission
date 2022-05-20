@@ -24,42 +24,69 @@
                     <div class="col-md-6">
                         <div class="chaff-team-head">
                             <h1><span>JOIN OUR</span>CHAFF TEAM!</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 <div class="form-ad">
-                                    <form action="">
-                                        <label for="email">Your Email Address</label>
-                                        <input type="email" id="email">
+                                    <form action="<?php echo e(route('career.store')); ?>"  id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                                        <?php echo csrf_field(); ?>
+                                        <div class="row my-career-form">
+                                            <div class="form-group col-md-6">
+                                                <label for="">First Name</label>
+                                                <input type="text" name="first_name" placeholder="First Name" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Last Name</label>
+                                                <input type="text" name="last_name" placeholder="Last Name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row my-career-form">
+                                            <div class="form-group col-md-12">
+                                                <label for="">Email</label>
+                                                <input type="email" name="email" placeholder="Email" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row my-career-form">
+                                            <div class="form-group col-md-12">
+                                                <label for="">Phone</label>
+                                                <input type="number" name="phone" placeholder="Phone" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row my-career-form">
+                                            <div class="form-group col-md-6">
+                                                <label for="">Address</label>
+                                                <input type="text" name="address" placeholder="Address" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">City</label>
+                                                <input type="text" name="city" placeholder="City" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row my-career-form">
+                                            <div class="form-group col-md-6">
+                                                <label for="">State</label>
+                                                <input type="text" name="state" placeholder="State" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Postal</label>
+                                                <input type="text"  name="postal" placeholder="Postal" class="form-control">
+                                            </div>
+                                        </div>
                                         <div class="input-group file-input-group" data-controller="file-input">
                                             <label for="">Select your CV file to upload</label>
-                                            <input class="form-control" type="text" placeholder="No file chosen" readonly data-target="file-input.value">
-                                            <input type="file" class="form-control" id="customFile" data-target="file-input.input" data-action="file-input#display">
+                                            <input class="form-control" name="CV_file" type="text" placeholder="No file chosen" readonly data-target="file-input.value">
+                                            <input type="file" name="CV_file" class="form-control" id="customFile" data-target="file-input.input" data-action="file-input#display" accept="application/pdf">
                                             <div class="input-group-append">
                                                 <label class="btn btn-secondary mb-0" for="customFile">CHOOSE FILE</label>
                                             </div>
                                         </div>
-                                        <label for="">Industries of your interest</label>  
-                                            <div class="select-wrapper">
-                                                <select class="basic">
-                                                    <option value="" ></option>
-                                                    <option value="usa" >Usa</option>
-                                                    <option value="ca" selected="selected" >Company Management</option>
-                                                    <option value="me" >Mexico</option>
-                                                </select>
+                                        <!-- <div class="input-group file-input-group" data-controller="file-input">
+                                        <div class="file-select-button input-group-append" >Choose File</div>
+                                        </div> -->
+                                        <div class="row mt-3">
+                                            <div class="form-group col-md-12">
+                                                <button type="submit" class="application-a">SUBMIT APPLICATION</button>
                                             </div>
-                                        <label for="">Location</label>  
-                                            <div class="select-wrapper">
-                                                <select class="basic">
-                                                    <option value="" ></option>
-                                                    <option value="usa" >Usa</option>
-                                                    <option value="ca" selected="selected" >United States</option>
-                                                    <option value="me" >Mexico</option>
-                                                </select>
-                                            </div>
+                                        </div>        
                                     </form>
                                 </div>
-                            <div class="application">
-                                <a href="" class="application-a">Submit Application</a>
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">

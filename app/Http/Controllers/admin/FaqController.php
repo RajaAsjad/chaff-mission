@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
-use App\Models\Faq;
+use App\Models\FAQ;
 use Illuminate\Http\Request;
 use Auth;
 
-
-class FaqController extends Controller
+class FAQController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +20,11 @@ class FaqController extends Controller
         $this->middleware('permission:faq-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:faq-delete', ['only' => ['destroy']]);
     }
+
     public function index(Request $request)
     {
         if($request->ajax()){
-            $query = Faq::orderby('id', 'desc')->where('id', '>', 0);
+            $query = FAQ::orderby('id', 'desc')->where('id', '>', 0);
             if($request['search'] != ""){
                 $query->where('question', 'like', '%'. $request['search'] .'%');
             }
@@ -37,8 +37,8 @@ class FaqController extends Controller
             $models = $query->paginate(10);
             return (string) view('admin.faq.search', compact('models'));
         }
-        $page_title = 'All Categories';
-        $models = Faq::orderby('id', 'desc')->paginate(10);
+        $page_title = 'All FAQs';
+        $models = FAQ::orderby('id', 'desc')->paginate(10);
         return View('admin.faq.index', compact("models","page_title"));
     }
 
@@ -49,10 +49,8 @@ class FaqController extends Controller
      */
     public function create()
     {
-        {
-            $page_title = 'Add Faqs';
-            return View('admin.faq.create', compact('page_title'));
-        }
+        $page_title = 'Add FAQs';
+        return View('admin.faq.create', compact('page_title'));
     }
 
     /**
@@ -68,22 +66,22 @@ class FaqController extends Controller
             'answer' => 'required|max:1000',
         ]);
 
-        $model = new Faq();
+        $model = new FAQ();
         $model->created_by = Auth::user()->id;
         $model->question = $request->question;
         $model->answer = $request->answer;
         $model->save();
 
-        return redirect()->route('faq.index')->with('message', 'Faqs Added Successfully !');
+        return redirect()->route('faq.index')->with('message', 'FAQ Added Successfully !');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Faq  $faq
+     * @param  \App\Models\FAQ  $fAQ
      * @return \Illuminate\Http\Response
      */
-    public function show(Faq $faq)
+    public function show(FAQ $fAQ)
     {
         //
     }
@@ -91,13 +89,13 @@ class FaqController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Faq  $faq
+     * @param  \App\Models\FAQ  $fAQ
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $page_title = 'Edit Faqs';
-        $model = Faq::where('id', $id)->first();
+        $page_title = 'Edit FAQs';
+        $model = FAQ::where('id', $id)->first();
         return View('admin.faq.edit', compact('model','page_title'));
     }
 
@@ -105,29 +103,29 @@ class FaqController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Faq  $faq
+     * @param  \App\Models\FAQ  $fAQ
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $validator = $request->validate([
             'question' => 'required|max:100',
             'answer' => 'required|max:1000',
         ]);
 
-        $update = Faq::where('id', $id)->first();
+        $update = FAQ::where('id', $id)->first();
         $update->question = $request->question;
         $update->answer = $request->answer;
         $update->status = $request->status;
         $update->update();
 
-        return redirect()->route('faq.index')->with('message', 'Faqs Updated Successfully !');
+        return redirect()->route('faq.index')->with('message', 'FAQ Updated Successfully !');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Faq  $faq
+     * @param  \App\Models\FAQ  $fAQ
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

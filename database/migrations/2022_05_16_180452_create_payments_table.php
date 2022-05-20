@@ -16,8 +16,11 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('customer_id');
-            $table->bigInteger('order_id');
-            $table->float('grand_total');
+            $table->bigInteger('order_number');
+            $table->float('total_payment');
+            $table->float('paid');
+            $table->float('dues');
+            $table->string('payment_status');
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

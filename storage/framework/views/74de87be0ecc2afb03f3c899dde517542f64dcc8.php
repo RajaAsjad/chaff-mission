@@ -28,6 +28,13 @@
                 </a>
             </li>
             <?php endif; ?>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('booking-list')): ?>
+            <li class="treeview">
+                <a href="<?php echo e(route('booking.index')); ?>" class="<?php echo e(request()->is('booking') || request()->is('booking/create') || request()->is('booking/*/edit') ? 'active' : ''); ?>">
+                    <i class="fa fa-calendar"></i> <span>Bookings</span>
+                </a>
+            </li>
+            <?php endif; ?>
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('categories-list')): ?>
             <li class="treeview">
                 <a href="<?php echo e(route('category.index')); ?>" class="<?php echo e(request()->is('category') || request()->is('category/create') || request()->is('category/*/edit') ? 'active' : ''); ?>">
@@ -56,8 +63,41 @@
                 </a>
             </li>
             <?php endif; ?>
-            
-            
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('career-list')): ?>
+            <li class="treeview">
+                <a href="<?php echo e(route('career.index')); ?>" class="<?php echo e(request()->is('career') || request()->is('career/show') ? 'active' : ''); ?>">
+                    <i class="fa fa-tasks"></i> <span>Career</span>
+                </a>
+            </li>
+            <?php endif; ?>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('faq-list')): ?>
+            <li class="treeview">
+                <a href="<?php echo e(route('faq.index')); ?>" class="<?php echo e(request()->is('faq') || request()->is('faq/create') || request()->is('faq/*/edit') ? 'active' : ''); ?>">
+                    <i class="fa fa-tasks"></i> <span>FAQ</span>
+                </a>
+            </li>
+            <?php endif; ?>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('banner-list')): ?>
+            <li class="treeview">
+                <a href="<?php echo e(route('banner.index')); ?>" class="<?php echo e(request()->is('banner') || request()->is('banner/create') || request()->is('banner/*/edit') ? 'active' : ''); ?>">
+                    <i class="fa fa-tasks"></i> <span>Banner</span>
+                </a>
+            </li>
+            <?php endif; ?>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('contact-list')): ?>
+            <li class="treeview">
+                <a href="<?php echo e(route('contact.index')); ?>" class="<?php echo e(request()->is('contact') || request()->is('contact/create') || request()->is('contact/*/edit') ? 'active' : ''); ?>">
+                    <i class="fa fa-tasks"></i> <span>Contact</span>
+                </a>
+            </li>
+            <?php endif; ?>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('contactus-list')): ?>
+            <li class="treeview">
+                <a href="<?php echo e(route('contactus.index')); ?>" class="<?php echo e(request()->is('contactus')? 'active' : ''); ?>">
+                    <i class="fa fa-tasks"></i> <span>ContactUs</span>
+                </a>
+            </li>
+            <?php endif; ?>
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('blog-list')): ?>
             <li class="treeview">
                 <a href="<?php echo e(route('blog.index')); ?>" class="<?php echo e(request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : ''); ?>">

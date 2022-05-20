@@ -50,20 +50,20 @@
                         <h3>QUCIK LINK</h3>
                         <ul>
                         <a href="{{ route('about_us') }}"> <li>About</li> </a>
-                        <a href=""> <li>FAQs</li></a>
-                        <a href=""> <li>Our locations</li></a>
-                        <a href=""> <li>Blogs & Articles</li></a>
-                        <a href=""> <li>Deals</li></a>
+                        <a href="{{ route('faqs') }}"> <li>FAQs</li></a>
+                        <a href="{{route('our_location')}}"> <li>Our locations</li></a>
+                        <a href="{{ route('blog_article') }}"> <li>Blogs & Articles</li></a>
+                        <a href="{{ route('deal') }}"> <li>Deals</li></a>
                         </ul>
                 </div>
                 <div class="col-md-3 footer-list">
                         <h3>SUPPORT</h3>
                         <ul>
-                        <a href=""><li>Subscriptions</li></a>
-                        <a href=""> <li>Privacy policy</li></a>
+                        <a href="{{ route('subscriptions') }}"><li>Subscriptions</li></a>
+                        <a href="{{ route('privacy_policy') }}"> <li>Privacy policy</li></a>
                         <a href=""> <li>Sitemap</li></a>
-                        <a href=""> <li>Terms and Conditions</li></a>
-                        <a href=""> <li>Manage Cookies</li></a>
+                        <a href="{{ route('term_and_conditions')}}"> <li>Terms and Conditions</li></a>
+                        <a href="{{ route('manage_cookies') }}"> <li>Manage Cookies</li></a>
                         </ul>
                 </div>
                 <div class="col-md-3 foot-input">

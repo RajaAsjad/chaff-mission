@@ -114,23 +114,24 @@
                 </div>
                 <div class="col-md-4">
                     <div class="data-time">
-                        <h1>${{ number_format($product->rent, 2) }}<span>/day</span></h1>
+                        <h1>${{ number_format($product->rent_per_day, 1) }}<span>/day</span></h1>
                     </div>
                     <hr>
                     <form action="{{ route('booking.store') }}" method="post">
                         @csrf
 
                         <input type="hidden" name="product_slug" value="{{ $product->slug }}">
+                        <input type="hidden" name="per_day_rent" value="{{ $product->rent_per_day }}">
                         <h3>Trip start</h3>
                         <div class="date-picker">
                             <div class="ui calendar" id="example2">
                                 <div class="ui input left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" name="trip_start_date" placeholder="Date">
+                                    <input type="text" name="trip_start_date" placeholder="Date" required>
                                 </div>
                             </div>
                             <div class="select-dropdown">
-                                <select id="timer-er" name="trip_start_time">
+                                <select id="timer-er" name="trip_start_time" required>
                                     <option value="">10:00 PM</option>
                                     <option value="0">Midnight</option>
                                     <option value="30">12:30 AM</option>
@@ -188,11 +189,11 @@
                             <div class="ui calendar" id="example33">
                                 <div class="ui input left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" name="trip_end_date" placeholder="Date">
+                                    <input type="text" name="trip_end_date" placeholder="Date" required>
                                 </div>
                             </div>
                             <div class="select-dropdown">
-                                <select id="timer-er" name="trip_end_time">
+                                <select id="timer-er" name="trip_end_time" required>
                                     <option value="">10:00 PM</option>
                                     <option value="0">Midnight</option>
                                     <option value="30">12:30 AM</option>
@@ -250,7 +251,7 @@
                         <div class="pick-location">
                             <label for="city">City</label>
                             <div class="form-group">
-                                <select name="city_id" id="" class="form-control">
+                                <select name="pickup_city_id" id="pickup_city_id" class="form-control" required>
                                     <option value="" selected>Select City</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city->id }}">{{ $city->city }}</option>
@@ -259,23 +260,35 @@
                             </div>
                             <label for="state">State</label>
                             <div class="form-group">
-                                <input type="text" name="pickup_state" id="state" class="form-control" placeholder="Enter pickup state">
+                                <select name="pickup_state" id="pickup_state" class="form-control" required>
+                                    <option value="" selected>Select State</option>
+                                </select>
                             </div>
-                            
+                            <label for="pickup_address">Address</label>
+                            <div class="form-group">
+                                <textarea name="pickup_address" id="pickup_address" cols="30" rows="3" class="form-control" placeholder="Enter local address"></textarea>
+                            </div>
                         </div>
                         <h3>Drop Location</h3>
                         <div class="pick-location">
-                            <label for="">Address</label>
+                            <label for="city">City</label>
                             <div class="form-group">
-                                <textarea name="drop_address" id="" class="form-control" cols="30" rows="3" placeholder="Enter pickup drop address"></textarea>
+                                <select name="drop_city_id" id="drop_city_id" class="form-control" required>
+                                    <option value="" selected>Select City</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city->id }}">{{ $city->city }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <label for="state">State</label>
                             <div class="form-group">
-                                <input type="text" name="drop_state" id="state" class="form-control" placeholder="Enter drop state">
+                                <select name="drop_state_id" id="drop_state" class="form-control" required>
+                                    <option value="" selected>Select State</option>
+                                </select>
                             </div>
-                            <label for="country">Country</label>
+                            <label for="drop_address">Address</label>
                             <div class="form-group">
-                                <input type="text" name="drop_country_name" id="country" class="form-control" placeholder="Enter drop country name">
+                                <textarea name="drop_address" id="drop_address" cols="30" rows="3" class="form-control" placeholder="Enter local address"></textarea>
                             </div>
                         </div>
                         <div class="continue-btn">
@@ -312,8 +325,7 @@
     @endsection
 
     @push('js')
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    {{-- <script src="https://code.jquery.com/jquery-2.1.4.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
     <script>
         $('#example1').calendar();
@@ -376,5 +388,38 @@
         inline: true
         });
         $('#example15').calendar();
+    </script>
+    <script>
+        $(document).on('change', '#pickup_city_id', function(){
+            var city_id = $(this).val();
+            $.ajax({
+                url : "{{ route('get_states') }}",
+                data : {'city_id' : city_id},
+                type : 'GET',
+                success : function(response){
+                    var html = '';
+                    $.each(response, function(item, val) {
+                        html += '<option value="'+val.id+'">'+val.state+'</option>';
+                    });
+                    $('#pickup_state').html(html);
+
+                }
+            });
+        });
+        $(document).on('change', '#drop_city_id', function(){
+            var city_id = $(this).val();
+            $.ajax({
+                url : "{{ route('get_states') }}",
+                data : {'city_id' : city_id},
+                type : 'GET',
+                success : function(response){
+                    var html = '';
+                    $.each(response, function(item, val) {
+                        html += '<option value="'+val.id+'">'+val.state+'</option>';
+                    });
+                    $('#drop_state').html(html);
+                }
+            });
+        });
     </script>
     @endpush

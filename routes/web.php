@@ -50,10 +50,24 @@ Route::get('about_us', [WebController::class, 'about'])->name('about_us');
 Route::get('deal', [WebController::class, 'deal'])->name('deal');
 Route::get('careers', [WebController::class, 'career'])->name('careers');
 Route::get('city', [WebController::class, 'city']);
+Route::get('get_states', [WebController::class, 'getCity'])->name('get_states');
+Route::get('blog_article', [WebController::class, 'blog_article'])->name('blog_article');
+Route::get('contact_us', [WebController::class, 'contactus'])->name('contact_us');
+Route::get('our_location', [WebController::class, 'location'])->name('our_location');
+Route::get('term_and_conditions', [WebController::class, 'termAndConditions'])->name('term_and_conditions');
+Route::get('subscriptions', [WebController::class, 'subscriptions'])->name('subscriptions');
+Route::get('manage_cookies', [WebController::class, 'manageCookies'])->name('manage_cookies');
+Route::get('privacy_policy', [WebController::class, 'privacyPolicy'])->name('privacy_policy');
+Route::get('faqs', [WebController::class, 'faq'])->name('faqs');
+Route::get('careers', [WebController::class, 'career'])->name('careers');
+
 Route::get('book-appointment', [AppointmentController::class, 'create'])->name('book-appointment');
 Route::post('save-appointment', [AppointmentController::class, 'store'])->name('save-appointment');
 
+Route::get('booking/invoice/{id}', [BookingController::class, 'invoice'])->name('booking.invoice');
+
 //stripe payment
+Route::get('stripe/create/{id}', [StripeController::class, 'stripePost'])->name('stripe.create');
 Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
 
 Auth::routes();
@@ -123,4 +137,22 @@ Route::group(['middleware' => ['auth']], function() {
 
     //appointment
     Route::resource('appointment', 'AppointmentController');
+
+     //Career
+     Route::resource('career', 'admin\CareerController');
+
+     //Contact
+     Route::resource('contact', 'admin\ContactController');
+
+     //ContactUs
+     Route::resource('contactus', 'admin\ContactUsController');
+     
+     //FAQS
+     Route::resource('faq', 'admin\FAQController');
+
+     //Banner
+     Route::resource('banner', 'admin\BannerController');
+
+     //Career
+     Route::resource('career', 'admin\CareerController');
 });

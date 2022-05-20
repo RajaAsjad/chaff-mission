@@ -31,16 +31,19 @@
                 </div>
                 <div class="col-md-5">
                     <div class="row all-right-btnz">
+                        <div class="col-md-2">
+
+                        </div>
                         <div class="col-md-4 hdr-three">
                             <div class="anchor-firstt">
-                                <a href="{{ route('book-appointment')}}"> Book Appintment</a>
+                                <a href="">BECOME A HOST</a>
                             </div>
                         </div>
                         <div class="col-md-6 hdr-right">
-                            @if(Auth::check())
-                                <div class="user-log">
-                                    <a href="{{ route('home') }}"><span><i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->name }}</span></a>
-                                </div>
+                           @if(Auth::check())
+                            <div class="user-log">
+                                <a href="{{ route('home') }}"><span><i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->name }}</span></a>
+                            </div>
                             @else 
                                 <div class="loggin">
                                     <a href="{{ route('login') }}">LOGIN</a>
@@ -58,7 +61,7 @@
                                     <li><a href="{{ route('careers') }}">Careers</a></li>
                                     <li><a href="{{ route('gallerys') }}">Gallery</a></li>
                                     <li><a href="{{ route('deal') }}">Deals</a></li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><a href="{{route('contact_us')}}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
