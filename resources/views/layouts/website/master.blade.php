@@ -126,6 +126,15 @@
                 ,	duration: "fast"
             });
         } );
+
+        var dateToday = new Date(); 
+        $(function() {
+            $( ".datepicker" ).datepicker({
+                numberOfMonths: 3,
+                showButtonPanel: true,
+                minDate: dateToday
+            });
+        });
     </script>
 </body>
 </html>

@@ -6,14 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\CarType;
 use App\Models\Appointment;
 use Auth;
+use Event as mycalendarevent;
+use Carbon;
 
 class AppointmentController extends Controller
 {
     public function create()
     {
-        
-      $cartypes = CarType::where('status',1)->get();      
-      return view('website.appointment.bookAppointment', compact('cartypes'));
+        $e = mycalendarevent::get();
+        dd($e);
+
+        $cartypes = CarType::where('status',1)->get();
+        return view('website.appointment.bookAppointment', compact('cartypes'));
     }
 
     public function store(Request  $request)
@@ -28,7 +32,15 @@ class AppointmentController extends Controller
             'return_date' => 'required',
             'return_time' => 'required',
         ]);
-        
+
+        $event = new mycalendarevent;
+        $event->name = $request->description;
+        $event->startDateTime = Carbon\Carbon::now();
+        $event->endDateTime = Carbon\Carbon::now()->addHour();
+        $event->save();
+        /* $e = Event::get();
+        dd($e) */
+
         $model = new Appointment();
         $model->customer_id = Auth::user()->id;
         $model->car_type_slug = $request->car_type;
@@ -44,4 +56,13 @@ class AppointmentController extends Controller
         return redirect()->route('book-appointment')->with('success', 'Appointment resquest sent auccessfully');
     }
 
+    public function appointmentDetail()
+    {
+        
+      $page_title = 'All Appointment Details';
+      $appointments = Appointment::where('status',1)->get();      
+      return view('website.user-dashboard.appointment-detail', compact('appointments' , 'page_title'));
+    }
+
 }
+

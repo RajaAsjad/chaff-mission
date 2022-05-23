@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Role as UserRole;
 use Spatie\Permission\Models\Role;
 use DB;
+use Auth;
 use Hash;
 use Illuminate\Support\Arr;
 
@@ -158,5 +159,42 @@ class UserController extends Controller
         if($ifdeleted){
             return true;
         }
+    }
+
+    public function userEditProfile()
+    {
+        return view('website.user-dashboard.edit');
+    }
+
+    public function userUpdateProfile(Request $request)
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->name = $request->first_name;
+      
+        if(empty($request->name)){
+            $this->validate($request, [
+                'first_name' => 'required',
+            ]);
+        }
+        
+        $user->last_name = $request->last_name;
+       
+        if(isset($request->password)){
+            $this->validate($request, [
+                'first_name' => 'required',
+                'password' => 'required|same:confirm-password',
+            ]);
+
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->update();
+        return redirect()->back()->with('message','Profile updated successfully');
+    }
+
+    public function logOut()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

@@ -1,22 +1,24 @@
-<?php $__env->startSection('title', $page_title); ?>
-<?php $__env->startSection('content'); ?>
-<input type="hidden" id="page_url" value="<?php echo e(route('booking.index')); ?>">
+@extends('layouts.admin.app')
+@section('title', $page_title)
+@section('content')
+<input type="hidden" id="page_url" value="{{ route('booking.index') }}">
 <section class="content-header">
 	<div class="content-header-left">
-		<h1><?php echo e($page_title); ?></h1>
+		<h1>{{ $page_title }}</h1>
 	</div>
-	
+	{{-- <div class="content-header-right">
+		<a href="{{ route('blog.create') }}" class="btn btn-primary btn-sm">Add blog</a>
+	</div> --}}
 </section>
 
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			<?php if(session('status')): ?>
+			@if (session('status'))
 				<div class="callout callout-success">
-					<?php echo e(session('status')); ?>
-
+					{{ session('status') }}
 				</div>
-			<?php endif; ?>
+			@endif
 
 			<div class="box box-info">
 				<div class="box-body">
@@ -51,41 +53,40 @@
 							</tr>
 						</thead>
 						<tbody id="body">
-							<?php $__currentLoopData = $models; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-								<tr id="id-<?php echo e($model->slug); ?>">
-									<td><?php echo e($models->firstItem()+$key); ?>.</td>
-									<td><?php echo e($model->booking_number); ?></td>
-									<td><?php echo e(isset($model->hasProduct->hasCategory)?$model->hasProduct->hasCategory->name:'--'); ?></td>
-									<td><?php echo e(isset($model->hasProduct)?$model->hasProduct->name:'--'); ?></td>
-									<td><?php echo e(isset($model->hasCustomer)?$model->hasCustomer->name:'--'); ?></td>
-									<td><?php echo e($model->hasCustomer->phone??'--'); ?></td>
-									<td><span class="badge badge-info"><?php echo e(date('d, F-y', strtotime($model->trip_start_date))); ?></span> - <span class="badge badge-info"><?php echo e(date('d, F-y', strtotime($model->trip_end_date))); ?></span></td>
-									<td><span class="badge badge-info"><?php echo e($model->total_days); ?> - Days</span></td>
+							@foreach($models as $key=>$model)
+								<tr id="id-{{ $model->slug }}">
+									<td>{{ $models->firstItem()+$key }}.</td>
+									<td>{{ $model->booking_number }}</td>
+									<td>{{ isset($model->hasProduct->hasCategory)?$model->hasProduct->hasCategory->name:'--' }}</td>
+									<td>{{ isset($model->hasProduct)?$model->hasProduct->name:'--' }}</td>
+									<td>{{ isset($model->hasCustomer)?$model->hasCustomer->name:'--' }}</td>
+									<td>{{ $model->hasCustomer->phone??'--' }}</td>
+									<td><span class="badge badge-info">{{ date('d, F-y', strtotime($model->trip_start_date)) }}</span> - <span class="badge badge-info">{{ date('d, F-y', strtotime($model->trip_end_date)) }}</span></td>
+									<td><span class="badge badge-info">{{ $model->total_days }} - Days</span></td>
 									<td>
-										<?php if($model->status==0): ?>
+										@if($model->status==0)
 											<span class="badge badge-info">Pending</span>
-										<?php elseif($model->status==1): ?>
+										@elseif($model->status==1)
 											<span class="badge badge-success">Confirmed</span>
-										<?php elseif($model->status==3): ?>
+										@elseif($model->status==3)
 											<span class="badge badge-danger">Cancelled</span>
-										<?php endif; ?>
+										@endif
 									</td>
-									<td><span class="badge badge-info"><?php echo e(date('d-m-y | H:i A', strtotime($model->created_at))); ?></span></td>
+									<td><span class="badge badge-info">{{ date('d-m-y | H:i A', strtotime($model->created_at)) }}</span></td>
 									<td>
-										<?php if($model->status==0): ?>
-											<button class="btn btn-warning btn-xs booking-status-btn" data-booking-number="<?php echo e($model->booking_number); ?>" data-booking-status="<?php echo e($model->status); ?>"><i class="fa fa-tasks"></i> Status</button>
-										<?php endif; ?>
-										<a href="<?php echo e(route('booking.show', $model->booking_number)); ?>" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a>
-										<a href="<?php echo e(route('booking.invoice', $model->booking_number)); ?>" style="margin-top:5px" class="btn btn-primary btn-xs"><i class="fa fa-file"></i> Invoice</a>
+										@if($model->status==0)
+											<button class="btn btn-warning btn-xs booking-status-btn" data-booking-number="{{ $model->booking_number }}" data-booking-status="{{ $model->status }}"><i class="fa fa-tasks"></i> Status</button>
+										@endif
+										<a href="{{ route('booking.show', $model->booking_number) }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a>
+										<a href="{{ route('booking.invoice', $model->booking_number) }}" style="margin-top:5px" class="btn btn-primary btn-xs"><i class="fa fa-file"></i> Invoice</a>
 									</td>
 								</tr>
-							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							@endforeach
                             <tr>
                                 <td colspan="11">
-									Displying <?php echo e($models->firstItem()); ?> to <?php echo e($models->lastItem()); ?> of <?php echo e($models->total()); ?> records
+									Displying {{$models->firstItem()}} to {{$models->lastItem()}} of {{$models->total()}} records
                                     <div class="d-flex justify-content-center">
-                                        <?php echo $models->links('pagination::bootstrap-4'); ?>
-
+                                        {!! $models->links('pagination::bootstrap-4') !!}
                                     </div>
                                 </td>
                             </tr>
@@ -105,7 +106,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form action="<?php echo e(route('booking.status')); ?>" id="booking-status-form">
+				<form action="{{ route('booking.status') }}" id="booking-status-form">
 					<div class="modal-body">
 						<input type="hidden" name="booking_number" id="booking-number">
 						<div class="row">
@@ -130,9 +131,9 @@
 		</div>
 	</div>
 </section>
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startPush('js'); ?>
+@push('js')
 	<script>
 		$('#booking-status-form').submit(function (event) {
 			event.preventDefault();
@@ -162,6 +163,4 @@
 			$('#booking-status-modal').modal('show');
 		});
 	</script>
-<?php $__env->stopPush(); ?>
-
-<?php echo $__env->make('layouts.admin.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\chaff_mission\resources\views/admin/bookings/index.blade.php ENDPATH**/ ?>
+@endpush

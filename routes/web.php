@@ -40,6 +40,15 @@ Route::post('/admin/profile/update', 'admin\AdminController@updateProfile')->nam
 Route::post('admin/logout', 'admin\AdminController@logOut')->name('admin.logout');
 Route::get('getproducts', 'admin\DealsController@getproducts')->name('getproducts');
 
+Route::get('/user/profile/edit', 'admin\UserController@userEditProfile')->name('user.profile.edit');
+Route::post('/user/profile/update', 'admin\UserController@userUpdateProfile')->name('user.profile.update');
+Route::post('user/logout', 'admin\UserController@logOut')->name('user.logout');
+
+Route::get('booking_detail', 'BookingController@bookingDetail')->name('booking_detail');
+
+Route::get('appointment_detail', 'AppointmentController@appointmentDetail')->name('appointment_detail');
+
+
 //Frontend
 Route::get('/', [WebController::class, 'index'])->name('index');
 Route::get('gallerys', [WebController::class, 'gallery'])->name('gallerys');
@@ -64,7 +73,8 @@ Route::get('careers', [WebController::class, 'career'])->name('careers');
 Route::get('book-appointment', [AppointmentController::class, 'create'])->name('book-appointment');
 Route::post('save-appointment', [AppointmentController::class, 'store'])->name('save-appointment');
 
-Route::get('booking/invoice/{id}', [BookingController::class, 'invoice'])->name('booking.invoice');
+Route::get('booking/status', 'BookingController@status')->name('booking.status');
+Route::get('booking/invoice/{id}', 'BookingController@invoice')->name('booking.invoice');
 
 //stripe payment
 Route::get('stripe/create/{id}', [StripeController::class, 'stripePost'])->name('stripe.create');

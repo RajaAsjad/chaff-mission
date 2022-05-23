@@ -1,13 +1,13 @@
-@extends('layouts.website.master')
-@push('css')
+
+<?php $__env->startPush('css'); ?>
 <!-- BANNER SLIDER LINK  -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 
 <!-- date sheet link -->
 <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
-@endpush
-@section('content')
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
     <!-- SLIDER BANNER  -->
     <section class="banner-slider">
         <div class="container-fluid">
@@ -22,13 +22,13 @@
                     
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img class="carousel-image" src="{{ asset('public/assets/website/images/slider.png') }}" alt="banner 1">
+                            <img class="carousel-image" src="<?php echo e(asset('public/assets/website/images/slider.png')); ?>" alt="banner 1">
                         </div>
                         <div class="item">
-                            <img class="carousel-image" src="{{ asset('public/assets/website/images/slider.png') }}" alt="banner 2">
+                            <img class="carousel-image" src="<?php echo e(asset('public/assets/website/images/slider.png')); ?>" alt="banner 2">
                         </div>
                         <div class="item">
-                            <img class="carousel-image" src="{{ asset('public/assets/website/images/slider.png') }}" alt="banner 3">
+                            <img class="carousel-image" src="<?php echo e(asset('public/assets/website/images/slider.png')); ?>" alt="banner 3">
                         </div>
                     </div>
                     <!--carousel inner-->
@@ -53,40 +53,40 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="detial">
-                        <h1>{{ $product->name }}</h1>
-                        <p>{{ $product->short_description }}</p>
+                        <h1><?php echo e($product->name); ?></h1>
+                        <p><?php echo e($product->short_description); ?></p>
                         <div class="ranking">
                             <span>4.92</span>  
-                            <img src="{{ asset('public/assets/website/images/testimonials-single-star.png') }}" alt="">
+                            <img src="<?php echo e(asset('public/assets/website/images/testimonials-single-star.png')); ?>" alt="">
                             <p>(73 tip)</p>
                         </div>
                         <div class="labeledBadge">
                             <div class="value-icon">
                                 <span class="icon--economy"></span>
-                                <span>{{ $product->hasProductDetails->mpg }} MPG</span>
+                                <span><?php echo e($product->hasProductDetails->mpg); ?> MPG</span>
                             </div>  
                             <div class="value-icon">
                                 <span class="icon--gas"></span>
-                                <span>{{ $product->hasProductDetails->fuel }}</span>
+                                <span><?php echo e($product->hasProductDetails->fuel); ?></span>
                             </div>  
                         </div>
                         <div class="labeledBadge">
                             <div class="value-icon">
                                 <span class="icon--door"></span>
-                                <span>{{ $product->hasProductDetails->doors }} doors</span>
+                                <span><?php echo e($product->hasProductDetails->doors); ?> doors</span>
                             </div>  
                             <div class="value-icon">
                                 <span class="icon--seat"></span>
-                                <span>{{ $product->hasProductDetails->seats }} seats</span>
+                                <span><?php echo e($product->hasProductDetails->seats); ?> seats</span>
                             </div>  
                         </div>
                     </div>
                     <div class="hosted">
                         <h6>HOSTED BY</h6>
-                        <img src="{{ asset('public/assets/website/images/profile.jpg') }}" alt="">
+                        <img src="<?php echo e(asset('public/assets/website/images/profile.jpg')); ?>" alt="">
                         <div class="hosted-rank">
                             <span>4.9
-                        <a href=""> <img src="{{ asset('public/assets/website/images/testimonials-single-star.png') }}" alt=""> </a></span>
+                        <a href=""> <img src="<?php echo e(asset('public/assets/website/images/testimonials-single-star.png')); ?>" alt=""> </a></span>
                         </div>
                         <div class="hosted-info">
                             <h3>Susanna</h3>
@@ -97,14 +97,14 @@
                     </div>
                     <div class="all-star">
                         <div class="all-star-para">
-                            <img src="{{ asset('public/assets/website/images/testimonials-single-star.png') }}" alt="">
+                            <img src="<?php echo e(asset('public/assets/website/images/testimonials-single-star.png')); ?>" alt="">
                             <p>All-Star Hosts like Susanna are the top-rated and most experienced hosts on Turo.</p>
                         </div>    
                         <div class="all star-btn">
                             <a href="#">Learn More</a>
                         </div>
                         <div class="all-star-para">
-                            <img src="{{ asset('public/assets/website/images/testimonials-single-star.png') }}" alt="">
+                            <img src="<?php echo e(asset('public/assets/website/images/testimonials-single-star.png')); ?>" alt="">
                             <p>All-Star Hosts like Susanna are the top-rated and most experienced hosts on Turo.</p>
                         </div>    
                         <div class="all star-btn">
@@ -114,14 +114,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="data-time">
-                        <h1>${{ number_format($product->rent_per_day, 1) }}<span>/day</span></h1>
+                        <h1>$<?php echo e(number_format($product->rent_per_day, 1)); ?><span>/day</span></h1>
                     </div>
                     <hr>
-                    <form action="{{ route('booking.store') }}" method="post">
-                        @csrf
+                    <form action="<?php echo e(route('booking.store')); ?>" method="post">
+                        <?php echo csrf_field(); ?>
 
-                        <input type="hidden" name="product_slug" value="{{ $product->slug }}">
-                        <input type="hidden" name="per_day_rent" value="{{ $product->rent_per_day }}">
+                        <input type="hidden" name="product_slug" value="<?php echo e($product->slug); ?>">
+                        <input type="hidden" name="per_day_rent" value="<?php echo e($product->rent_per_day); ?>">
                         <h3>Trip start</h3>
                         <div class="date-picker">
                             <div class="ui calendar" id="example2">
@@ -253,9 +253,9 @@
                             <div class="form-group">
                                 <select name="pickup_city_id" id="pickup_city_id" class="form-control" required>
                                     <option value="" selected>Select City</option>
-                                    @foreach ($cities as $city)
-                                        <option value="{{ $city->id }}">{{ $city->city }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($city->id); ?>"><?php echo e($city->city); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                             <label for="state">State</label>
@@ -275,9 +275,9 @@
                             <div class="form-group">
                                 <select name="drop_city_id" id="drop_city_id" class="form-control" required>
                                     <option value="" selected>Select City</option>
-                                    @foreach ($cities as $city)
-                                        <option value="{{ $city->id }}">{{ $city->city }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($city->id); ?>"><?php echo e($city->city); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                             <label for="state">State</label>
@@ -322,9 +322,9 @@
         </div>
     </section>
     <!-- PRODUCT DETIAL  -->
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @push('js')
+    <?php $__env->startPush('js'); ?>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
     <script>
@@ -393,7 +393,7 @@
         $(document).on('change', '#pickup_city_id', function(){
             var city_id = $(this).val();
             $.ajax({
-                url : "{{ route('get_states') }}",
+                url : "<?php echo e(route('get_states')); ?>",
                 data : {'city_id' : city_id},
                 type : 'GET',
                 success : function(response){
@@ -409,7 +409,7 @@
         $(document).on('change', '#drop_city_id', function(){
             var city_id = $(this).val();
             $.ajax({
-                url : "{{ route('get_states') }}",
+                url : "<?php echo e(route('get_states')); ?>",
                 data : {'city_id' : city_id},
                 type : 'GET',
                 success : function(response){
@@ -422,4 +422,6 @@
             });
         });
     </script>
-    @endpush
+    <?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.website.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\chaff_mission\resources\views/website/product/single.blade.php ENDPATH**/ ?>

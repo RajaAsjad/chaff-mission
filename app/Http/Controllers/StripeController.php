@@ -51,6 +51,15 @@ class StripeController extends Controller
             ]);
 
             if($payment){
+                PaymentDetail::create([
+                    'order_number' => $booking_number,
+                    'transaction_id' => $booking_number,
+                    'transaction_date' => date('Y-m-d'),
+                    'name_on_card' => date('Y-m-d'),
+                    'expiration_month' => date('Y-m-d'),
+                    'expiration_year' => date('Y-m-d'),
+                ]);
+
                 $bookings->payment_status = 'paid';
                 $bookings->save(); 
             }

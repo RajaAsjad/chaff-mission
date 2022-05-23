@@ -24,13 +24,23 @@
 		<link rel="stylesheet" href="{{asset('public/admin/assets/css/toastr.min.css')}}">
 
 		<style>
-			.skin-blue .wrapper,
 			.skin-blue .main-header .logo,
 			.skin-blue .main-header .navbar,
-			.skin-blue .main-sidebar,
 			.content-header .content-header-right a,
 			.content .form-horizontal .btn-success {
-				background-color: #4172a5 !important;
+				background-color: #fccc24 !important;
+			}
+
+			nav.navbar.navbar-static-top {
+				background: #fccc24 !important;
+			}
+
+			.main-header .logo{
+				padding: 0px 70px;
+			}
+
+			aside.main-sidebar {
+				background: #1f1f1f !important;
 			}
 
 			.content-header .content-header-right a,
@@ -56,6 +66,15 @@
 				color: #fff !important;
 			}
 
+			.skin-blue .main-header .navbar .nav>li>a {
+				color: #000 !important;
+				font-weight: 600;
+			}
+
+			/* i.fa.fa-laptop {
+				color: #fccc24 !important;
+			} */
+
 			.skin-blue .sidebar-menu>li>.treeview-menu {
 				margin: 0 !important;
 			}
@@ -68,9 +87,68 @@
 				border-top-width: 1px !important;
 			}
 
+			.skin-blue .main-header .navbar .sidebar-toggle {
+				color: #000 !important;
+			}
+
 			label.error {
 				color: #dc3545;
 				font-size: 14px;
+			}
+			aside.main-sidebar {
+				padding-top: 100px;
+			}
+			a.logo {
+				height: 80px !important;
+			}
+
+			nav.navbar.navbar-static-top {
+				height: 50px !important;
+			}
+			.sidebar-menu .treeview a:active {
+				background: #2b2b2b;
+			}
+			.info-box-content {
+				padding: 5px 25px;
+				margin-left: 90px;
+				background: #ddd1d142 !important;
+				min-height: 90px;
+			}
+			.content-wrapper, .right-side {
+				background-color: #fff;
+			}
+			.info-box-text {
+				color: #000 !important;
+				font-size: 15px;
+				font-weight: 600 !important;
+			}
+			.bg-blue {
+				background-color: #1f1f1f !important;
+				border-radius: 0px 6px 6px 0px;
+			}
+			.bg-blue i.fa.fa-hand-o-right {
+				color: #fccc24;
+			}
+			a.active {
+				background: #2b2b2b !important;
+			}
+			ul.sidebar-menu .treeview .active {background:#565656 !important;}
+
+			ul.sidebar-menu .treeview .active i {display: inline-block;color: #fccc24 !important;}
+
+			ul.sidebar-menu .treeview i {color: #1f1f1f !important;}
+
+			.skin-blue .sidebar-menu>li:hover a {
+				background-color: unset !important;
+			}
+			.content-header .content-header-right a, .content .form-horizontal .btn-success {
+				border-color: #fccc24 !important;
+			}
+			.content-header>h1, .content-header .content-header-left h1, h3 {
+				color: #000 !important;
+			}
+			.box.box-info {
+				border-top-color: #000 !important;
 			}
 		</style>
 
@@ -80,10 +158,10 @@
 	<body class="hold-transition fixed skin-blue sidebar-mini">
 		<div class="wrapper">
 			<!--header-->
-			@include('layouts.admin.header')
+			@include('layouts.user.header')
 
 			<!--sidebar-->
-			@include('layouts.admin.sidebar')
+			@include('layouts.user.sidebar')
 
 			<div class="content-wrapper">
 				@yield('content')

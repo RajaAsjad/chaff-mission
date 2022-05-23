@@ -21,7 +21,7 @@
         <td>
             <button class="btn btn-warning btn-xs booking-status-btn" data-booking-status="<?php echo e($model->status); ?>"><i class="fa fa-tasks"></i> Status</button>
             <a href="<?php echo e(route('booking.show', $model->booking_number)); ?>" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a>
-            <a href="<?php echo e(route('booking.invoice', $model->booking_number)); ?>" class="btn btn-primary btn-xs"><i class="fa fa-file"></i> Invoice</a>
+            <a href="<?php echo e(route('booking.invoice', $model->booking_number)); ?>" style="margin-top:5px" class="btn btn-primary btn-xs"><i class="fa fa-file"></i> Invoice</a>
         </td>
     </tr>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

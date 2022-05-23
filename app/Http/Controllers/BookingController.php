@@ -9,6 +9,7 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Auth; 
 use Session;
+use PDF;
 
 class BookingController extends Controller
 {
@@ -46,6 +47,7 @@ class BookingController extends Controller
     }
     public function store(Request $request)
     {
+        return $request;
         // get from and throung date
         $from_date = Carbon::parse(date('Y-m-d', strtotime($request->trip_start_date))); 
         $through_date = Carbon::parse(date('Y-m-d', strtotime($request->trip_end_date))); 
@@ -106,8 +108,26 @@ class BookingController extends Controller
         return redirect()->route('rentals');
     }
 
-    public function invoice($booking_number)
+    public function bookingDetail()
     {
-        return $booking_number;
+        $page_title= 'All Booking Detail';
+        $bookings_details = Booking::where('status', 0)->get();
+        return view('website.user-dashboard.booking-detail' , compact('page_title' , 'bookings_details'));
+    }
+
+    public function status(Request $request)
+    {
+        $booking = Booking::where('booking_number', $request->booking_number)->first();
+        $booking->status = $request->booking_status;
+        $booking->save();
+
+        return redirect()->route('booking.index')->with('message','Booking status updated successfully');
+    }
+
+    public function invoice($booking_number)
+    {   
+        $booking_details = Booking::where('booking_number', $booking_number)->first();
+        $pdf = PDF::loadView('website.user-dashboard.booking-invoice', compact('booking_details'));
+        return $pdf->download('itsolutionstuff.pdf');
     }
 }
