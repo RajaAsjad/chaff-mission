@@ -12,11 +12,6 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			@if (session('message'))
-				<div class="callout callout-success">
-					{{ session('message') }}
-				</div>
-			@endif
 			<form action="{{ route('page_setting.store') }}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 				@csrf
 
@@ -35,25 +30,26 @@
 								<textarea class="form-control" name="contact_address" style="height:60px;" placeholder="Enter address">{{ isset($page_data['contact_address'])?$page_data['contact_address']:'' }}</textarea>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Contact Email </label>
-							<div class="col-sm-9">
-								<input type="email" class="form-control" name="contact_email" value="{{ isset($page_data['contact_email'])?$page_data['contact_email']:'' }}" placeholder="Enter email">
-							</div>
-						</div>
-						<div class="form-group">
+                        <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Contact Phone </label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" name="contact_phone" value="{{ isset($page_data['contact_phone'])?$page_data['contact_phone']:'' }}" placeholder="Enter phone number">
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">Contact Email </label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" name="contact_email" value="{{ isset($page_data['contact_email'])?$page_data['contact_email']:'' }}" placeholder="Enter email">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Contact Map (iframe Code) </label>
 							<div class="col-sm-9">
 								<textarea class="form-control" name="contact_map" style="height:120px;" placeholder="Enter map iframe code">{{ isset($page_data['contact_map'])?$page_data['contact_map']:'' }}</textarea>
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">

@@ -36,7 +36,7 @@ function fetchAll(pageurl, page, search, status){
 
 //delete record
 $('.delete').on('click', function(){
-    var slug = $(this).attr('data-slug');
+    var id = $(this).attr('data-slug');
     var delete_url = $(this).attr('data-del-url');
     Swal.fire({
         title: 'Are you sure?',
@@ -59,7 +59,7 @@ $('.delete').on('click', function(){
                 success : function(response){
                     // console.log(response);
                     if(response){
-                        $('#id-'+slug).hide();
+                        $('#id-'+id).hide();
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',

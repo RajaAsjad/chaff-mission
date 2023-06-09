@@ -15,7 +15,6 @@
 		<div class="col-md-12">
 			<form action="{{ route('user.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 				@csrf
-
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">

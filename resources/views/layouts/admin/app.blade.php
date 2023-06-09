@@ -4,10 +4,9 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>@yield('title')</title>
-
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-		<meta name="csrf-token" id="token" content="{{ csrf_token() }}" />
-
+		<meta name="csrf-token" id="token" content="{{ csrf_token() }}"/>
+        <link rel="icon" href="{{ asset('public/admin/assets/images/page') }}/{{ $home_page_data['header_favicon'] }}" type="image/png" sizes="16x16">
 		<link rel="stylesheet" href="{{asset('public/admin/assets/css/bootstrap.min.css')}}">
 		<link rel="stylesheet" href="{{asset('public/admin/assets/css/font-awesome.min.css')}}">
 		<link rel="stylesheet" href="{{asset('public/admin/assets/css/ionicons.min.css')}}">
@@ -22,6 +21,12 @@
 		<link rel="stylesheet" href="{{asset('public/admin/assets/css/magnific-popup.css')}}">
 		<link rel="stylesheet" href="{{asset('public/admin/assets/css/style.css')}}">
 		<link rel="stylesheet" href="{{asset('public/admin/assets/css/toastr.min.css')}}">
+        <style>
+            label{
+                font-weight:bold;
+                font-size: 12px;
+            }
+        </style>
 
 		<style>
 			.skin-blue .wrapper,
@@ -30,31 +35,48 @@
 			.skin-blue .main-sidebar,
 			.content-header .content-header-right a,
 			.content .form-horizontal .btn-success {
-				background-color: #4172a5 !important;
+				background-color: #001947 !important;
 			}
 
 			.content-header .content-header-right a,
 			.content .form-horizontal .btn-success {
-				border-color: #4172a5 !important;
+				border-color: #680b0b !important;
 			}
+
+            a.btn.btn-primary.btn-sm:hover {
+                color: #a6cb3e;
+            }
 
 			.content-header>h1,
 			.content-header .content-header-left h1,
 			h3 {
-				color: #4172a5 !important;
+				color: #37709e !important;
 			}
 
+            .nav>li>a:hover,{
+                background-color: #37709e;
+                /* color: #37709e; */
+            }
+
 			.box.box-info {
-				border-top-color: #4172a5 !important;
+				border-top-color: #37709e !important;
 			}
 
 			.nav-tabs-custom>.nav-tabs>li.active {
-				border-top-color: #f4f4f4 !important;
+				border-top-color: #1a2204 !important;
 			}
 
 			.skin-blue .sidebar a {
-				color: #fff !important;
+				color: #f1ff2ad2 !important;
 			}
+
+            a.active {
+                background: #680b0b;
+            }
+
+            .skin-blue .sidebar-menu>li:hover>a{
+                background-color: #6b6b6b;
+            }
 
 			.skin-blue .sidebar-menu>li>.treeview-menu {
 				margin: 0 !important;
@@ -75,6 +97,8 @@
 		</style>
 
 		@stack('css')
+
+
 	</head>
 
 	<body class="hold-transition fixed skin-blue sidebar-mini">
@@ -117,7 +141,8 @@
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="{{asset('public/admin/assets/js/toastr.min.js')}}"></script>
 	<script src="{{asset('public/admin/assets/js/search.js')}}"></script>
-	<script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    <script>
 		@if(Session::has('message'))
 		toastr.options =
 		{
@@ -154,5 +179,6 @@
 				toastr.warning("{{ session('warning') }}");
 		@endif
 	</script>
+
 	@stack('js')
 </html>

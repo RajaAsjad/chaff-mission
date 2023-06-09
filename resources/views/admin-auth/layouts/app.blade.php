@@ -4,9 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Admin Login</title>
-
+    <link rel="icon" href="{{ asset('public/admin/assets/images/page') }}/{{ $home_page_data['header_favicon'] }}" type="image/png" sizes="16x16">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
 	<link rel="stylesheet" href="{{ asset('public/admin/assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('public/admin/assets/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('public/admin/assets/css/ionicons.min.css') }}">

@@ -1,28 +1,30 @@
 <header class="main-header">
-    <a href="{{ route('dashboard') }}" class="logo">
-        <span class="logo-lg">{{ Auth::user()->name }}</span>
-    </a>
+
+        <a href="{{ route('dashboard') }}" class="logo">
+            <img src="{{ asset('public/admin/assets/images/page') }}/{{ $home_page_data['header_logo'] }}" style="width:150px;position:absolute;left:3%;top:20%" alt="">
+            <span class="logo-lg" style="position:absolute;top:300%;left:3%;">{{ Auth::user()->name }} {{ Auth::user()->last_name }}</span>
+        </a>
 
     <nav class="navbar navbar-static-top">
 
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        {{-- <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
-        </a>
+        </a> --}}
 
         <span style="float:left;line-height:50px;color:#fff;padding-left:15px;font-size:18px;">Admin Panel</span>
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{ url('/') }}" target="_blank">Visit Website</a>
+                    <a href="{{ url('/') }}" target="_blank">Form Section</a>
                 </li>
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         @if(Auth::user()->image)
-                            <img src="{{ asset('public/admin/assets/img') }}/{{ Auth::user()->image }}" class="user-image" alt="user photo"> 
-                        @else 
-                            <img src="{{ asset('public/admin/assets/img/dummy-user.png') }}" class="user-image" alt="user photo"> 
+                            <img src="{{ asset('public/admin/assets/img') }}/{{ Auth::user()->image }}" class="user-image" alt="user photo">
+                        @else
+                            <img src="{{ asset('public/admin/assets/img/dummy-user.png') }}" class="user-image" alt="user photo">
                         @endif
                         <span class="hidden-xs"></span>
                     </a>
@@ -45,9 +47,7 @@
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </div>
-
     </nav>
 </header>

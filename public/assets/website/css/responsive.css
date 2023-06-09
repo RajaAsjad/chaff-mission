@@ -1,0 +1,407 @@
+
+
+@media  screen and (max-width: 2560px) {
+    header.head-main {
+        display: none;
+    }
+
+    .banner_home, .banner_page{
+        margin-top: -160px;
+    }
+    .weds-pack {
+        margin-left: 15%;
+        margin-top: -12%;
+    }
+
+    .pack-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: -10%;
+    }
+
+}
+@media  screen and (max-width: 1680px) {
+    header.head-main {
+        display: none;
+    }
+
+    .banner_home, .banner_page{
+        margin-top: -160px;
+    }
+
+    .weds-pack {
+        margin-left: 10%;
+        margin-top: -5%;
+    }
+
+    .pack-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: -5%;
+    }
+
+}
+@media  screen and (max-width: 1440px) {
+    .banner_home{
+        margin-top: -160px;
+    }
+    .slick-next {
+        right: -53px !important;
+    }
+    .slick-prev {
+        left: -58px !important;
+    }
+    .weds-pack {
+        margin-left: 6%;
+    }
+    .head-main{
+        display: none;
+    }
+}
+@media  screen and (max-width: 1024px) {
+    .slick-next {
+        right: -33px !important;
+    }
+    .slick-prev {
+        left: -37px !important;
+    }
+    ul.main_ul li a{
+        padding: 3px;
+        margin: 0 4px;
+        font-size: 15px;
+    }
+    a.start_chat::before{
+        width: 26px;
+        left: 4px;
+    }
+    a.start_chat{
+        font-size: 15px;
+    }
+    .call-detail img{
+        margin-left: 10%;
+    }
+    .gal-2 img {
+        height: 311px;
+        object-fit: cover;
+    }
+    .gal-3 img {
+        height: 534px;
+    }
+    .footer-last form input{
+        padding: 15px 53px 12px 4px;
+    }
+    .foot-end:nth-child(1)::after{
+        width: 302px;
+        left: 41%;
+    }
+    .head-main{
+        display: none;
+    }
+
+    .weds-pack {
+        margin-left: 5%;
+        margin-top: 0%;
+    }
+
+}
+
+@media  screen and (max-width: 768px){
+    .contact_list{
+        margin-left: 5px;
+    }
+    footer.footer .col-md-3 {
+        flex: 0 50%;
+        max-width: 50%;
+    }
+    .foot-end:nth-child(1)::after{
+        display: none;
+    }
+    .book-img img {
+        height: 451px;
+        object-fit: cover;
+    }
+    section.services .col-md-3 {
+        flex: 0 50%;
+        max-width: 50%;
+        margin: 7px 0px;
+    }
+    .services {
+        padding-left:4% ;
+    }
+    .about-us .description h3 {
+        font-size: 23px;
+    }
+    .best_wedding_planner h1{
+        font-size: 31px;
+    }
+    .best_wedding_planner h2{
+        font-size: 27px;
+    }
+    .main{
+        display: none;
+    }
+    .banner_home {
+        margin-top: -189px;
+    }
+    .logo {
+        position: absolute;
+        top: 0;
+    }
+
+    .logo img {
+        width: 49%;
+    }
+    .navbar {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        max-width: 12%;
+        left: 87% !important;
+    }
+    .social_icons.d-flex.justify-content-end.top {
+        margin: -50px 51px;
+    }
+    .cart.d-flex.justify-content-end.top2 {
+        /* margin: 0; */
+        position: relative;
+        top: -48px;
+        left: -70%;
+    }
+    .banner_home .col-md-12{
+        margin-top: 6rem!important;
+    }
+    .slick-prev, .slick-next{
+        display: none !important;
+    }
+    section.package .col-md-6 {
+        flex: 0 100%;
+        max-width: 100%;
+    }
+
+    .weds-pack {
+        background: red;
+        padding: 9px 27px;
+    }
+
+    .pack-detail {
+        background: #000;
+        padding: 24px 18px;
+        width: 94%;
+        /* display: flex; */
+        left: 6%;
+        position: relative;
+        top: -14px;
+    }
+
+    section.package {
+        position: relative;
+    }
+    section.package:after{
+        display: none;
+    }
+    .gal-2 img {
+        height: 274px;
+        object-fit: cover;
+    }
+    .gal-3 img {
+        height: 481px;
+    }
+    .review-inner p{
+        font-size: 15px;
+    }
+    .book-img img {
+        left: 0%;
+        top: -5px;
+        height: 459px;
+        width: 100%;
+    }
+    .play-btn5 a img {
+        position: absolute;
+        top: 3%;
+        left: 10%;
+        height: 243px;
+    }
+    .head-main {
+        display: block !important;
+    }
+}
+
+@media  screen and (max-width: 425px){
+    footer.footer .col-md-3 {
+        flex: 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    .social_icons.d-flex.justify-content-end.top{
+        display: none !important;
+    }
+    .cart.d-flex.justify-content-end.top2 {
+        left: -15%;
+    }
+    .nav-button{
+        left: -12px;
+    }
+    .about-us .description h3 {
+        font-size: 21px;
+        max-width: 80%;
+    }
+    .about-us .description p{
+        font-size: 13px;
+    }
+    section.services .col-md-3 {
+        flex: 0 100%;
+        max-width: 100%;;
+    }
+    .service-1{
+        left: 8%;
+    }
+    #flexbox{
+        display: block;
+    }
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+    .play-btn5 a img {
+        top: 18%;
+    }
+    .button {
+        margin: 50px 0px 17px 0;
+        text-align: center;
+    }
+    .book-img img{
+        display: none;
+    }
+    .footer-inner img {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+    .quick_link.ml-5 {
+        margin-left: -29px;
+    }
+    .social_icons.d-flex.justify-content-end.foot {
+        justify-content: center !important;
+    }
+    .contact_list a span {
+        position: relative;
+    }
+    .footer-last p {
+        font-size: 15px;
+        margin-left: 15%;
+        max-width: 71%;
+    }
+    .footer-last form input {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+    }
+    .footer-last form button {
+        margin: -50px 110px;
+    }
+    .foot-end {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+        flex-direction: column;
+    }
+    .foot-end p {
+        text-align: center;
+    }
+    .foot-end p {
+        text-align: center !important;
+    }
+    .slick-slide img {
+        display: block;
+        margin: 0 auto;
+        margin-top: 7%;
+    }
+    .best_wedding_planner {
+        text-align: center;
+    }
+    .pack-detail {
+        padding-bottom: 12%;
+    }
+    .service-1 {
+        left: 7% !important;
+    }
+    .weds-pack {
+        margin-left: 0%;
+    }
+    .pack-detail {
+        width: 100%;
+        left: 0%;
+    }
+    .book-form {
+        padding: 20px;
+    }
+    .book-form form h3 {
+        margin-top: 5px;
+    }
+}
+@media screen and (max-width: 375px){
+    .nav-button {
+        left: -20px;
+    }
+    .foot-end p {
+        font-size: 12px !important;
+    }
+    .service-1 {
+        left: 1% !important;
+    }
+    .foot-end p {
+        font-size: 11px;
+    }
+    .footer-last form button {
+        margin: -51px 90px;
+    }
+    .weds-pack {
+        margin-left: 0%;
+    }
+    .pack-detail {
+        width: 100% !important;
+        top: -14px !important;
+        left: 0;
+    }
+    .play-btn1 a img {
+        position: absolute;
+        top: -1%;
+        left: 10%;
+        opacity: 0;
+        transition: all 700ms ease;
+    }
+
+}
+@media screen and (max-width: 320px){
+    .nav-button {
+        left: -25px;
+    }
+    .cart.d-flex.justify-content-end.top2 {
+        left: -19%;
+    }
+    .services {
+        padding-left: 0;
+    }
+    .service-1 {
+        left: 0%;
+    }
+    .review-inner p {
+        font-size: 11px;
+        font-weight: 700;
+    }
+    .client-review span i {
+        color: #fcbb28;
+        font-size: 12px;
+    }
+    .footer-last form button {
+        margin: -50px 90px;
+    }
+}

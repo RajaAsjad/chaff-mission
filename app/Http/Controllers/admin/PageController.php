@@ -9,10 +9,19 @@ use Auth;
 
 class PageController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:page-list|page-create|page-edit|page-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:page-create', ['only' => ['create','store']]);
+        $this->middleware('permission:page-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:page-delete', ['only' => ['destroy']]);
+    }
+
     public function index(Request $request)
     {
         if($request->ajax()){
-            $query = Page::orderby('id', 'desc')->where('id', '>', 0);
+            $query = Page::orderby('id', 'Asc')->where('id', '>', 0);
             if($request['search'] != ""){
                 $query->where('title', 'like', '%'. $request['search'] .'%')
                     ->orWhere('meta_title', 'like', '%'. $request['search'].'%')
@@ -25,11 +34,11 @@ class PageController extends Controller
                 }
                 $query->where('status', $request['status']);
             }
-            $models = $query->paginate(5);
+            $models = $query->paginate(10);
             return (string) view('admin.page.search', compact('models'));
         }
         $page_title = 'Settings';
-        $models = Page::orderby('id', 'desc')->paginate(5);
+        $models = Page::orderby('id', 'Asc')->paginate(10);
         return View('admin.page.index', compact("models", "page_title"));
     }
 
@@ -56,7 +65,7 @@ class PageController extends Controller
         $model->description = $request->description;
         $model->save();
 
-        return redirect()->route('page.index')->with('status', 'Page Added Successfully !');
+        return redirect()->route('page.index')->with('message', 'Page Added Successfully !');
     }
 
     public function edit($slug)
@@ -82,7 +91,7 @@ class PageController extends Controller
         $model->status = $request->status;
         $model->update();
 
-        return redirect()->route('page.index')->with('status', 'Page updated Successfully !');
+        return redirect()->route('page.index')->with('message', 'Page updated Successfully !');
     }
 
     public function destroy($slug)

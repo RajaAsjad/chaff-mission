@@ -4,13 +4,13 @@
 <input type="hidden" id="page_url" value="{{ route('user.index') }}">
 <section class="content-header">
     <div class="content-header-left">
-        <h1>All Users</h1>
+        <h1>All Agents</h1>
     </div>
-    @can('user-create')
+    {{-- @can('user-create')
     <div class="content-header-right">
         <a href="{{ route('user.create') }}" class="btn btn-primary btn-sm">Add New</a>
     </div>
-    @endcan
+    @endcan --}}
 </section>
 
 <section class="content">
@@ -41,11 +41,14 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
+                                <th>Image</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Phone</th>
                                 <th>E-mail</th>
+                                <th>Address</th>
                                 <th>Status</th>
+                                <th>Top Rated</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -56,10 +59,18 @@
                                 @endif
                                 <tr id="id-{{ $user->id }}">
                                     <td>{{  $users->firstItem()+$key }}.</td>
+                                    <td>
+										@if($user->image)
+                                            <img src="{{ asset('public/admin/assets/images/UserImage') }}/{{ $user->image }}" style="width:60px;" alt="">
+										@else
+											<img src="{{ asset('public/admin/assets/images/default.jpg') }}" style="width:60px;">
+										@endif
+									</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->last_name??'N/A'}}</td>
                                     <td>{{$user->phone??'N/A'}}</td>
                                     <td>{{$user->email}}</td>
+                                    <td>{{$user->address}}</td>
                                     <td>
 										@if($user->status)
 											<span class="badge badge-success">Active</span>
@@ -68,18 +79,25 @@
 										@endif
 									</td>
                                     <td>
+										@if($user->top_rated)
+											<span class="badge badge-success">YES</span>
+										@else
+											<span class="badge badge-danger">NOT</span>
+										@endif
+									</td>
+                                    <td>
                                         @can('user-edit')
                                             <a href="{{ route('user.edit', $user->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
                                         @endcan
-                                        {{-- @can('user-delete')
-                                            <button class="btn btn-danger btn-xs delete" data-slug="{{ $user->id }}" data-del-url="{{ url('user', $user->id) }}"><i class="fa fa-trash"></i> Delete</button>
-                                        @endcan --}}
+										@can('user-delete')
+											<a class="btn btn-danger btn-xs delete-btn" data-user-id="{{ $user->id }}"><i class="fa fa-trash"></i> Delete</a>
+										@endcan
                                     </td>
                                 </tr>
                             @endforeach
                             <tr>
-                                <td colspan="7">
-                                    Displying {{$users->firstItem()}} to {{$users->lastItem()}} of {{$users->total()}} records
+                                <td colspan="10">
+                                    {{-- Displying {{$users->firstItem()}} to {{$users->lastItem()}} of {{$users->total()}} records --}}
                                     <div class="d-flex justify-content-center">
                                         {!! $users->links('pagination::bootstrap-4') !!}
                                     </div>

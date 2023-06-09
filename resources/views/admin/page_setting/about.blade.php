@@ -12,57 +12,69 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			@if (session('message'))
-				<div class="callout callout-success">
-					{{ session('message') }}
-				</div>
-			@endif
 			<form action="{{ route('page_setting.store') }}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 				@csrf
-
 				<input type="hidden" name="parent_slug" id="" value="{{ $model->slug }}">
 				<div class="box box-info">
 					<div class="box-body">
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Meta Title </label>
+                        <h3 class="sec_title">First About us Section</h3>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Heading</label>
 							<div class="col-sm-9">
-								<input type="text" name="mt_about" class="form-control" value="{{ isset($page_data['mt_about'])?$page_data['mt_about']:'' }}" placeholder="Enter meta title">
+								<input type="text" name="aboutus_heading" class="form-control" value="{{ isset($page_data['aboutus_heading'])?$page_data['aboutus_heading']:'' }}" placeholder="Enter heading">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Meta Keyword </label>
+							<label for="" class="col-sm-2 control-label">Description</label>
 							<div class="col-sm-9">
-								<textarea class="form-control" name="mk_about" style="height:60px;" placeholder="Enter meta keyword">{{ isset($page_data['mk_about'])?$page_data['mk_about']:'' }}</textarea>
+								<textarea name="aboutus_description" class="form-control texteditor" cols="30" rows="10" placeholder="Enter description">{!! isset($page_data['aboutus_description'])?$page_data['aboutus_description']:'' !!}</textarea>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Meta Description </label>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Title</label>
 							<div class="col-sm-9">
-								<textarea class="form-control" name="md_about" style="height:60px;" placeholder="Enter meta description">{{ isset($page_data['md_about'])?$page_data['md_about']:'' }}</textarea>
+								<input type="text" name="aboutus_title" class="form-control" value="{!! isset($page_data['aboutus_title'])?$page_data['aboutus_title']:'' !!}" placeholder="Enter title">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Heading </label>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Image</label>
+							<div class="col-sm-6">
+								<input type="file" name="about_first_image" class="form-control">
+							</div>
+                            @if(isset($page_data['about_first_image']))
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <img src="{{ asset('/public/admin/assets/images/page/'.$page_data['about_first_image']) }}" class="existing-photo" style="height:150px;">
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                        <h3 class="sec_title">Second About us Section</h3>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Heading</label>
 							<div class="col-sm-9">
-								<input type="text" name="about_heading" class="form-control" value="{!! isset($page_data['about_heading'])?$page_data['about_heading']:'' !!}" placeholder="Enter heading">
+								<input type="text" name="heading_two" class="form-control" value="{{ isset($page_data['heading_two'])?$page_data['heading_two']:'' }}" placeholder="Enter heading">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Content </label>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Description</label>
 							<div class="col-sm-9">
-								<textarea name="about_content" class="form-control texteditor" cols="30" rows="10" placeholder="Enter content">{!! isset($page_data['about_content'])?$page_data['about_content']:'' !!}</textarea>
+								<textarea name="about_description_two" class="form-control texteditor" cols="10" rows="5" placeholder="Enter description">{!! isset($page_data['about_description_two'])?$page_data['about_description_two']:'' !!}</textarea>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Show on Home? </label>
-							<div class="col-sm-2">
-								<select name="about_status" class="form-control select2 select2-accessible" style="width:auto;" tabindex="-1" aria-hidden="true">
-									<option value="1" {{ (isset($page_data['about_status'])?($page_data['about_status']==1?'selected':''):'') }}>Show</option>
-									<option value="0" {{ (isset($page_data['about_status'])?($page_data['about_status']==0?'selected':''):'') }}>Hide</option>
-								</select>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Image</label>
+							<div class="col-sm-6">
+								<input type="file" name="about_second_image" class="form-control">
 							</div>
-						</div>
-						
+                            @if(isset($page_data['about_second_image']))
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <img src="{{ asset('/public/admin/assets/images/page/'.$page_data['about_second_image']) }}" class="existing-photo" style="height:150px;">
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">

@@ -6,14 +6,14 @@ body,
 .main-header .logo .logo-lg,
 .seo-info,
 .login-box-msg,
-.content-header>h1, 
+.content-header>h1,
 .content-header .content-header-left h1, h3 {
 	font-family: 'Poppins', sans-serif!important;
 }
 
 
 body {
-	font-size: 13px;	
+	font-size: 12px;
 }
 
 input, select, textarea {
@@ -134,6 +134,8 @@ h4.modal-title {
     font-weight: bold;
 }
 
+
+
 .rTable {
     display: table;
     width: 100%;
@@ -225,10 +227,12 @@ h4.modal-title {
 
 .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
     color: #fff;
-    background: #3c8dbc;
-    border-left-color: #3c8dbc;
+    background: #00ffff;
+    border-left-color: #00ffff;
 }
-
+a.active {
+    background: #960000;
+}
 .pt10 {
 	padding-top: 10px;
 }
@@ -275,7 +279,7 @@ img.existing-photo {
 }
 
 .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
-	background-color: #4c4c4c;
+	background-color: #cc0000;
 	border-left-color: #000000;
 }
 
@@ -308,7 +312,7 @@ img.existing-photo {
 	border-color: #333333;
 }
 .form-control:focus {
-	border-color: #8d8d8d;	
+	border-color: #8d8d8d;
 }
 
 .login-button {
@@ -377,7 +381,7 @@ textarea+.panel {
 }
 
 textarea+.panel:focus {
-	border-color: #000!important;	
+	border-color: #000!important;
 }
 
 
@@ -414,8 +418,8 @@ textarea+.panel:focus {
 }*/
 
 
-.tab-v .nav-tabs>li.active>a, 
-.tab-v .nav-tabs>li.active>a:focus, 
+.tab-v .nav-tabs>li.active>a,
+.tab-v .nav-tabs>li.active>a:focus,
 .tab-v .nav-tabs>li.active>a:hover {
 	border: 0;
 	border-radius: 0;
@@ -467,7 +471,7 @@ div.pagination {
     margin: 3px;
     z-index: 1000;
     font-size: 14px;
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
 }
 
 div.pagination a {

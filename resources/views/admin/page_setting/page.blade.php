@@ -10,11 +10,11 @@
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-            @if (session('status'))
+           <!-- @if (session('status'))
 				<div class="callout callout-success">
 					{{ session('status') }}
 				</div>
-			@endif
+			@endif-->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Home</a></li>

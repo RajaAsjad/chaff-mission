@@ -28,7 +28,7 @@ class PageSettingController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -43,7 +43,7 @@ class PageSettingController extends Controller
         if(empty($model)){
             foreach($request->all() as $key=>$value){
                 $obj = $value;
-                
+
                 if(gettype($obj)!='array' && gettype($obj)!='string' && !empty($obj)){
                     $file = $obj;
                     $image = date('dmYHis').'.'.$file->getClientOriginalExtension();
@@ -62,7 +62,7 @@ class PageSettingController extends Controller
         }else{
             foreach($request->all() as $key=>$value){
                 $page = PageSetting::where('parent_slug', $request->parent_slug)->where('key', $key)->first();
-                
+
                 $obj = $value;
                 if(!empty($page)){
                     if(gettype($obj)!='array' && gettype($obj)!='string' && !empty($obj)){
@@ -86,7 +86,7 @@ class PageSettingController extends Controller
                         'parent_slug' => $request->parent_slug,
                         'key' => $key,
                         'value' => isset($obj)?$obj:null,
-                    ]); 
+                    ]);
                 }
             }
             Session::flash('message', 'Setting updated successfully!');
@@ -102,7 +102,7 @@ class PageSettingController extends Controller
      */
     public function show($slug)
     {
-        $model = Page::where('slug', $slug)->first(); 
+        $model = Page::where('slug', $slug)->first();
         $page_settings = PageSetting::where('parent_slug', $slug)->get(['key', 'value']);
         $page_data = [];
         foreach ($page_settings as $key => $page_setting) {
@@ -111,16 +111,22 @@ class PageSettingController extends Controller
 
         if($slug=='home'){
             return View('admin.page_setting.home', compact("model", "page_data"));
-        }elseif($slug=='about'){
+        }elseif($slug=='about-us'){
             return View('admin.page_setting.about', compact("model", "page_data"));
-        }elseif($slug=='service'){
-            return View('admin.page_setting.service', compact("model", "page_data"));
-        }elseif($slug=='contact'){
+        }elseif($slug=='home-about'){
+            return View('admin.page_setting.home_about', compact("model", "page_data"));
+        }elseif($slug=='wedding-packages'){
+            return View('admin.page_setting.wedding_packages', compact("model", "page_data"));
+        }elseif($slug=='terms-conditions'){
+            return View('admin.page_setting.terms', compact("model", "page_data"));
+        }elseif($slug=='contact-us'){
             return View('admin.page_setting.contact', compact("model", "page_data"));
         }elseif($slug=='header'){
             return view('admin.page_setting.header', compact("model", "page_data"));
         }elseif($slug=='footer'){
             return view('admin.page_setting.footer', compact("model", "page_data"));
+        }elseif($slug=='privacy-policy'){
+            return view('admin.page_setting.privacy', compact("model", "page_data"));
         }
     }
 

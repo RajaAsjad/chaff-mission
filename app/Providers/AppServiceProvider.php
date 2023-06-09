@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $testimonails = testimonials();
-        view()->share('testimonails', $testimonails);
+        $home_page_data = globalData();
+        View::share('home_page_data', $home_page_data);
     }
 }

@@ -12,105 +12,72 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			@if (session('message'))
-				<div class="callout callout-success">
-					{{ session('message') }}
-				</div>
-			@endif
 			<form action="{{ route('page_setting.store') }}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 				@csrf
 
 				<input type="hidden" name="parent_slug" id="" value="{{ $model->slug }}">
 				<div class="box box-info">
 					<div class="box-body">
-						@if(isset($page_data['header_logo']))
-							<div class="form-group">
-								<label for="" class="col-sm-2 control-label">Existing Logo</label>
-								<div class="col-sm-9" style="padding-top:6px;">
-									<img src="{{ asset('/public/admin/assets/images/page/'.$page_data['header_logo']) }}" class="existing-photo" style="height:50px;">
-								</div>
-							</div>
-						@endif
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Logo </label>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Favicon </label>
+                            <div class="col-sm-6">
+                                <input type="file" name="header_favicon" class="form-control">
+                            </div>
+                            @if(isset($page_data['header_favicon']))
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <img src="{{ asset('/public/admin/assets/images/page/'.$page_data['header_favicon']) }}" class="existing-photo" style="height:50px;">
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Logo </label>
+                            <div class="col-sm-6">
+                                <input type="file" name="header_logo" class="form-control">
+                            </div>
+                            @if(isset($page_data['header_logo']))
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <img src="{{ asset('/public/admin/assets/images/page/'.$page_data['header_logo']) }}" class="existing-photo" style="height:100px;">
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Call Us Now:</label>
 							<div class="col-sm-9">
-								<input type="file" name="header_logo" class="form-control">
+								<input type="text" name="header_call_us_now" class="form-control" value="{{ isset($page_data['header_call_us_now'])?$page_data['header_call_us_now']:'' }}" placeholder="Enter Call Us Now">
 							</div>
 						</div>
-						@if(isset($page_data['header_favicon']))
-							<div class="form-group">
-								<label for="" class="col-sm-2 control-label">Existing Favicon</label>
-								<div class="col-sm-9" style="padding-top:6px;">
-									<img src="{{ asset('/public/admin/assets/images/page/'.$page_data['header_favicon']) }}" class="existing-photo" style="height:50px;">
-								</div>
-							</div>
-						@endif
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Favicon </label>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Email:</label>
 							<div class="col-sm-9">
-								<input type="file" name="header_favicon" class="form-control">
+								<input type="text" name="header_email" class="form-control" value="{{ isset($page_data['header_email'])?$page_data['header_email']:'' }}" placeholder="Enter Email">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Email </label>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Facebook Link </label>
 							<div class="col-sm-9">
-								<input type="email" name="header_email" class="form-control" value="{{ isset($page_data['header_email'])?$page_data['header_email']:'' }}" placeholder="Enter email address">
+								<input type="text" name="footer_facebook" class="form-control" value="{{ isset($page_data['footer_facebook'])?$page_data['footer_facebook']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Phone </label>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Twitter Link </label>
 							<div class="col-sm-9">
-								<input type="text" name="header_phone" class="form-control" value="{{ isset($page_data['header_phone'])?$page_data['header_phone']:'' }}" placeholder="Enter phone no">
+								<input type="text" name="footer_twitter" class="form-control" value="{{ isset($page_data['footer_twitter'])?$page_data['footer_twitter']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label"><b><u>Weekdays</u></b></label>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Morning Slot </label>
-							<div class="col-sm-5">
-								<label for="">From</label>
-								<input type="time" name="weekdays_morning_from_time" value="{{ isset($page_data['weekdays_morning_from_time'])?$page_data['weekdays_morning_from_time']:'' }}" class="form-control">
-							</div>
-							<div class="col-sm-5">
-								<label for="">To</label>
-								<input type="time" name="weekdays_morning_to_time" value="{{ isset($page_data['weekdays_morning_to_time'])?$page_data['weekdays_morning_to_time']:'' }}" class="form-control">
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Instagram Link </label>
+							<div class="col-sm-9">
+								<input type="text" name="footer_instagram" class="form-control" value="{{ isset($page_data['footer_instagram'])?$page_data['footer_instagram']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Evening Slot </label>
-							<div class="col-sm-5">
-								<label for="">From</label>
-								<input type="time" name="weekdays_evening_from_time" value="{{ isset($page_data['weekdays_evening_from_time'])?$page_data['weekdays_evening_from_time']:'' }}" class="form-control">
-							</div>
-							<div class="col-sm-5">
-								<label for="">To</label>
-								<input type="time" name="weekdays_evening_to_time" value="{{ isset($page_data['weekdays_evening_to_time'])?$page_data['weekdays_evening_to_time']:'' }}" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label"><b><u>Weekends</u></b></label>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Morning Slot </label>
-							<div class="col-sm-5">
-								<label for="">From</label>
-								<input type="time" name="weekends_morning_from_time" value="{{ isset($page_data['weekends_morning_from_time'])?$page_data['weekends_morning_from_time']:'' }}" class="form-control">
-							</div>
-							<div class="col-sm-5">
-								<label for="">To</label>
-								<input type="time" name="weekends_morning_to_time" value="{{ isset($page_data['weekends_morning_to_time'])?$page_data['weekends_morning_to_time']:'' }}" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Evening Slot </label>
-							<div class="col-sm-5">
-								<label for="">From</label>
-								<input type="time" name="weekends_evening_from_time" value="{{ isset($page_data['weekends_evening_from_time'])?$page_data['weekends_evening_from_time']:'' }}" class="form-control">
-							</div>
-							<div class="col-sm-5">
-								<label for="">To</label>
-								<input type="time" name="weekends_evening_to_time" value="{{ isset($page_data['weekends_evening_to_time'])?$page_data['weekends_evening_to_time']:'' }}" class="form-control">
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">LinkedIn Link </label>
+							<div class="col-sm-9">
+								<input type="text" name="footer_linkedin" class="form-control" value="{{ isset($page_data['footer_linkedin'])?$page_data['footer_linkedin']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
 						<div class="form-group">
